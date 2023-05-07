@@ -108,7 +108,7 @@ extern "C" {
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0) /* AGT3 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1) /* AGT2 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2) /* AGT1 */ | \
-            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3) /* AGT0 */ | \
+            (((1 > 0) ? 0U : 1U) << 3) /* AGT0 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) /* POEG3 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) /* POEG2 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13) /* POEG1 */ | \
