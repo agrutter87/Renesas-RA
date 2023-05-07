@@ -7,6 +7,8 @@
 
 #include <std_msgs/msg/int32.h>
 
+#include <SEGGER_RTT.h>
+
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){bool l = true; while(1){set_led_status(LED_RED, l = !l); sleep_ms(100);}}}
 
 void microros_app(void);
@@ -23,6 +25,8 @@ void microros_app(void)
 	rcl_node_t node;
 	RCCHECK(rclc_node_init_default(&node, "my_renesas_node", "", &support));
 
+	SEGGER_RTT_printf(0, "rclc_node_init_default success!\r\n");
+
     // create publisher
     rcl_publisher_t publisher;
     RCCHECK(rclc_publisher_init_default(
@@ -31,7 +35,10 @@ void microros_app(void)
         ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32),
         "int_publisher"));
 
+    SEGGER_RTT_printf(0, "rclc_publisher_init_default success!\r\n");
+
     std_msgs__msg__Int32 msg;
+
     msg.data = 0;
 
     for(;;){

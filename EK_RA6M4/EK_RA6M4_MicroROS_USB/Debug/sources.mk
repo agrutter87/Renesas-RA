@@ -63,5 +63,6 @@ ra/fsp/src/r_usb_basic/src/driver \
 ra/fsp/src/r_usb_basic/src/hw \
 ra/fsp/src/r_usb_pcdc/src \
 ra_gen \
+src/SEGGER_RTT \
 src \
 

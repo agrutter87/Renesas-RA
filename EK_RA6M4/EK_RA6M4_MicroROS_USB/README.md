@@ -71,6 +71,14 @@ USB Serial Example:
 ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -v6
 
 Second terminal:
+source /opt/ros/rolling/setup.bash
+ros2 topic echo /int_publisher
+
+# Using foxglove-bridge for remote debugging
+https://console.foxglove.dev/dashboard
+
+https://foxglove.dev/docs/studio/connection/ros2
+https://index.ros.org/p/foxglove_bridge/#rolling
 
 # Other links for information
 https://micro.ros.org/
