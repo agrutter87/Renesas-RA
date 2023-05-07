@@ -106,6 +106,10 @@
         <peripheral name="AGT0" group="AGT" security=""/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="false"/>
+            <slot name="IRQ1" secure="false"/>
+            <slot name="IRQ2" secure="false"/>
+            <slot name="IRQ3" secure="false"/>
+            <slot name="IRQ4" secure="false"/>
         </peripheral>
     </partition>
 </azone>
