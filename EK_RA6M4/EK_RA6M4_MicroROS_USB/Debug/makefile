@@ -97,7 +97,7 @@ all: EK_RA6M4_MicroROS_USB.elf secondary-outputs
 
 # Tool invocations
 EK_RA6M4_MicroROS_USB.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > EK_RA6M4_MicroROS_USB.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "F:\\Grutter_Services_LLC\\Repositories\\Renesas-RA\\EK_RA6M4\\EK_RA6M4_MicroROS_USB/script" -L "F:\\Grutter_Services_LLC\\Repositories\\Renesas-RA\\EK_RA6M4\\EK_RA6M4_MicroROS_USB/libmicroros" -Wl,-Map,"EK_RA6M4_MicroROS_USB.map" --specs=nano.specs --specs=rdimon.specs -o "EK_RA6M4_MicroROS_USB.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > EK_RA6M4_MicroROS_USB.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "F:\\Grutter_Services_LLC\\Repositories\\Renesas-RA\\EK_RA6M4\\EK_RA6M4_MicroROS_USB/script" -L "F:\\Grutter_Services_LLC\\Repositories\\Renesas-RA\\EK_RA6M4\\EK_RA6M4_MicroROS_USB/libmicroros" -Wl,-Map,"EK_RA6M4_MicroROS_USB.map" --specs=nano.specs --specs=rdimon.specs -o "EK_RA6M4_MicroROS_USB.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-gcc @"EK_RA6M4_MicroROS_USB.elf.in"
 
 EK_RA6M4_MicroROS_USB.srec: EK_RA6M4_MicroROS_USB.elf
