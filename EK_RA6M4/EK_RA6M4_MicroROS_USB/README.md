@@ -1,11 +1,12 @@
-Instructions to build e2studio projects from Windows:
+# Instructions to build Renesas Micro-ROS e2studio projects from Windows:
+NOTE: See https://github.com/micro-ROS/micro_ros_renesas_demos for initial e2studio projects that mine is based off of.
 
-# Update to Latest FSP
+## Update to Latest FSP
 1. Import project
 2. Re-select latest toolchain version in project settings
 3. Regenerate code based on latest FSP.
 
-# Build the Micro-ROS library
+## Build the Micro-ROS library
 1. Update e2studio project to replace pre-build command:
 
     cd ../micro_ros_renesas2estudio_component/library_generation && ./library_generation.sh "${cross_toolchain_flags}"
@@ -55,7 +56,7 @@ cp -r ../libmicroros/include <insert e2studio project path here>/libmicroros
 cp -r ../libmicroros/libmicroros.a <insert e2studio project path here>/libmicroros
 
 
-# General Setup of ROS Host on Linux
+## General Setup of ROS Host on Linux
 Installing ROS:
 https://docs.ros.org/en/rolling/Installation.html
 https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html
@@ -63,7 +64,7 @@ https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html
 Setting up Micro ROS Agent to run with ROS:
 https://micro.ros.org/docs/tutorials/core/first_application_linux/
  
-# General Reminders for how to start ROS agent on Linux PC
+## General Reminders for how to start ROS agent on Linux PC
 First terminal:
 source /opt/ros/rolling/setup.bash
 source ~/microros_ws/install/local_setup.bash
@@ -74,12 +75,12 @@ Second terminal:
 source /opt/ros/rolling/setup.bash
 ros2 topic echo /int_publisher
 
-# Using foxglove-bridge for remote debugging
+## Using foxglove-bridge for remote debugging
 https://console.foxglove.dev/dashboard
 
 https://foxglove.dev/docs/studio/connection/ros2
 https://index.ros.org/p/foxglove_bridge/#rolling
 
-# Other links for information
+## Other links for information
 https://micro.ros.org/
 https://github.com/micro-ROS
