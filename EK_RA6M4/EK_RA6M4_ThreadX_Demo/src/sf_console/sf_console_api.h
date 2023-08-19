@@ -129,7 +129,7 @@ typedef struct st_sf_console_api
      *                         initialized in this function.
      * @param[in]     p_cfg    Pointer to configuration structure. All elements of the structure must be set by user.
      */
-    fsp_err_t (* open)(sf_console_ctrl_t       * const p_ctrl,
+    uint32_t (* open)(sf_console_ctrl_t       * const p_ctrl,
                        sf_console_cfg_t  const * const p_cfg);
 
      /** @brief  The close API handles cleans up internal driver data.
@@ -138,7 +138,7 @@ typedef struct st_sf_console_api
      *
      * @param[in]   p_ctrl     Pointer to device control block initialized in Open call for UART driver.
      */
-    fsp_err_t (* close)(sf_console_ctrl_t     * const p_ctrl);
+    uint32_t (* close)(sf_console_ctrl_t     * const p_ctrl);
 
     /** @brief  Prints prompt string from menu, waits for input, parses input based on menu, and calls callback function
      *         if a command is identified.
@@ -151,7 +151,7 @@ typedef struct st_sf_console_api
      * @param[in]   timeout    ThreadX timeout. Options include TX_NO_WAIT (0x00000000), TX_WAIT_FOREVER (0xFFFFFFFF), 
      *                         and timeout value (0x00000001 through 0xFFFFFFFE) in ThreadX tick counts.
      */
-    fsp_err_t (* prompt)(sf_console_ctrl_t       * const p_ctrl,
+    uint32_t (* prompt)(sf_console_ctrl_t       * const p_ctrl,
                          sf_console_menu_t const * const p_menu,
                          UINT                      const timeout);    
 
@@ -164,7 +164,7 @@ typedef struct st_sf_console_api
      * @param[in]   p_input    Pointer to a null terminated string to search for in the command list
      * @param[in]   bytes      Length of the input string.
      */
-    fsp_err_t (* parse)(sf_console_ctrl_t       * const p_ctrl,
+    uint32_t (* parse)(sf_console_ctrl_t       * const p_ctrl,
                         sf_console_menu_t const * const p_cmd_list,
                         uint8_t           const * const p_input,
                         uint32_t                  const bytes);
@@ -182,7 +182,7 @@ typedef struct st_sf_console_api
      * @param[in]   timeout     ThreadX timeout. Options include TX_NO_WAIT (0x00000000), TX_WAIT_FOREVER (0xFFFFFFFF), 
      *                          and timeout value (0x00000001 through 0xFFFFFFFE) in ThreadX tick counts.
      */
-    fsp_err_t (* read)(sf_console_ctrl_t * const p_ctrl,
+    uint32_t (* read)(sf_console_ctrl_t * const p_ctrl,
                        uint8_t           * const p_dest,
                        uint32_t            const bytes,
                        uint32_t            const timeout);
@@ -197,7 +197,7 @@ typedef struct st_sf_console_api
      * @param[in]   timeout     ThreadX timeout. Options include TX_NO_WAIT (0x00000000), TX_WAIT_FOREVER (0xFFFFFFFF),
      *                          and timeout value (0x00000001 through 0xFFFFFFFE) in ThreadX tick counts.
      */
-    fsp_err_t (* write)(sf_console_ctrl_t        * const p_ctrl,
+    uint32_t (* write)(sf_console_ctrl_t        * const p_ctrl,
                         uint8_t            const * const p_src,
                         uint32_t                   const timeout);
 
@@ -213,7 +213,7 @@ typedef struct st_sf_console_api
      * @param[out]  p_data     Pointer to location to store data following the argument.  Set to -1 if argument is not
      *                         found in input string.  Pass NULL if data is not requested.
      */
-    fsp_err_t (* argumentFind)(uint8_t const * const p_arg,
+    uint32_t (* argumentFind)(uint8_t const * const p_arg,
                                uint8_t const * const p_str,
                                int32_t       * const p_index,
                                int32_t       * const p_data);

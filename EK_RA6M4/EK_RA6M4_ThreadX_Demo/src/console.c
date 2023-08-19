@@ -146,6 +146,8 @@ void console_thread_entry(ULONG thread_input)
     fsp_err_t               fsp_err     = FSP_SUCCESS;
     sf_console_instance_t   *p_console  = &gp_console->sf_console;
 
+    FSP_PARAMETER_NOT_USED(thread_input);
+
     SEGGER_RTT_printf(0, "Started console\r\n");
 
     fsp_err = p_console->p_api->open(p_console->p_ctrl, p_console->p_cfg);

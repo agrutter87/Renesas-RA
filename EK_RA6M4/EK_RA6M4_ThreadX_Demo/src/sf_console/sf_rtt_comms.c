@@ -116,7 +116,7 @@ fsp_err_t SF_RTT_COMMS_Write(sf_comms_ctrl_t * const p_ctrl,
     while(1)
     {
         /* putchar does not support timeout */
-        SEGGER_RTT_PutChar(0, *p_buffer++);
+        SEGGER_RTT_PutChar(0, (char)(*p_buffer++));
         bytes_written++;
 
         if(bytes_written == bytes)

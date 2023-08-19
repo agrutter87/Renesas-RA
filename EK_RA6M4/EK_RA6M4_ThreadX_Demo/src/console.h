@@ -49,7 +49,7 @@ typedef struct st_console
     sf_comms_instance_t             sf_comms;
 
     /* Console Related */
-    sf_console_command_t            *p_sf_console_commands;
+    sf_console_command_t const      *p_sf_console_commands;
     sf_console_menu_t               sf_console_menu;
     sf_console_instance_ctrl_t      sf_console_instance_ctrl;
     sf_console_cfg_t                sf_console_cfg;

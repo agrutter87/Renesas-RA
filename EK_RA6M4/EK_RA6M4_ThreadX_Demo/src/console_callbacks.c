@@ -9,6 +9,8 @@
  *****************************************************************************/
 void feature_start_callback(sf_console_callback_args_t * p_args)
 {
+    FSP_PARAMETER_NOT_USED(p_args);
+
     SEGGER_RTT_printf(0, "Starting feature...");
 
     tx_thread_sleep(100);
@@ -21,6 +23,8 @@ void feature_start_callback(sf_console_callback_args_t * p_args)
  *****************************************************************************/
 void feature_stop_callback(sf_console_callback_args_t * p_args)
 {
+    FSP_PARAMETER_NOT_USED(p_args);
+
     SEGGER_RTT_printf(0, "Stopping feature...");
 
     tx_thread_sleep(100);
@@ -33,6 +37,8 @@ void feature_stop_callback(sf_console_callback_args_t * p_args)
  *****************************************************************************/
 void feature_status_callback(sf_console_callback_args_t * p_args)
 {
+    FSP_PARAMETER_NOT_USED(p_args);
+
     SEGGER_RTT_printf(0, "Getting feature status...\n");
 
     ULONG               feature_count   = g_application.feature_count;
@@ -59,6 +65,8 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
  *****************************************************************************/
 void custom_code_callback(sf_console_callback_args_t * p_args)
 {
+    FSP_PARAMETER_NOT_USED(p_args);
+
     double vacuum_permeability = 4 * M_PI * 0.0000001; // T m/A
     double max_current = 2.0; // A
     double current_inc = max_current / 10.0;

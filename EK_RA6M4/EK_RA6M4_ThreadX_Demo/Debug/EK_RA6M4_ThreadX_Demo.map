@@ -5316,69 +5316,69 @@ LOAD linker stubs
  .comment       0x00000049       0x4a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
  .comment       0x00000049       0x4a ./ra/board/ra6m4_ek/board_init.o
 
-.debug_info     0x00000000    0x30ceb
+.debug_info     0x00000000    0x30ce5
  .debug_info    0x00000000     0x192a ./src/sf_console/sf_console.o
  .debug_info    0x0000192a      0xa8b ./src/sf_console/sf_rtt_comms.o
  .debug_info    0x000023b5     0x1528 ./src/SEGGER_RTT/SEGGER_RTT.o
  .debug_info    0x000038dd      0x418 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
  .debug_info    0x00003cf5      0x7ff ./src/application.o
  .debug_info    0x000044f4       0x85 ./src/blinky_thread_entry.o
- .debug_info    0x00004579     0x148d ./src/console.o
- .debug_info    0x00005a06      0x8b8 ./src/console_callbacks.o
- .debug_info    0x000062be     0x18c2 ./src/hal_entry.o
- .debug_info    0x00007b80      0x518 ./ra_gen/blinky_thread.o
- .debug_info    0x00008098     0x1208 ./ra_gen/common_data.o
- .debug_info    0x000092a0       0x85 ./ra_gen/hal_data.o
- .debug_info    0x00009325      0x5f8 ./ra_gen/main.o
- .debug_info    0x0000991d      0xa07 ./ra_gen/pin_data.o
- .debug_info    0x0000a324      0x788 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_info    0x0000aaac      0x6c7 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_info    0x0000b173      0x6cf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_info    0x0000b842      0x780 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_info    0x0000bfc2      0x950 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_info    0x0000c912       0xcf ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_info    0x0000c9e1      0x661 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_info    0x0000d042      0x612 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_info    0x0000d654      0x67f ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_info    0x0000dcd3      0x629 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_info    0x0000e2fc      0x70f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_info    0x0000ea0b      0x639 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_info    0x0000f044      0x617 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_info    0x0000f65b      0x634 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_info    0x0000fc8f      0x956 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_info    0x000105e5      0xa66 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_info    0x0001104b      0xb3f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_info    0x00011b8a      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_info    0x00012116      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_info    0x000126a2      0x16d ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_info    0x0001280f      0x345 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_info    0x00012b54      0x311 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_info    0x00012e65      0x1c6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_info    0x0001302b      0x175 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_info    0x000131a0      0x64c ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_info    0x000137ec      0x76b ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_info    0x00013f57      0x6f6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_info    0x0001464d      0x588 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_info    0x00014bd5      0x516 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_info    0x000150eb      0x71c ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_info    0x00015807      0xb54 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_info    0x0001635b     0x448f ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_info    0x0001a7ea      0x91a ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_info    0x0001b104      0x4a8 ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_info    0x0001b5ac      0x88a ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_info    0x0001be36     0x6a35 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_info    0x0002286b     0x5c9f ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_info    0x0002850a      0x916 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_info    0x00028e20      0x192 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_info    0x00028fb2     0x13af ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_info    0x0002a361       0xa3 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_info    0x0002a404     0x1db5 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_info    0x0002c1b9     0x3e63 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_info    0x0003001c      0x1de ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_info    0x000301fa      0x113 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_info    0x0003030d      0x136 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_info    0x00030443      0x811 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_info    0x00030c54       0x97 ./ra/board/ra6m4_ek/board_init.o
+ .debug_info    0x00004579     0x1487 ./src/console.o
+ .debug_info    0x00005a00      0x8b8 ./src/console_callbacks.o
+ .debug_info    0x000062b8     0x18c2 ./src/hal_entry.o
+ .debug_info    0x00007b7a      0x518 ./ra_gen/blinky_thread.o
+ .debug_info    0x00008092     0x1208 ./ra_gen/common_data.o
+ .debug_info    0x0000929a       0x85 ./ra_gen/hal_data.o
+ .debug_info    0x0000931f      0x5f8 ./ra_gen/main.o
+ .debug_info    0x00009917      0xa07 ./ra_gen/pin_data.o
+ .debug_info    0x0000a31e      0x788 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_info    0x0000aaa6      0x6c7 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_info    0x0000b16d      0x6cf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_info    0x0000b83c      0x780 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_info    0x0000bfbc      0x950 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_info    0x0000c90c       0xcf ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_info    0x0000c9db      0x661 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_info    0x0000d03c      0x612 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_info    0x0000d64e      0x67f ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_info    0x0000dccd      0x629 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_info    0x0000e2f6      0x70f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_info    0x0000ea05      0x639 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_info    0x0000f03e      0x617 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_info    0x0000f655      0x634 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_info    0x0000fc89      0x956 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_info    0x000105df      0xa66 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_info    0x00011045      0xb3f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_info    0x00011b84      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_info    0x00012110      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_info    0x0001269c      0x16d ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_info    0x00012809      0x345 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_info    0x00012b4e      0x311 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_info    0x00012e5f      0x1c6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_info    0x00013025      0x175 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_info    0x0001319a      0x64c ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_info    0x000137e6      0x76b ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_info    0x00013f51      0x6f6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_info    0x00014647      0x588 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_info    0x00014bcf      0x516 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_info    0x000150e5      0x71c ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_info    0x00015801      0xb54 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_info    0x00016355     0x448f ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_info    0x0001a7e4      0x91a ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_info    0x0001b0fe      0x4a8 ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_info    0x0001b5a6      0x88a ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_info    0x0001be30     0x6a35 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_info    0x00022865     0x5c9f ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_info    0x00028504      0x916 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_info    0x00028e1a      0x192 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_info    0x00028fac     0x13af ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_info    0x0002a35b       0xa3 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_info    0x0002a3fe     0x1db5 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_info    0x0002c1b3     0x3e63 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_info    0x00030016      0x1de ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_info    0x000301f4      0x113 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_info    0x00030307      0x136 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_info    0x0003043d      0x811 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_info    0x00030c4e       0x97 ./ra/board/ra6m4_ek/board_init.o
 
 .debug_abbrev   0x00000000     0x56ad
  .debug_abbrev  0x00000000      0x268 ./src/sf_console/sf_console.o
@@ -5631,7 +5631,7 @@ LOAD linker stubs
  .debug_ranges  0x000007d0       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
  .debug_ranges  0x000007e8       0x10 ./ra/board/ra6m4_ek/board_init.o
 
-.debug_line     0x00000000     0xdcbb
+.debug_line     0x00000000     0xdcbc
  .debug_line    0x00000000      0xbe4 ./src/sf_console/sf_console.o
  .debug_line    0x00000be4      0x3b4 ./src/sf_console/sf_rtt_comms.o
  .debug_line    0x00000f98      0x978 ./src/SEGGER_RTT/SEGGER_RTT.o
@@ -5639,61 +5639,61 @@ LOAD linker stubs
  .debug_line    0x00001d60      0x2d8 ./src/application.o
  .debug_line    0x00002038       0x51 ./src/blinky_thread_entry.o
  .debug_line    0x00002089      0x4fe ./src/console.o
- .debug_line    0x00002587      0x3d9 ./src/console_callbacks.o
- .debug_line    0x00002960      0x4a6 ./src/hal_entry.o
- .debug_line    0x00002e06      0x283 ./ra_gen/blinky_thread.o
- .debug_line    0x00003089      0x347 ./ra_gen/common_data.o
- .debug_line    0x000033d0       0x4a ./ra_gen/hal_data.o
- .debug_line    0x0000341a      0x2f3 ./ra_gen/main.o
- .debug_line    0x0000370d      0x22a ./ra_gen/pin_data.o
- .debug_line    0x00003937      0x439 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_line    0x00003d70      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_line    0x0000413e      0x3bf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_line    0x000044fd      0x4a3 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_line    0x000049a0      0x1fd ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_line    0x00004b9d      0x1b1 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_line    0x00004d4e      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_line    0x0000511c      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_line    0x0000549d      0x3e5 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_line    0x00005882      0x395 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_line    0x00005c17      0x437 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_line    0x0000604e      0x198 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_line    0x000061e6      0x397 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_line    0x0000657d      0x3d6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_line    0x00006953      0x3a0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_line    0x00006cf3      0x493 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_line    0x00007186      0x4c2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_line    0x00007648      0x391 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_line    0x000079d9      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_line    0x00007d5a      0x33c ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_line    0x00008096      0x479 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_line    0x0000850f      0x19b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_line    0x000086aa      0x1db ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_line    0x00008885      0x1aa ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_line    0x00008a2f      0x398 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_line    0x00008dc7      0x420 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_line    0x000091e7      0x419 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_line    0x00009600      0x351 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_line    0x00009951      0x189 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_line    0x00009ada      0x45d ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_line    0x00009f37      0x4c2 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_line    0x0000a3f9      0x44b ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_line    0x0000a844      0x3da ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_line    0x0000ac1e      0x19a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_line    0x0000adb8      0x37c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_line    0x0000b134      0x8d9 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_line    0x0000ba0d      0x6ed ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_line    0x0000c0fa      0x300 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_line    0x0000c3fa      0x2bb ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_line    0x0000c6b5      0x350 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_line    0x0000ca05      0x1c8 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_line    0x0000cbcd      0x43b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_line    0x0000d008      0x3c8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_line    0x0000d3d0      0x161 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_line    0x0000d531      0x1a2 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_line    0x0000d6d3      0x19f ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_line    0x0000d872      0x3f5 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_line    0x0000dc67       0x54 ./ra/board/ra6m4_ek/board_init.o
+ .debug_line    0x00002587      0x3da ./src/console_callbacks.o
+ .debug_line    0x00002961      0x4a6 ./src/hal_entry.o
+ .debug_line    0x00002e07      0x283 ./ra_gen/blinky_thread.o
+ .debug_line    0x0000308a      0x347 ./ra_gen/common_data.o
+ .debug_line    0x000033d1       0x4a ./ra_gen/hal_data.o
+ .debug_line    0x0000341b      0x2f3 ./ra_gen/main.o
+ .debug_line    0x0000370e      0x22a ./ra_gen/pin_data.o
+ .debug_line    0x00003938      0x439 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_line    0x00003d71      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_line    0x0000413f      0x3bf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_line    0x000044fe      0x4a3 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_line    0x000049a1      0x1fd ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_line    0x00004b9e      0x1b1 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_line    0x00004d4f      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_line    0x0000511d      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_line    0x0000549e      0x3e5 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_line    0x00005883      0x395 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_line    0x00005c18      0x437 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_line    0x0000604f      0x198 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_line    0x000061e7      0x397 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_line    0x0000657e      0x3d6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_line    0x00006954      0x3a0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_line    0x00006cf4      0x493 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_line    0x00007187      0x4c2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_line    0x00007649      0x391 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_line    0x000079da      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_line    0x00007d5b      0x33c ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_line    0x00008097      0x479 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_line    0x00008510      0x19b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_line    0x000086ab      0x1db ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_line    0x00008886      0x1aa ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_line    0x00008a30      0x398 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_line    0x00008dc8      0x420 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_line    0x000091e8      0x419 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_line    0x00009601      0x351 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_line    0x00009952      0x189 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_line    0x00009adb      0x45d ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_line    0x00009f38      0x4c2 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_line    0x0000a3fa      0x44b ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_line    0x0000a845      0x3da ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_line    0x0000ac1f      0x19a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_line    0x0000adb9      0x37c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_line    0x0000b135      0x8d9 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_line    0x0000ba0e      0x6ed ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_line    0x0000c0fb      0x300 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_line    0x0000c3fb      0x2bb ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_line    0x0000c6b6      0x350 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_line    0x0000ca06      0x1c8 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_line    0x0000cbce      0x43b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_line    0x0000d009      0x3c8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_line    0x0000d3d1      0x161 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_line    0x0000d532      0x1a2 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_line    0x0000d6d4      0x19f ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_line    0x0000d873      0x3f5 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_line    0x0000dc68       0x54 ./ra/board/ra6m4_ek/board_init.o
 
 .debug_str      0x00000000     0xc15a
  .debug_str     0x00000000     0x2023 ./src/sf_console/sf_console.o
