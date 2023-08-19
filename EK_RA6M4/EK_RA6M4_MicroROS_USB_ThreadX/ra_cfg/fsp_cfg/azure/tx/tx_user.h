@@ -7,7 +7,7 @@ extern "C" {
 #endif
 
 #ifndef TX_TIMER_TICKS_PER_SECOND
-#define TX_TIMER_TICKS_PER_SECOND (100)
+#define TX_TIMER_TICKS_PER_SECOND (1000)
 #endif
 #ifndef TX_MAX_PRIORITIES
 #define TX_MAX_PRIORITIES (32)
