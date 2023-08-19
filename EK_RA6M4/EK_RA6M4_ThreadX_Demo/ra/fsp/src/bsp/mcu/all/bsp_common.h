@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright [2020-2022] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
+ * Copyright [2020-2023] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
  *
  * This software and documentation are supplied by Renesas Electronics America Inc. and may only be used with products
  * of Renesas Electronics Corp. and its affiliates ("Renesas").  No other uses are authorized.  Renesas products are
@@ -33,7 +33,7 @@
 #include <string.h>
 
 /* Different compiler support. */
-#include "../../inc/fsp_common_api.h"
+#include "../../inc/api/fsp_common_api.h"
 #include "bsp_compiler_support.h"
 #include "bsp_cfg.h"
 
@@ -328,7 +328,7 @@ __STATIC_INLINE uint32_t R_FSP_ClockDividerGet (uint32_t ckdivcr)
          * - Clock Divided by 2: 1
          * - Clock Divided by 4: 2
          */
-        return 1 << ckdivcr;
+        return 1U << ckdivcr;
     }
     else if (3U == ckdivcr)
     {

@@ -1,22 +1,4 @@
-/***********************************************************************************************************************
- * Copyright [2020-2022] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
- *
- * This software and documentation are supplied by Renesas Electronics America Inc. and may only be used with products
- * of Renesas Electronics Corp. and its affiliates ("Renesas").  No other uses are authorized.  Renesas products are
- * sold pursuant to Renesas terms and conditions of sale.  Purchasers are solely responsible for the selection and use
- * of Renesas products and Renesas assumes no liability.  No license, express or implied, to any intellectual property
- * right is granted by Renesas. This software is protected under all applicable laws, including copyright laws. Renesas
- * reserves the right to change or discontinue this software and/or this documentation. THE SOFTWARE AND DOCUMENTATION
- * IS DELIVERED TO YOU "AS IS," AND RENESAS MAKES NO REPRESENTATIONS OR WARRANTIES, AND TO THE FULLEST EXTENT
- * PERMISSIBLE UNDER APPLICABLE LAW, DISCLAIMS ALL WARRANTIES, WHETHER EXPLICITLY OR IMPLICITLY, INCLUDING WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT, WITH RESPECT TO THE SOFTWARE OR
- * DOCUMENTATION.  RENESAS SHALL HAVE NO LIABILITY ARISING OUT OF ANY SECURITY VULNERABILITY OR BREACH.  TO THE MAXIMUM
- * EXTENT PERMITTED BY LAW, IN NO EVENT WILL RENESAS BE LIABLE TO YOU IN CONNECTION WITH THE SOFTWARE OR DOCUMENTATION
- * (OR ANY PERSON OR ENTITY CLAIMING RIGHTS DERIVED FROM YOU) FOR ANY LOSS, DAMAGES, OR CLAIMS WHATSOEVER, INCLUDING,
- * WITHOUT LIMITATION, ANY DIRECT, CONSEQUENTIAL, SPECIAL, INDIRECT, PUNITIVE, OR INCIDENTAL DAMAGES; ANY LOST PROFITS,
- * OTHER ECONOMIC DAMAGE, PROPERTY DAMAGE, OR PERSONAL INJURY; AND EVEN IF RENESAS HAS BEEN ADVISED OF THE POSSIBILITY
- * OF SUCH LOSS, DAMAGES, CLAIMS OR COSTS.
- **********************************************************************************************************************/
+/* ${REA_DISCLAIMER_PLACEHOLDER} */
 
 /***********************************************************************************************************************
  * Includes
@@ -81,8 +63,8 @@ extern TX_THREAD * volatile _tx_thread_execute_ptr;
 
 /* These variables are global because this function is called from PendSV_Handler, which is a stackless
  * function. */
-static volatile uint16_t g_sbycr = 0U;
-static volatile uint32_t g_prcr  = 0U;
+static volatile uint16_t g_saved_lpm_state = 0U;
+static volatile uint32_t g_prcr            = 0U;
 void * _tx_port_wait_thread_ready (void)
 {
     /* The following compile time assertions validate offsets used in the assembly code
@@ -138,13 +120,19 @@ void * _tx_port_wait_thread_ready (void)
         }
 
         /* Save LPM Mode */
-        g_sbycr = R_SYSTEM->SBYCR;
+#if BSP_FEATURE_LPM_HAS_SBYCR_SSBY
+        g_saved_lpm_state = R_SYSTEM->SBYCR;
+#elif BSP_FEATURE_LPM_HAS_LPSCR
+        g_saved_lpm_state = R_SYSTEM->LPSCR;
+#endif
+
+#if BSP_FEATURE_LPM_HAS_SBYCR_SSBY
 
         /* Check if the LPM peripheral is set to go to Software Standby mode with WFI instruction.
          * If yes, change the LPM peripheral to go to Sleep mode. Otherwise skip following procedures
          * to avoid the LPM register access which is high latency and impacts kernel performance.
          */
-        if (g_sbycr & R_SYSTEM_SBYCR_SSBY_Msk)
+        if (g_saved_lpm_state & R_SYSTEM_SBYCR_SSBY_Msk)
         {
             /* Save register protect value */
             g_prcr = R_SYSTEM->PRCR;
@@ -153,8 +141,21 @@ void * _tx_port_wait_thread_ready (void)
             R_SYSTEM->PRCR = RM_THREADX_PORT_PRCR_UNLOCK_LPM_REGISTER_ACCESS;
 
             /* Clear to set to sleep low power mode (not standby or deep standby) */
-            R_SYSTEM->SBYCR = g_sbycr & (uint16_t) ~R_SYSTEM_SBYCR_SSBY_Msk;
+            R_SYSTEM->SBYCR = g_saved_lpm_state & (uint16_t) ~R_SYSTEM_SBYCR_SSBY_Msk;
         }
+#elif BSP_FEATURE_LPM_HAS_LPSCR
+        if (R_SYSTEM_LPSCR_LPMD_Msk & g_saved_lpm_state)
+        {
+            /* Save register protect value */
+            g_prcr = R_SYSTEM->PRCR;
+
+            /* Unlock LPM peripheral registers */
+            R_SYSTEM->PRCR = RM_THREADX_PORT_PRCR_UNLOCK_LPM_REGISTER_ACCESS;
+
+            /* Clear to set to sleep low power mode (not standby or deep standby) */
+            R_SYSTEM->LPSCR = 0U;
+        }
+#endif
 
         /**
          * DSB should be last instruction executed before WFI
@@ -170,18 +171,30 @@ void * _tx_port_wait_thread_ready (void)
         /* Instruction Synchronization Barrier. */
         __ISB();
 
+#if BSP_FEATURE_LPM_HAS_SBYCR_SSBY
+
         /* Check if the LPM peripheral was supposed to go to Software Standby mode with WFI instruction.
          * If yes, restore the LPM peripheral setting. Otherwise skip following procedures to avoid the
          * LPM register access which is high latency and impacts kernel performance.
          */
-        if (g_sbycr & R_SYSTEM_SBYCR_SSBY_Msk)
+        if (g_saved_lpm_state & R_SYSTEM_SBYCR_SSBY_Msk)
         {
             /* Restore LPM Mode */
-            R_SYSTEM->SBYCR = g_sbycr;
+            R_SYSTEM->SBYCR = g_saved_lpm_state;
 
             /* Restore register lock */
             R_SYSTEM->PRCR = (uint16_t) (RM_THREADX_PORT_PRCR_LOCK_LPM_REGISTER_ACCESS | g_prcr);
         }
+#elif BSP_FEATURE_LPM_HAS_LPSCR
+        if (R_SYSTEM_LPSCR_LPMD_Msk & g_saved_lpm_state)
+        {
+            /* Restore LPM Mode */
+            R_SYSTEM->LPSCR = (uint8_t) g_saved_lpm_state;
+
+            /* Restore register lock */
+            R_SYSTEM->PRCR = (uint16_t) (RM_THREADX_PORT_PRCR_LOCK_LPM_REGISTER_ACCESS | g_prcr);
+        }
+#endif
 
         /* Re-enable interrupts. */
         __enable_irq();

@@ -27,7 +27,6 @@ extern "C" {
 
 #define BSP_CORTEX_VECTOR_TABLE_ENTRIES    (16U)
 #define BSP_VECTOR_TABLE_MAX_ENTRIES       (112U)
-#define BSP_MCU_VBATT_SUPPORT              (1)
 
 #if defined(_RA_TZ_SECURE)
             #define BSP_TZ_SECURE_BUILD           (1)
@@ -168,11 +167,11 @@ extern "C" {
 
 /* Security attribution for LPM registers. */
 #ifndef BSP_TZ_CFG_LPMSAR
-#define BSP_TZ_CFG_LPMSAR ((1 > 0) ? 0xFFFFFCEAU : 0xFFFFFFFFU)
+#define BSP_TZ_CFG_LPMSAR ((RA_NOT_DEFINED > 0) ? 0xFFFFFCEAU : 0xFFFFFFFFU)
 #endif
 /* Deep Standby Interrupt Factor Security Attribution Register. */
 #ifndef BSP_TZ_CFG_DPFSAR
-#define BSP_TZ_CFG_DPFSAR ((1 > 0) ? 0xF2E00000U : 0xFFFFFFFFU)
+#define BSP_TZ_CFG_DPFSAR ((RA_NOT_DEFINED > 0) ? 0xF2E00000U : 0xFFFFFFFFU)
 #endif
 
 /* Security attribution for CGC registers. */
@@ -234,17 +233,17 @@ extern "C" {
 
 /* Security attribution registers for SELSR0. */
 #ifndef BSP_TZ_CFG_ICUSARD
-#define BSP_TZ_CFG_ICUSARD ((1 > 0) ? 0xFFFFFFFEU : 0xFFFFFFFFU)
+#define BSP_TZ_CFG_ICUSARD ((RA_NOT_DEFINED > 0) ? 0xFFFFFFFEU : 0xFFFFFFFFU)
 #endif
 
 /* Security attribution registers for WUPEN0. */
 #ifndef BSP_TZ_CFG_ICUSARE
-#define BSP_TZ_CFG_ICUSARE ((1 > 0) ? 0x04F2FFFFU : 0xFFFFFFFFU)
+#define BSP_TZ_CFG_ICUSARE ((RA_NOT_DEFINED > 0) ? 0x04F2FFFFU : 0xFFFFFFFFU)
 #endif
 
 /* Security attribution registers for WUPEN1. */
 #ifndef BSP_TZ_CFG_ICUSARF
-#define BSP_TZ_CFG_ICUSARF ((1 > 0) ? 0xFFFFFFF8U : 0xFFFFFFFFU)
+#define BSP_TZ_CFG_ICUSARF ((RA_NOT_DEFINED > 0) ? 0xFFFFFFF8U : 0xFFFFFFFFU)
 #endif
 
 /* Set DTCSTSAR if the Secure program uses the DTC. */
@@ -296,6 +295,11 @@ extern "C" {
 /* Security Attribution Register B for BUS Control registers. */
 #ifndef BSP_TZ_CFG_BUSSARB
 #define BSP_TZ_CFG_BUSSARB (0xFFFFFFFFU)
+#endif
+
+/* Enable Uninitialized Non-Secure Application Fallback. */
+#ifndef BSP_TZ_CFG_NON_SECURE_APPLICATION_FALLBACK
+#define BSP_TZ_CFG_NON_SECURE_APPLICATION_FALLBACK (1U)
 #endif
 
 #define OFS_SEQ1 0xA001A001 | (1 << 1) | (3 << 2)

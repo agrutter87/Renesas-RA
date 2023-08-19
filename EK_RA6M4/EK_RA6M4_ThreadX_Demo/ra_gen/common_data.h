@@ -6,6 +6,8 @@
 #include "r_ioport.h"
 #include "bsp_pin_cfg.h"
 FSP_HEADER
+#define IOPORT_CFG_NAME g_bsp_pin_cfg
+
 /* IOPORT Instance */
 extern const ioport_instance_t g_ioport;
 

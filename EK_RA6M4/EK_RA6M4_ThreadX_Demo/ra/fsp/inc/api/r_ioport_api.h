@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright [2020-2022] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
+ * Copyright [2020-2023] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
  *
  * This software and documentation are supplied by Renesas Electronics America Inc. and may only be used with products
  * of Renesas Electronics Corp. and its affiliates ("Renesas").  No other uses are authorized.  Renesas products are
@@ -69,6 +69,12 @@ typedef enum e_ioport_peripheral
 
     /** Pin will function as an AGT peripheral pin */
     IOPORT_PERIPHERAL_AGT = (0x01UL << IOPORT_PRV_PFS_PSEL_OFFSET),
+	
+	 /** Pin will function as an AGT peripheral pin */
+    IOPORT_PERIPHERAL_AGTW = (0x01UL << IOPORT_PRV_PFS_PSEL_OFFSET),
+	
+	 /** Pin will function as an AGT peripheral pin */
+    IOPORT_PERIPHERAL_AGT1 = (0x18UL << IOPORT_PRV_PFS_PSEL_OFFSET),
 
     /** Pin will function as a GPT peripheral pin */
     IOPORT_PERIPHERAL_GPT0 = (0x02UL << IOPORT_PRV_PFS_PSEL_OFFSET),
@@ -109,14 +115,23 @@ typedef enum e_ioport_peripheral
     /** Pin will function as a segment LCD peripheral pin */
     IOPORT_PERIPHERAL_LCDC = (0x0DUL << IOPORT_PRV_PFS_PSEL_OFFSET),
 
+#if BSP_FEATURE_SCI_UART_DE_IS_INVERTED
     /** Pin will function as an SCI peripheral DEn pin */
     IOPORT_PERIPHERAL_DE_SCI1_3_5_7_9 = (0x0DUL << IOPORT_PRV_PFS_PSEL_OFFSET),
+
+    /** Pin will function as an SCI DEn peripheral pin */
+    IOPORT_PERIPHERAL_DE_SCI0_2_4_6_8 = (0x0EUL << IOPORT_PRV_PFS_PSEL_OFFSET),
+#else
+    /** Pin will function as an SCI peripheral DEn pin */
+    IOPORT_PERIPHERAL_DE_SCI0_2_4_6_8 = (0x0DUL << IOPORT_PRV_PFS_PSEL_OFFSET),
+
+    /** Pin will function as an SCI DEn peripheral pin */
+    IOPORT_PERIPHERAL_DE_SCI1_3_5_7_9 = (0x0EUL << IOPORT_PRV_PFS_PSEL_OFFSET),
+#endif
 
     /** Pin will function as a DALI peripheral pin */
     IOPORT_PERIPHERAL_DALI = (0x0EUL << IOPORT_PRV_PFS_PSEL_OFFSET),
 
-    /** Pin will function as an SCI DEn peripheral pin */
-    IOPORT_PERIPHERAL_DE_SCI0_2_4_6_8 = (0x0EUL << IOPORT_PRV_PFS_PSEL_OFFSET),
 
     /** Pin will function as a CEU peripheral pin */
     IOPORT_PERIPHERAL_CEU = (0x0FUL << IOPORT_PRV_PFS_PSEL_OFFSET),

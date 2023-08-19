@@ -4,15 +4,7 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
-#include "r_lpm.h"
-#include "r_lpm_api.h"
 FSP_HEADER
-/** lpm Instance */
-extern const lpm_instance_t g_lpm0;
-
-/** Access the LPM instance using these structures when calling API functions directly (::p_api is not used). */
-extern lpm_instance_ctrl_t g_lpm0_ctrl;
-extern const lpm_cfg_t g_lpm0_cfg;
 void hal_entry(void);
 void g_hal_init(void);
 FSP_FOOTER
