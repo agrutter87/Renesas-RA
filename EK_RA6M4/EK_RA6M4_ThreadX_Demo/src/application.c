@@ -16,7 +16,7 @@
 /******************************************************************************
  * GLOBALS
  *****************************************************************************/
-static const feature_t g_features[] =
+const feature_t g_features[] =
 {
     {
         .feature_name = "Application",
@@ -37,31 +37,29 @@ static const feature_t g_features[] =
 #endif
 };
 
-application_t g_application =
+application_ctrl_t g_application_ctrl;
+const application_cfg_t g_application_cfg =
 {
-    /* TX_THREAD creation arguments */
-    .thread                     = { 0 },
-    .thread_name                = APPLICATION_THREAD_NAME,
-    .thread_entry               = application_thread_entry,
-    .thread_input               = 0,
-    .p_thread_stack             = 0,
-    .thread_stack_size          = APPLICATION_THREAD_STACK_SIZE,
-    .thread_priority            = APPLICATION_THREAD_PRIORITY,
-    .thread_preempt_threshold   = APPLICATION_THREAD_PREEMPT_THRESHOLD,
+ /* TX_THREAD creation arguments */
+ .thread_name                = APPLICATION_THREAD_NAME,
+ .thread_entry               = application_thread_entry,
+ .thread_input               = 0,
+ .thread_stack_size          = APPLICATION_THREAD_STACK_SIZE,
+ .thread_priority            = APPLICATION_THREAD_PRIORITY,
+ .thread_preempt_threshold   = APPLICATION_THREAD_PREEMPT_THRESHOLD,
 
-    /* Queryable status */
-    .status                     = { .return_code = 0 },
+ /* Application Memory */
+ /* TX_BYTE_POOL creation arguments */
+ .memory_byte_pool_name      = "Application Memory",
+ .memory_byte_pool_size      = APPLICATION_MEMORY_MAX,
 
-    /* Application Memory */
-    /* TX_BYTE_POOL creation arguments */
-    .memory_byte_pool           = { 0 },
-    .memory_byte_pool_name      = "Application Memory",
-    .memory_byte_pool_size      = APPLICATION_MEMORY_MAX,
-
-    /* Features */
-    .p_features                 = g_features,
-    .feature_count              = sizeof(g_features) / sizeof(g_features[0]),
+ /* Features */
+ .p_features                 = g_features,
+ .feature_count              = sizeof(g_features) / sizeof(g_features[0]),
 };
+
+const application_t g_application =
+{ .p_ctrl = &g_application_ctrl, .p_cfg  = &g_application_cfg };
 
 /******************************************************************************
  * PROTOTYPES
@@ -79,8 +77,8 @@ void application_define(TX_BYTE_POOL * p_memory_pool)
     /* FOR MAIN THREAD: */
     /* Allocate the stack */
     tx_err = tx_byte_allocate(p_memory_pool,
-                              (VOID **) &g_application.p_thread_stack,
-                              g_application.thread_stack_size,
+                              (VOID **) &g_application.p_ctrl->p_thread_stack,
+                              g_application.p_cfg->thread_stack_size,
                               TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
@@ -88,14 +86,14 @@ void application_define(TX_BYTE_POOL * p_memory_pool)
     }
 
     /* Create the thread.  */
-    tx_err = tx_thread_create(&g_application.thread,
-                              g_application.thread_name,
-                              g_application.thread_entry,
-                              g_application.thread_input,
-                              g_application.p_thread_stack,
-                              g_application.thread_stack_size,
-                              g_application.thread_priority,
-                              g_application.thread_preempt_threshold,
+    tx_err = tx_thread_create(&g_application.p_ctrl->thread,
+                              (CHAR *)g_application.p_cfg->thread_name,
+                              g_application.p_cfg->thread_entry,
+                              g_application.p_cfg->thread_input,
+                              g_application.p_ctrl->p_thread_stack,
+                              g_application.p_cfg->thread_stack_size,
+                              g_application.p_cfg->thread_priority,
+                              g_application.p_cfg->thread_preempt_threshold,
                               TX_NO_TIME_SLICE,
                               TX_AUTO_START);
     if(TX_SUCCESS != tx_err)
@@ -109,7 +107,7 @@ void application_define(TX_BYTE_POOL * p_memory_pool)
  *****************************************************************************/
 void application_get_status(feature_status_t * p_status)
 {
-    *p_status = g_application.status;
+    *p_status = g_application.p_ctrl->status;
 }
 
 /******************************************************************************

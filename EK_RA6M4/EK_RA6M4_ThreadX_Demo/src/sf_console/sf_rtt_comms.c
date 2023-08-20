@@ -15,8 +15,7 @@
 /******************************************************************************
  * GLOBALS
  *****************************************************************************/
-#if 0
-sf_comms_api_t g_sf_comms_on_sf_cmd_comms =
+const sf_comms_api_t g_sf_comms_on_sf_rtt_comms =
 {
     .open          = SF_RTT_COMMS_Open,
     .close         = SF_RTT_COMMS_Close,
@@ -25,7 +24,6 @@ sf_comms_api_t g_sf_comms_on_sf_cmd_comms =
     .lock          = SF_RTT_COMMS_Lock,
     .unlock        = SF_RTT_COMMS_Unlock,
 };
-#endif
 
 /******************************************************************************
  * FUNCTION: SF_RTT_COMMS_Open

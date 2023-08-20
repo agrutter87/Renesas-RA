@@ -43,35 +43,47 @@ typedef struct st_feature
     void (*feature_get_status)(feature_status_t * p_status);
 } feature_t;
 
-typedef struct st_application
+typedef struct st_application_ctrl
 {
+    TX_BYTE_POOL        memory_byte_pool;
+
     /* Thread Related */
     TX_THREAD           thread;
+    VOID                *p_thread_stack;
+
+    /* Queryable status */
+    feature_status_t    status;
+} application_ctrl_t;
+
+typedef struct st_application_cfg
+{
+    /* Thread Related */
     CHAR                thread_name[THREAD_OBJECT_NAME_LENGTH_MAX];
     VOID                (*thread_entry)(ULONG);
     ULONG               thread_input;
-    VOID                *p_thread_stack;
     ULONG               thread_stack_size;
     UINT                thread_priority;
     UINT                thread_preempt_threshold;
 
-    /* Queryable status */
-    feature_status_t    status;
-
     /* Application Memory */
-    TX_BYTE_POOL        memory_byte_pool;
     CHAR                memory_byte_pool_name[THREAD_OBJECT_NAME_LENGTH_MAX];
     ULONG               memory_byte_pool_size;
 
     /* Features */
     feature_t const     *p_features;
     ULONG               feature_count;
+} application_cfg_t;
+
+typedef struct st_application
+{
+    application_ctrl_t      *p_ctrl;
+    application_cfg_t const *p_cfg;
 } application_t;
 
 /******************************************************************************
  * GLOBALS
  *****************************************************************************/
-extern application_t g_application;
+extern const application_t g_application;
 
 /******************************************************************************
  * PROTOTYPES
