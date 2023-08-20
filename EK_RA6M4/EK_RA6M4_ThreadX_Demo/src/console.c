@@ -87,13 +87,20 @@ const sf_console_instance_t g_sf_console =
 console_ctrl_t  g_console_ctrl;
 const console_cfg_t   g_console_cfg =
 {
+ /* Thread creation arguments */
  .thread_name               = CONSOLE_THREAD_NAME,
  .thread_entry              = console_thread_entry,
  .thread_input              = 0, // TODO: Use for something useful
  .thread_stack_size         = CONSOLE_THREAD_STACK_SIZE,
  .thread_priority           = CONSOLE_THREAD_PRIORITY,
  .thread_preempt_threshold  = CONSOLE_THREAD_PREEMPT_THRESHOLD,
+
+ /* Event queue creation arguments */
+ .event_queue_name          = CONSOLE_EVENT_QUEUE_NAME,
+
+ /* SF Console */
  .p_console                 = &g_sf_console
+
 };
 const console_t g_console =
 {
@@ -106,9 +113,31 @@ const console_t g_console =
  *****************************************************************************/
 void console_define(TX_BYTE_POOL * p_memory_pool)
 {
-    UINT tx_err = TX_SUCCESS;
+    UINT        tx_err          = TX_SUCCESS;
+    event_t     event_data      = { .event_type = APPLICATION_EVENT_INIT, .event_payload = { 0 } };
 
     SEGGER_RTT_printf(0, "Initializing console...\r\n");
+
+    /* Allocate the memory for the event queue */
+    tx_err = tx_byte_allocate(p_memory_pool,
+                              (VOID **) &g_console.p_ctrl->p_event_queue_memory,
+                              EVENT_QUEUE_MEMORY_MAX,
+                              TX_NO_WAIT);
+    if(TX_SUCCESS != tx_err)
+    {
+        SEGGER_RTT_printf(0, "Failed console_define::tx_byte_allocate (p_event_queue_memory), tx_err = %d\r\n", tx_err);
+    }
+
+    /* Create the event queue */
+    tx_err = tx_queue_create(&g_console.p_ctrl->event_queue,
+                             (CHAR *)g_console.p_cfg->event_queue_name,
+                             EVENT_QUEUE_MESSAGE_SIZE,
+                             g_console.p_ctrl->p_event_queue_memory,
+                             EVENT_QUEUE_MEMORY_MAX);
+    if(TX_SUCCESS != tx_err)
+    {
+        SEGGER_RTT_printf(0, "Failed console_define::tx_queue_create, tx_err = %d\r\n", tx_err);
+    }
 
     /* Allocate the stack for the thread */
     tx_err = tx_byte_allocate(p_memory_pool,
@@ -117,7 +146,7 @@ void console_define(TX_BYTE_POOL * p_memory_pool)
                               TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
-        SEGGER_RTT_printf(0, "Failed console_tx_define::tx_byte_allocate, tx_err = %d\r\n", tx_err);
+        SEGGER_RTT_printf(0, "Failed console_define::tx_byte_allocate, tx_err = %d\r\n", tx_err);
     }
 
     /* Create the thread.  */
@@ -133,7 +162,14 @@ void console_define(TX_BYTE_POOL * p_memory_pool)
                               TX_AUTO_START);
     if(TX_SUCCESS != tx_err)
     {
-        SEGGER_RTT_printf(0, "Failed console_tx_define::tx_thread_create, tx_err = %d\r\n", tx_err);
+        SEGGER_RTT_printf(0, "Failed console_define::tx_thread_create, tx_err = %d\r\n", tx_err);
+    }
+
+    /* Send the initialize event */
+    tx_err = tx_queue_send(&g_console.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
+    if(TX_SUCCESS != tx_err)
+    {
+        SEGGER_RTT_printf(0, "Failed console_define::tx_queue_send, tx_err = %d\r\n", tx_err);
     }
 }
 
@@ -150,32 +186,55 @@ void console_get_status(feature_status_t * p_status)
  *****************************************************************************/
 void console_thread_entry(ULONG thread_input)
 {
-    fsp_err_t               fsp_err     = FSP_SUCCESS;
+    fsp_err_t                   fsp_err     = FSP_SUCCESS;
     sf_console_instance_t const *p_console  = g_console.p_cfg->p_console;
+    UINT                        tx_err      = TX_SUCCESS;
+    event_t                     event_data  = { 0 };
 
     FSP_PARAMETER_NOT_USED(thread_input);
 
-    SEGGER_RTT_printf(0, "Started console\r\n");
-
-    fsp_err = p_console->p_api->open(p_console->p_ctrl, p_console->p_cfg);
-    if(FSP_SUCCESS != fsp_err)
-    {
-        SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->open, fsp_err = %d\r\n", fsp_err);
-    }
-
-    fsp_err = p_console->p_api->write(p_console->p_ctrl, (uint8_t *)"\r\nWelcome to Grutter's example ThreadX System Developer\r\nEnter '?' for a list of commands...\r\n", 100);
-    if(FSP_SUCCESS != fsp_err)
-    {
-        SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->write, fsp_err = %d\r\n", fsp_err);
-    }
-
     while(1)
     {
-        /* This version blocks, so its unclear if it is sleeping or not */
-        fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_WAIT_FOREVER);
-        if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+        tx_queue_receive(&g_console.p_ctrl->event_queue, &event_data, TX_WAIT_FOREVER);
+
+        SEGGER_RTT_printf(0, "CONSOLE EVENT %d\r\n", event_data.event_type);
+        switch(event_data.event_type)
         {
-            SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+            case APPLICATION_EVENT_INIT:
+                fsp_err = p_console->p_api->open(p_console->p_ctrl, p_console->p_cfg);
+                if(FSP_SUCCESS != fsp_err)
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->open, fsp_err = %d\r\n", fsp_err);
+                }
+
+                fsp_err = p_console->p_api->write(p_console->p_ctrl, (uint8_t *)"\r\nWelcome to Grutter's example ThreadX System Developer\r\nEnter '?' for a list of commands...\r\n", 100);
+                if(FSP_SUCCESS != fsp_err)
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->write, fsp_err = %d\r\n", fsp_err);
+                }
+
+#if 0
+                /* This version blocks, so its unclear if it is sleeping or not */
+                fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT);
+                if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+                }
+#endif
+                break;
+
+            case APPLICATION_EVENT_FEATURE_MONITOR_REQUEST:
+                event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REPORT;
+                event_data.event_payload.event_ulongdata = (ULONG)&console_get_status;
+                tx_err = tx_queue_send(&g_application.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
+                if(TX_SUCCESS != tx_err)
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::tx_queue_send, tx_err = %d\r\n", tx_err);
+                }
+                break;
+
+            default:
+                break;
         }
     }
 }

@@ -16,6 +16,7 @@
 #define CONSOLE_THREAD_PREEMPT_THRESHOLD    (TX_MAX_PRIORITIES - 1)
 #define CONSOLE_THREAD_PERIOD               (TX_TIMER_TICKS_PER_SECOND)
 #define CONSOLE_THREAD_STACK_SIZE           (APPLICATION_THREAD_STACK_SIZE)
+#define CONSOLE_EVENT_QUEUE_NAME            ("Console Event Queue")
 
 /******************************************************************************
  * TYPES
@@ -32,6 +33,10 @@ typedef struct st_console_ctrl
     TX_THREAD                       thread;
     VOID                            *p_thread_stack;
 
+    /* Event Queue Related */
+    TX_QUEUE                        event_queue;
+    VOID                            *p_event_queue_memory;
+
     /* Queryable status */
     feature_status_t                status;
 } console_ctrl_t;
@@ -45,6 +50,9 @@ typedef struct st_console_cfg
     ULONG                           thread_stack_size;
     UINT                            thread_priority;
     UINT                            thread_preempt_threshold;
+
+    /* Event Queue Related */
+    CHAR                            event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 
     /* Console Related */
     sf_console_instance_t const     *p_console;

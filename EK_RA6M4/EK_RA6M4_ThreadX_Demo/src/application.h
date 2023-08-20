@@ -17,13 +17,43 @@
 #define APPLICATION_THREAD_PREEMPT_THRESHOLD    (1)
 #define APPLICATION_THREAD_PERIOD               (TX_TIMER_TICKS_PER_SECOND)
 #define APPLICATION_THREAD_STACK_SIZE           (1024U)
+#define APPLICATION_EVENT_QUEUE_NAME            ("Application Event Queue")
+
+#define APPLICATION_THREAD_MONITOR_TIMER_NAME   ("Application Thread Monitor Timer")
+#define APPLICATION_THREAD_MONITOR_TICKS        (1000)
 
 #define THREAD_OBJECT_NAME_LENGTH_MAX           (32)
 #define FEATURE_NAME_MAX_LENGTH                 (32)
+#define EVENT_QUEUE_MESSAGE_SIZE                (2)
+#define EVENT_QUEUE_MEMORY_MAX                  ((10 * EVENT_QUEUE_MESSAGE_SIZE) + sizeof(void *))
 
 /******************************************************************************
  * TYPES
  *****************************************************************************/
+typedef enum st_application_event
+{
+    APPLICATION_EVENT_INIT                      = 0,
+    APPLICATION_EVENT_FEATURE_MONITOR_REQUEST   = 1,
+    APPLICATION_EVENT_FEATURE_MONITOR_REPORT    = 2,
+    APPLICATION_EVENT_END                       = 3,
+} application_event_t;
+
+typedef struct st_event
+{
+    ULONG  event_type;
+    union
+    {
+        UINT     event_timer_id;
+        UCHAR    event_uchardata[4];
+        USHORT   event_ushortdata[2];
+        ULONG    event_ulongdata;
+        CHAR     event_chardata[4];
+        SHORT    event_shortdata[2];
+        INT      event_intdata[2];
+        LONG     event_longdata;
+    } event_payload;
+} event_t;
+
 typedef struct st_feature_status
 {
     ULONG return_code;
@@ -46,10 +76,15 @@ typedef struct st_feature
 typedef struct st_application_ctrl
 {
     TX_BYTE_POOL        memory_byte_pool;
+    TX_TIMER            thread_monitor_event_timer;
 
     /* Thread Related */
     TX_THREAD           thread;
     VOID                *p_thread_stack;
+
+    /* Event Queue Related */
+    TX_QUEUE            event_queue;
+    VOID                *p_event_queue_memory;
 
     /* Queryable status */
     feature_status_t    status;
@@ -64,6 +99,12 @@ typedef struct st_application_cfg
     ULONG               thread_stack_size;
     UINT                thread_priority;
     UINT                thread_preempt_threshold;
+
+    /* Event Queue Related */
+    CHAR                event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
+
+    /* Thread Monitor Timer Related */
+    CHAR                thread_monitor_timer_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 
     /* Application Memory */
     CHAR                memory_byte_pool_name[THREAD_OBJECT_NAME_LENGTH_MAX];
