@@ -94,8 +94,6 @@ n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-
                               n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o) (_fwalk)
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-stdio.o)
                               n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o) (__sread)
-n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
-                              n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-stdio.o) (_write_r)
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-closer.o)
                               n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-stdio.o) (_close_r)
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-fflush.o)
@@ -125,10 +123,51 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/sf_console/sf_rtt_comms.o
  .data          0x00000000        0x0 ./src/sf_console/sf_rtt_comms.o
  .bss           0x00000000        0x0 ./src/sf_console/sf_rtt_comms.o
+ .text          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .data          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .bss           0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .text._write   0x00000000       0x20 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .text._write_r
+                0x00000000       0x22 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_info    0x00000000      0x9a7 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_abbrev  0x00000000      0x1f0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_aranges
+                0x00000000       0x28 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_ranges  0x00000000       0x18 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_line    0x00000000      0x22b ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_str     0x00000000      0x5c2 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .comment       0x00000000       0x4a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .debug_frame   0x00000000       0x58 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .ARM.attributes
+                0x00000000       0x3a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+ .text          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .data          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .bss           0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .debug_line    0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .debug_str     0x00000000      0x15e ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .comment       0x00000000       0x4a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .ARM.attributes
+                0x00000000       0x3a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+ .text          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .data          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .bss           0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .debug_line    0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .debug_str     0x00000000      0x15f ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .comment       0x00000000       0x4a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .ARM.attributes
+                0x00000000       0x3a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+ .text          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
+ .data          0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
+ .bss           0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
+ .debug_line    0x00000000        0x0 ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
+ .debug_str     0x00000000      0x15e ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
+ .comment       0x00000000       0x4a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
+ .ARM.attributes
+                0x00000000       0x3a ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
  .text          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT.o
  .data          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT.o
  .bss           0x00000000        0x0 ./src/SEGGER/SEGGER_RTT.o
- .data._aTerminalId
+ .rodata._aTerminalId
                 0x00000000       0x10 ./src/SEGGER/SEGGER_RTT.o
  .bss._ActiveTerminal
                 0x00000000        0x1 ./src/SEGGER/SEGGER_RTT.o
@@ -184,9 +223,232 @@ Discarded input sections
                 0x00000000       0x30 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_GetBytesInBuffer
                 0x00000000       0x74 ./src/SEGGER/SEGGER_RTT.o
+ .text          0x00000000       0x94 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .data          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .bss           0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .debug_line    0x00000000       0x92 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .debug_info    0x00000000       0x26 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .debug_abbrev  0x00000000       0x14 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .debug_aranges
+                0x00000000       0x20 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .debug_str     0x00000000       0x89 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
+ .ARM.attributes
+                0x00000000       0x26 ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
  .text          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_printf.o
  .data          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_printf.o
  .bss           0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_printf.o
+ .text          0x00000000        0x0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .data          0x00000000        0x0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss           0x00000000        0x0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss.SEGGER_SYSVIEW_TickCnt
+                0x00000000        0x4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss.SEGGER_SYSVIEW_InterruptId
+                0x00000000        0x4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .rodata._abSync
+                0x00000000        0xa ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss._UpBuffer
+                0x00000000      0x400 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss._DownBuffer
+                0x00000000        0x8 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss._SYSVIEW_Globals
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss._pFirstModule
+                0x00000000        0x4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss._NumModules
+                0x00000000        0x1 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .bss._aPacket  0x00000000       0xe3 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._EncodeData
+                0x00000000       0x7a ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._EncodeStr
+                0x00000000       0x66 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._PreparePacket
+                0x00000000       0x18 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._HandleIncomingPacket
+                0x00000000       0xe0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._TrySendOverflowPacket
+                0x00000000       0xe4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._SendPacket
+                0x00000000      0x2dc ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._VPrintHost
+                0x00000000      0x17c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._StoreChar
+                0x00000000       0xf6 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._PrintUnsigned
+                0x00000000      0x130 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._PrintInt
+                0x00000000      0x11e ./src/SEGGER/SEGGER_SYSVIEW.o
+ .rodata        0x00000000       0x10 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text._VPrintTarget
+                0x00000000      0x440 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Init
+                0x00000000       0x88 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SetRAMBase
+                0x00000000       0x20 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordVoid
+                0x00000000       0x3c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32
+                0x00000000       0x78 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x2
+                0x00000000       0xb4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x3
+                0x00000000       0xec ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x4
+                0x00000000      0x124 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x5
+                0x00000000      0x15c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x6
+                0x00000000      0x194 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x7
+                0x00000000      0x1cc ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x8
+                0x00000000      0x204 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x9
+                0x00000000      0x240 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordU32x10
+                0x00000000      0x280 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordString
+                0x00000000       0x48 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Start
+                0x00000000      0x174 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Stop
+                0x00000000       0x4c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_GetChannelID
+                0x00000000       0x18 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_GetSysDesc
+                0x00000000      0x134 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendTaskInfo
+                0x00000000      0x1c8 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendTaskList
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendSysDesc
+                0x00000000       0x48 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordSystime
+                0x00000000       0x64 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordEnterISR
+                0x00000000       0x84 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordExitISR
+                0x00000000       0x38 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordExitISRToScheduler
+                0x00000000       0x38 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordEnterTimer
+                0x00000000       0x80 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordExitTimer
+                0x00000000       0x38 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordEndCall
+                0x00000000       0x78 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordEndCallU32
+                0x00000000       0xb0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnIdle
+                0x00000000       0x38 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnTaskCreate
+                0x00000000       0x84 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnTaskTerminate
+                0x00000000       0x84 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnTaskStartExec
+                0x00000000       0x84 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnTaskStopExec
+                0x00000000       0x38 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnTaskStartReady
+                0x00000000       0x84 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_OnTaskStopReady
+                0x00000000       0xc0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_MarkStart
+                0x00000000       0x78 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_MarkStop
+                0x00000000       0x78 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Mark
+                0x00000000       0xb0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_NameMarker
+                0x00000000       0xbc ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_NameResource
+                0x00000000       0x90 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_HeapDefine
+                0x00000000      0x16c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_HeapAlloc
+                0x00000000      0x134 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_HeapAllocEx
+                0x00000000      0x16c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_HeapFree
+                0x00000000       0xf8 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendPacket
+                0x00000000       0x38 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_EncodeU32
+                0x00000000       0x50 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_EncodeString
+                0x00000000       0x20 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_EncodeData
+                0x00000000       0x20 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_EncodeId
+                0x00000000       0x60 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_ShrinkId
+                0x00000000       0x20 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RegisterModule
+                0x00000000       0x84 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_RecordModuleDescription
+                0x00000000       0xf4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendModule
+                0x00000000      0x114 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendModuleDescription
+                0x00000000       0x3c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_SendNumModules
+                0x00000000       0x7c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_PrintfHostEx
+                0x00000000       0x2c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VPrintfHostEx
+                0x00000000       0x1e ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_PrintfHost
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VPrintfHost
+                0x00000000       0x1c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_WarnfHost
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VWarnfHost
+                0x00000000       0x1c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_ErrorfHost
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VErrorfHost
+                0x00000000       0x1c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_PrintfTargetEx
+                0x00000000       0x2c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VPrintfTargetEx
+                0x00000000       0x1e ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_PrintfTarget
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VPrintfTarget
+                0x00000000       0x1c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_WarnfTarget
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VWarnfTarget
+                0x00000000       0x1c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_ErrorfTarget
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_VErrorfTarget
+                0x00000000       0x1c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Print
+                0x00000000       0xb8 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Warn
+                0x00000000       0xb8 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_Error
+                0x00000000       0xb8 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_EnableEvents
+                0x00000000       0x28 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_DisableEvents
+                0x00000000       0x24 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .text.SEGGER_SYSVIEW_IsStarted
+                0x00000000       0x5c ./src/SEGGER/SEGGER_SYSVIEW.o
+ .rodata._aV2C.0
+                0x00000000       0x10 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_info    0x00000000     0x3ea4 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_abbrev  0x00000000      0x2e6 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_aranges
+                0x00000000      0x2e0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_ranges  0x00000000      0x2d0 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_line    0x00000000     0x1f8e ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_str     0x00000000     0x118f ./src/SEGGER/SEGGER_SYSVIEW.o
+ .comment       0x00000000       0x4a ./src/SEGGER/SEGGER_SYSVIEW.o
+ .debug_frame   0x00000000      0xd78 ./src/SEGGER/SEGGER_SYSVIEW.o
+ .ARM.attributes
+                0x00000000       0x3a ./src/SEGGER/SEGGER_SYSVIEW.o
  .text          0x00000000        0x0 ./src/application.o
  .data          0x00000000        0x0 ./src/application.o
  .bss           0x00000000        0x0 ./src/application.o
@@ -3400,14 +3662,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x88 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-stdio.o)
  .ARM.attributes
                 0x00000000       0x38 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-stdio.o)
- .text          0x00000000        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
- .data          0x00000000        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
- .bss           0x00000000        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
- .text._write_r
-                0x00000000       0x24 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
- .debug_frame   0x00000000       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
- .ARM.attributes
-                0x00000000       0x38 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-writer.o)
  .text          0x00000000        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-closer.o)
  .data          0x00000000        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-closer.o)
  .bss           0x00000000        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-closer.o)
@@ -3477,8 +3731,14 @@ LOAD n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-
 START GROUP
 LOAD ./src/sf_console/sf_console.o
 LOAD ./src/sf_console/sf_rtt_comms.o
+LOAD ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o
+LOAD ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_IAR.o
+LOAD ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_KEIL.o
+LOAD ./src/SEGGER/Syscalls/SEGGER_RTT_Syscalls_SES.o
 LOAD ./src/SEGGER/SEGGER_RTT.o
+LOAD ./src/SEGGER/SEGGER_RTT_ASM_ARMv7M.o
 LOAD ./src/SEGGER/SEGGER_RTT_printf.o
+LOAD ./src/SEGGER/SEGGER_SYSVIEW.o
 LOAD ./src/application.o
 LOAD ./src/blinky_thread_entry.o
 LOAD ./src/console.o
@@ -3792,7 +4052,7 @@ END GROUP
                 0x00000000                __itcm_data_end__ = .
                 0x00000000                __tz_ITCM_N = DEFINED (ITCM_NS_START)?ABSOLUTE (ITCM_NS_START):ALIGN (__itcm_data_end__, 0x2000)
 
-.text           0x00000000     0x914c
+.text           0x00000000     0x9154
                 0x00000000                __tz_FLASH_S = ABSOLUTE (FLASH_START)
                 0x00000000                __ROM_Start = .
  *(.fixed_vectors*)
@@ -3883,75 +4143,74 @@ END GROUP
                 0x00001018       0x1e ./src/sf_console/sf_rtt_comms.o
                 0x00001018                SF_RTT_COMMS_Unlock
  *fill*         0x00001036        0x2 ff
- .text._DoInit  0x00001038       0xb0 ./src/SEGGER/SEGGER_RTT.o
+ .text._DoInit  0x00001038       0xb4 ./src/SEGGER/SEGGER_RTT.o
  .text._WriteBlocking
-                0x000010e8       0xba ./src/SEGGER/SEGGER_RTT.o
+                0x000010ec       0xba ./src/SEGGER/SEGGER_RTT.o
  .text._WriteNoCheck
-                0x000011a2       0x90 ./src/SEGGER/SEGGER_RTT.o
+                0x000011a6       0x90 ./src/SEGGER/SEGGER_RTT.o
  .text._GetAvailWriteSpace
-                0x00001232       0x46 ./src/SEGGER/SEGGER_RTT.o
+                0x00001236       0x46 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_ReadNoLock
-                0x00001278      0x10c ./src/SEGGER/SEGGER_RTT.o
-                0x00001278                SEGGER_RTT_ReadNoLock
+                0x0000127c      0x10c ./src/SEGGER/SEGGER_RTT.o
+                0x0000127c                SEGGER_RTT_ReadNoLock
  .text.SEGGER_RTT_Read
-                0x00001384       0x36 ./src/SEGGER/SEGGER_RTT.o
-                0x00001384                SEGGER_RTT_Read
- *fill*         0x000013ba        0x2 ff
+                0x00001388       0x36 ./src/SEGGER/SEGGER_RTT.o
+                0x00001388                SEGGER_RTT_Read
+ *fill*         0x000013be        0x2 ff
  .text.SEGGER_RTT_WriteNoLock
-                0x000013bc       0xa0 ./src/SEGGER/SEGGER_RTT.o
-                0x000013bc                SEGGER_RTT_WriteNoLock
+                0x000013c0       0xa0 ./src/SEGGER/SEGGER_RTT.o
+                0x000013c0                SEGGER_RTT_WriteNoLock
  .text.SEGGER_RTT_Write
-                0x0000145c       0x4c ./src/SEGGER/SEGGER_RTT.o
-                0x0000145c                SEGGER_RTT_Write
+                0x00001460       0x4c ./src/SEGGER/SEGGER_RTT.o
+                0x00001460                SEGGER_RTT_Write
  .text.SEGGER_RTT_PutChar
-                0x000014a8       0xac ./src/SEGGER/SEGGER_RTT.o
-                0x000014a8                SEGGER_RTT_PutChar
+                0x000014ac       0xac ./src/SEGGER/SEGGER_RTT.o
+                0x000014ac                SEGGER_RTT_PutChar
  .text.SEGGER_RTT_GetKey
-                0x00001554       0x36 ./src/SEGGER/SEGGER_RTT.o
-                0x00001554                SEGGER_RTT_GetKey
+                0x00001558       0x36 ./src/SEGGER/SEGGER_RTT.o
+                0x00001558                SEGGER_RTT_GetKey
  .text._StoreChar
-                0x0000158a       0x7c ./src/SEGGER/SEGGER_RTT_printf.o
- *fill*         0x00001606        0x2 ff
+                0x0000158e       0x7c ./src/SEGGER/SEGGER_RTT_printf.o
+ *fill*         0x0000160a        0x2 ff
  .text._PrintUnsigned
-                0x00001608      0x15c ./src/SEGGER/SEGGER_RTT_printf.o
+                0x0000160c      0x15c ./src/SEGGER/SEGGER_RTT_printf.o
  .text._PrintInt
-                0x00001764      0x14e ./src/SEGGER/SEGGER_RTT_printf.o
- *fill*         0x000018b2        0x2 ff
+                0x00001768      0x14e ./src/SEGGER/SEGGER_RTT_printf.o
+ *fill*         0x000018b6        0x2 ff
  .text.SEGGER_RTT_vprintf
-                0x000018b4      0x3a8 ./src/SEGGER/SEGGER_RTT_printf.o
-                0x000018b4                SEGGER_RTT_vprintf
+                0x000018b8      0x3a8 ./src/SEGGER/SEGGER_RTT_printf.o
+                0x000018b8                SEGGER_RTT_vprintf
  .text.SEGGER_RTT_printf
-                0x00001c5c       0x30 ./src/SEGGER/SEGGER_RTT_printf.o
-                0x00001c5c                SEGGER_RTT_printf
+                0x00001c60       0x30 ./src/SEGGER/SEGGER_RTT_printf.o
+                0x00001c60                SEGGER_RTT_printf
  .text.application_define
-                0x00001c8c       0xac ./src/application.o
-                0x00001c8c                application_define
+                0x00001c90       0xac ./src/application.o
+                0x00001c90                application_define
  .text.application_get_status
-                0x00001d38       0x24 ./src/application.o
-                0x00001d38                application_get_status
+                0x00001d3c       0x24 ./src/application.o
+                0x00001d3c                application_get_status
  .text.application_thread_entry
-                0x00001d5c       0x90 ./src/application.o
-                0x00001d5c                application_thread_entry
+                0x00001d60       0x90 ./src/application.o
+                0x00001d60                application_thread_entry
  .text.blinky_thread_entry
-                0x00001dec        0xe ./src/blinky_thread_entry.o
-                0x00001dec                blinky_thread_entry
- *fill*         0x00001dfa        0x2 ff
+                0x00001df0        0xe ./src/blinky_thread_entry.o
+                0x00001df0                blinky_thread_entry
+ *fill*         0x00001dfe        0x2 ff
  .text.console_define
-                0x00001dfc      0x270 ./src/console.o
-                0x00001dfc                console_define
+                0x00001e00      0x270 ./src/console.o
+                0x00001e00                console_define
  .text.console_get_status
-                0x0000206c       0x24 ./src/console.o
-                0x0000206c                console_get_status
+                0x00002070       0x24 ./src/console.o
+                0x00002070                console_get_status
  .text.console_thread_entry
-                0x00002090       0xb0 ./src/console.o
-                0x00002090                console_thread_entry
+                0x00002094       0xb0 ./src/console.o
+                0x00002094                console_thread_entry
  .text.feature_start_callback
-                0x00002140       0x30 ./src/console_callbacks.o
-                0x00002140                feature_start_callback
+                0x00002144       0x30 ./src/console_callbacks.o
+                0x00002144                feature_start_callback
  .text.feature_status_callback
-                0x00002170       0xa4 ./src/console_callbacks.o
-                0x00002170                feature_status_callback
- *fill*         0x00002214        0x4 ff
+                0x00002174       0xa4 ./src/console_callbacks.o
+                0x00002174                feature_status_callback
  .text.custom_code_callback
                 0x00002218      0x194 ./src/console_callbacks.o
                 0x00002218                custom_code_callback
@@ -4424,127 +4683,130 @@ END GROUP
                 0x00008314                g_sf_console_on_sf_console
  .rodata        0x00008330       0x76 ./src/sf_console/sf_console.o
  *fill*         0x000083a6        0x2 ff
- .rodata        0x000083a8       0x17 ./src/SEGGER/SEGGER_RTT.o
- *fill*         0x000083bf        0x1 ff
+ .rodata        0x000083a8        0x9 ./src/SEGGER/SEGGER_RTT.o
+ *fill*         0x000083b1        0x3 ff
+ .rodata._aInitStr.0
+                0x000083b4       0x11 ./src/SEGGER/SEGGER_RTT.o
+ *fill*         0x000083c5        0x3 ff
  .rodata._aV2C.0
-                0x000083c0       0x10 ./src/SEGGER/SEGGER_RTT_printf.o
+                0x000083c8       0x10 ./src/SEGGER/SEGGER_RTT_printf.o
  .rodata.g_features
-                0x000083d0       0x50 ./src/application.o
- .rodata        0x00008420       0xae ./src/application.o
- *fill*         0x000084ce        0x2 ff
- .rodata        0x000084d0      0x2e9 ./src/console.o
- *fill*         0x000087b9        0x3 ff
+                0x000083d8       0x50 ./src/application.o
+ .rodata        0x00008428       0xae ./src/application.o
+ *fill*         0x000084d6        0x2 ff
+ .rodata        0x000084d8      0x2e9 ./src/console.o
+ *fill*         0x000087c1        0x3 ff
  .rodata.g_console_commands
-                0x000087bc       0x40 ./src/console.o
- .rodata        0x000087fc      0x150 ./src/console_callbacks.o
- .rodata        0x0000894c       0x46 ./src/hal_entry.o
- *fill*         0x00008992        0x2 ff
- .rodata        0x00008994        0xe ./ra_gen/blinky_thread.o
- *fill*         0x000089a2        0x2 ff
+                0x000087c4       0x40 ./src/console.o
+ .rodata        0x00008804      0x150 ./src/console_callbacks.o
+ .rodata        0x00008954       0x46 ./src/hal_entry.o
+ *fill*         0x0000899a        0x2 ff
+ .rodata        0x0000899c        0xe ./ra_gen/blinky_thread.o
+ *fill*         0x000089aa        0x2 ff
  .rodata.g_ioport
-                0x000089a4        0xc ./ra_gen/common_data.o
-                0x000089a4                g_ioport
- .rodata        0x000089b0       0x14 ./ra_gen/main.o
+                0x000089ac        0xc ./ra_gen/common_data.o
+                0x000089ac                g_ioport
+ .rodata        0x000089b8       0x14 ./ra_gen/main.o
  .rodata.g_bsp_pin_cfg_data
-                0x000089c4      0x298 ./ra_gen/pin_data.o
-                0x000089c4                g_bsp_pin_cfg_data
+                0x000089cc      0x298 ./ra_gen/pin_data.o
+                0x000089cc                g_bsp_pin_cfg_data
  .rodata.g_bsp_pin_cfg
-                0x00008c5c        0x8 ./ra_gen/pin_data.o
-                0x00008c5c                g_bsp_pin_cfg
+                0x00008c64        0x8 ./ra_gen/pin_data.o
+                0x00008c64                g_bsp_pin_cfg
  .rodata.g_ioport_on_ioport
-                0x00008c64       0x34 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00008c64                g_ioport_on_ioport
+                0x00008c6c       0x34 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00008c6c                g_ioport_on_ioport
  .rodata.g_vbatt_pins_input
-                0x00008c98        0x6 ./ra/fsp/src/r_ioport/r_ioport.o
- *fill*         0x00008c9e        0x2 ff
+                0x00008ca0        0x6 ./ra/fsp/src/r_ioport/r_ioport.o
+ *fill*         0x00008ca6        0x2 ff
  .rodata.g_interrupt_event_link_select
-                0x00008ca0       0xc0 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
-                0x00008ca0                g_interrupt_event_link_select
+                0x00008ca8       0xc0 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+                0x00008ca8                g_interrupt_event_link_select
  .rodata.g_prcr_masks
-                0x00008d60        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x00008d68        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
  .rodata._ctype_
-                0x00008d68      0x101 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-ctype_.o)
-                0x00008d68                _ctype_
+                0x00008d70      0x101 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-ctype_.o)
+                0x00008d70                _ctype_
  .rodata._printf_float.str1.1
-                0x00008e69       0x12 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_float.o)
+                0x00008e71       0x12 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_float.o)
  .rodata._printf_i.str1.1
-                0x00008e7b       0x22 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00008e83       0x22 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._dtoa_r.str1.1
-                0x00008e9d       0xb3 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-dtoa.o)
+                0x00008ea5       0xb3 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-dtoa.o)
                                  0xb5 (size before relaxing)
  .rodata._Balloc.str1.1
-                0x00008f50       0x7f n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
+                0x00008f58       0x7f n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
                                  0x96 (size before relaxing)
  .rodata.__multadd.str1.1
-                0x00008fcf       0x11 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
- *fill*         0x00008fcf        0x1 ff
+                0x00008fd7       0x11 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
+ *fill*         0x00008fd7        0x1 ff
  .rodata.__mprec_bigtens
-                0x00008fd0       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
-                0x00008fd0                __mprec_bigtens
+                0x00008fd8       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
+                0x00008fd8                __mprec_bigtens
  .rodata.__mprec_tens
-                0x00008ff8       0xc8 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
-                0x00008ff8                __mprec_tens
- .rodata.p05.0  0x000090c0        0xc n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
+                0x00009000       0xc8 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
+                0x00009000                __mprec_tens
+ .rodata.p05.0  0x000090c8        0xc n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
  .rodata._svfprintf_r.str1.1
-                0x000090cc       0x11 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000090d4       0x11 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._setlocale_r.str1.1
-                0x000090dd        0x8 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-locale.o)
+                0x000090e5        0x8 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-locale.o)
                                   0x9 (size before relaxing)
  .rodata.str1.1
-                0x000090e5        0x2 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-locale.o)
- *fill*         0x000090e7        0x1 ff
+                0x000090ed        0x2 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-locale.o)
+ *fill*         0x000090ef        0x1 ff
  .rodata.__sf_fake_stderr
-                0x000090e8       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x000090e8                __sf_fake_stderr
+                0x000090f0       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x000090f0                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x00009108       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x00009108                __sf_fake_stdin
+                0x00009110       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x00009110                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x00009128       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x00009128                __sf_fake_stdout
-                0x00009148                __usb_dev_descriptor_start_fs = .
+                0x00009130       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x00009130                __sf_fake_stdout
+                0x00009150                __usb_dev_descriptor_start_fs = .
  *(.usb_device_desc_fs*)
-                0x00009148                __usb_cfg_descriptor_start_fs = .
+                0x00009150                __usb_cfg_descriptor_start_fs = .
  *(.usb_config_desc_fs*)
-                0x00009148                __usb_interface_descriptor_start_fs = .
+                0x00009150                __usb_interface_descriptor_start_fs = .
  *(.usb_interface_desc_fs*)
-                0x00009148                __usb_descriptor_end_fs = .
-                0x00009148                __usb_dev_descriptor_start_hs = .
+                0x00009150                __usb_descriptor_end_fs = .
+                0x00009150                __usb_dev_descriptor_start_hs = .
  *(.usb_device_desc_hs*)
-                0x00009148                __usb_cfg_descriptor_start_hs = .
+                0x00009150                __usb_cfg_descriptor_start_hs = .
  *(.usb_config_desc_hs*)
-                0x00009148                __usb_interface_descriptor_start_hs = .
+                0x00009150                __usb_interface_descriptor_start_hs = .
  *(.usb_interface_desc_hs*)
-                0x00009148                __usb_descriptor_end_hs = .
+                0x00009150                __usb_descriptor_end_hs = .
  *(.eh_frame*)
- .eh_frame      0x00009148        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
- .eh_frame      0x00009148        0x4 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtend.o
-                0x0000914c                __ROM_End = .
+ .eh_frame      0x00009150        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .eh_frame      0x00009150        0x4 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtend.o
+                0x00009154                __ROM_End = .
                 0x00000040                __Vectors_Size = (__Vectors_End - __Vectors)
 
-.glue_7         0x0000914c        0x0
- .glue_7        0x0000914c        0x0 linker stubs
+.glue_7         0x00009154        0x0
+ .glue_7        0x00009154        0x0 linker stubs
 
-.glue_7t        0x0000914c        0x0
- .glue_7t       0x0000914c        0x0 linker stubs
+.glue_7t        0x00009154        0x0
+ .glue_7t       0x00009154        0x0 linker stubs
 
-.vfp11_veneer   0x0000914c        0x0
- .vfp11_veneer  0x0000914c        0x0 linker stubs
+.vfp11_veneer   0x00009154        0x0
+ .vfp11_veneer  0x00009154        0x0 linker stubs
 
-.v4_bx          0x0000914c        0x0
- .v4_bx         0x0000914c        0x0 linker stubs
+.v4_bx          0x00009154        0x0
+ .v4_bx         0x00009154        0x0 linker stubs
 
-.iplt           0x0000914c        0x0
- .iplt          0x0000914c        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.iplt           0x00009154        0x0
+ .iplt          0x00009154        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000914c                __exidx_start = .
+                0x00009154                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000914c                __exidx_end = .
-                0x0000914c                __etext = .
+                0x00009154                __exidx_end = .
+                0x00009154                __etext = .
                 0x20000000                __tz_RAM_S = ORIGIN (RAM)
 
 .fsp_dtc_vector_table
@@ -4552,7 +4814,7 @@ END GROUP
                 0x20000000                . = ORIGIN (RAM)
  *(.fsp_dtc_vector_table)
 
-.data           0x20000000      0x328 load address 0x0000914c
+.data           0x20000000      0x328 load address 0x00009154
                 0x20000000                __data_start__ = .
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __Code_In_RAM_Start = .
@@ -4594,23 +4856,23 @@ END GROUP
  *(.jcr*)
                 0x20000328                . = ALIGN (0x4)
                 0x20000328                __data_end__ = .
-                0x00009474                __dtcm_data_init_start = ((__etext + __data_end__) - __data_start__)
+                0x0000947c                __dtcm_data_init_start = ((__etext + __data_end__) - __data_start__)
 
-.igot.plt       0x20000328        0x0 load address 0x00009474
+.igot.plt       0x20000328        0x0 load address 0x0000947c
  .igot.plt      0x20000328        0x0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.dtcm_data      0x00000000        0x0 load address 0x00009474
+.dtcm_data      0x00000000        0x0 load address 0x0000947c
                 0x00000000                __tz_DTCM_S = ABSOLUTE (DTCM_START)
                 0x00000000                __dtcm_data_start__ = .
  *(.dtcm_data*)
                 0x00000000                __dtcm_data_end__ = .
 
-.dtcm_noinit    0x00000000        0x0 load address 0x00009474
+.dtcm_noinit    0x00000000        0x0 load address 0x0000947c
                 0x00000000                __dtcm_noinit_start = .
  *(.dtcm_noinit*)
                 0x00000000                __dtcm_noinit_end = .
                 0x00000000                __tz_DTCM_N = DEFINED (DTCM_NS_START)?ABSOLUTE (DTCM_NS_START):ALIGN (__dtcm_noinit_end, 0x2000)
-                0x00009474                DATA_END = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000947c                DATA_END = (LOADADDR (.data) + SIZEOF (.data))
                 0x00009800                SGSTUBS_LOC = (DEFINED (PROJECT_SECURE) && DEFINED (FLASH_NSC_START))?ABSOLUTE (FLASH_NSC_START):ALIGN (DATA_END, 0x400)
 
 .gnu.sgstubs    0x00009800        0x0
@@ -4629,10 +4891,10 @@ END GROUP
  *(.code_in_qspi*)
                 0x60000000                __qspi_flash_end__ = .
                 0x00000000                __qspi_flash_code_size__ = (__qspi_flash_end__ - __qspi_flash_start__)
-                0x00009474                __qspi_flash_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x0000947c                __qspi_flash_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .qspi_non_retentive
-                0x60000000        0x0 load address 0x00009474
+                0x60000000        0x0 load address 0x0000947c
                 0x60000000                __qspi_non_retentive_start__ = .
  *(.qspi_non_retentive*)
                 0x60000000                __qspi_non_retentive_end__ = .
@@ -4665,10 +4927,10 @@ END GROUP
  *(.code_in_ospi_device_0*)
                 0x68000000                __ospi_device_0_end__ = .
                 0x00000000                __ospi_device_0_code_size__ = (__ospi_device_0_end__ - __ospi_device_0_start__)
-                0x00009474                __ospi_device_0_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x0000947c                __ospi_device_0_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .ospi_device_0_non_retentive
-                0x68000000        0x0 load address 0x00009474
+                0x68000000        0x0 load address 0x0000947c
                 0x68000000                __ospi_device_0_non_retentive_start__ = .
  *(.ospi_device_0_non_retentive*)
                 0x68000000                __ospi_device_0_non_retentive_end__ = .
@@ -4685,10 +4947,10 @@ END GROUP
  *(.code_in_ospi_device_1*)
                 0x70000000                __ospi_device_1_end__ = .
                 0x00000000                __ospi_device_1_code_size__ = (__ospi_device_1_end__ - __ospi_device_1_start__)
-                0x00009474                __ospi_device_1_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x0000947c                __ospi_device_1_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .ospi_device_1_non_retentive
-                0x70000000        0x0 load address 0x00009474
+                0x70000000        0x0 load address 0x0000947c
                 0x70000000                __ospi_device_1_non_retentive_start__ = .
  *(.ospi_device_1_non_retentive*)
                 0x70000000                __ospi_device_1_non_retentive_end__ = .
@@ -5316,133 +5578,133 @@ LOAD linker stubs
  .comment       0x00000049       0x4a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
  .comment       0x00000049       0x4a ./ra/board/ra6m4_ek/board_init.o
 
-.debug_info     0x00000000    0x30ce5
+.debug_info     0x00000000    0x30d51
  .debug_info    0x00000000     0x192a ./src/sf_console/sf_console.o
  .debug_info    0x0000192a      0xa8b ./src/sf_console/sf_rtt_comms.o
- .debug_info    0x000023b5     0x1528 ./src/SEGGER/SEGGER_RTT.o
- .debug_info    0x000038dd      0x418 ./src/SEGGER/SEGGER_RTT_printf.o
- .debug_info    0x00003cf5      0x7ff ./src/application.o
- .debug_info    0x000044f4       0x85 ./src/blinky_thread_entry.o
- .debug_info    0x00004579     0x1487 ./src/console.o
- .debug_info    0x00005a00      0x8b8 ./src/console_callbacks.o
- .debug_info    0x000062b8     0x18c2 ./src/hal_entry.o
- .debug_info    0x00007b7a      0x518 ./ra_gen/blinky_thread.o
- .debug_info    0x00008092     0x1208 ./ra_gen/common_data.o
- .debug_info    0x0000929a       0x85 ./ra_gen/hal_data.o
- .debug_info    0x0000931f      0x5f8 ./ra_gen/main.o
- .debug_info    0x00009917      0xa07 ./ra_gen/pin_data.o
- .debug_info    0x0000a31e      0x788 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_info    0x0000aaa6      0x6c7 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_info    0x0000b16d      0x6cf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_info    0x0000b83c      0x780 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_info    0x0000bfbc      0x950 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_info    0x0000c90c       0xcf ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_info    0x0000c9db      0x661 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_info    0x0000d03c      0x612 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_info    0x0000d64e      0x67f ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_info    0x0000dccd      0x629 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_info    0x0000e2f6      0x70f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_info    0x0000ea05      0x639 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_info    0x0000f03e      0x617 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_info    0x0000f655      0x634 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_info    0x0000fc89      0x956 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_info    0x000105df      0xa66 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_info    0x00011045      0xb3f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_info    0x00011b84      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_info    0x00012110      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_info    0x0001269c      0x16d ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_info    0x00012809      0x345 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_info    0x00012b4e      0x311 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_info    0x00012e5f      0x1c6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_info    0x00013025      0x175 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_info    0x0001319a      0x64c ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_info    0x000137e6      0x76b ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_info    0x00013f51      0x6f6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_info    0x00014647      0x588 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_info    0x00014bcf      0x516 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_info    0x000150e5      0x71c ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_info    0x00015801      0xb54 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_info    0x00016355     0x448f ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_info    0x0001a7e4      0x91a ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_info    0x0001b0fe      0x4a8 ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_info    0x0001b5a6      0x88a ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_info    0x0001be30     0x6a35 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_info    0x00022865     0x5c9f ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_info    0x00028504      0x916 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_info    0x00028e1a      0x192 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_info    0x00028fac     0x13af ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_info    0x0002a35b       0xa3 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_info    0x0002a3fe     0x1db5 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_info    0x0002c1b3     0x3e63 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_info    0x00030016      0x1de ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_info    0x000301f4      0x113 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_info    0x00030307      0x136 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_info    0x0003043d      0x811 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_info    0x00030c4e       0x97 ./ra/board/ra6m4_ek/board_init.o
+ .debug_info    0x000023b5     0x1594 ./src/SEGGER/SEGGER_RTT.o
+ .debug_info    0x00003949      0x418 ./src/SEGGER/SEGGER_RTT_printf.o
+ .debug_info    0x00003d61      0x7ff ./src/application.o
+ .debug_info    0x00004560       0x85 ./src/blinky_thread_entry.o
+ .debug_info    0x000045e5     0x1487 ./src/console.o
+ .debug_info    0x00005a6c      0x8b8 ./src/console_callbacks.o
+ .debug_info    0x00006324     0x18c2 ./src/hal_entry.o
+ .debug_info    0x00007be6      0x518 ./ra_gen/blinky_thread.o
+ .debug_info    0x000080fe     0x1208 ./ra_gen/common_data.o
+ .debug_info    0x00009306       0x85 ./ra_gen/hal_data.o
+ .debug_info    0x0000938b      0x5f8 ./ra_gen/main.o
+ .debug_info    0x00009983      0xa07 ./ra_gen/pin_data.o
+ .debug_info    0x0000a38a      0x788 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_info    0x0000ab12      0x6c7 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_info    0x0000b1d9      0x6cf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_info    0x0000b8a8      0x780 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_info    0x0000c028      0x950 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_info    0x0000c978       0xcf ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_info    0x0000ca47      0x661 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_info    0x0000d0a8      0x612 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_info    0x0000d6ba      0x67f ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_info    0x0000dd39      0x629 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_info    0x0000e362      0x70f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_info    0x0000ea71      0x639 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_info    0x0000f0aa      0x617 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_info    0x0000f6c1      0x634 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_info    0x0000fcf5      0x956 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_info    0x0001064b      0xa66 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_info    0x000110b1      0xb3f ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_info    0x00011bf0      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_info    0x0001217c      0x58c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_info    0x00012708      0x16d ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_info    0x00012875      0x345 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_info    0x00012bba      0x311 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_info    0x00012ecb      0x1c6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_info    0x00013091      0x175 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_info    0x00013206      0x64c ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_info    0x00013852      0x76b ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_info    0x00013fbd      0x6f6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_info    0x000146b3      0x588 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_info    0x00014c3b      0x516 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_info    0x00015151      0x71c ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_info    0x0001586d      0xb54 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_info    0x000163c1     0x448f ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_info    0x0001a850      0x91a ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_info    0x0001b16a      0x4a8 ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_info    0x0001b612      0x88a ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_info    0x0001be9c     0x6a35 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_info    0x000228d1     0x5c9f ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_info    0x00028570      0x916 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_info    0x00028e86      0x192 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_info    0x00029018     0x13af ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_info    0x0002a3c7       0xa3 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_info    0x0002a46a     0x1db5 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_info    0x0002c21f     0x3e63 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_info    0x00030082      0x1de ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_info    0x00030260      0x113 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_info    0x00030373      0x136 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_info    0x000304a9      0x811 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_info    0x00030cba       0x97 ./ra/board/ra6m4_ek/board_init.o
 
-.debug_abbrev   0x00000000     0x56ad
+.debug_abbrev   0x00000000     0x5675
  .debug_abbrev  0x00000000      0x268 ./src/sf_console/sf_console.o
  .debug_abbrev  0x00000268      0x147 ./src/sf_console/sf_rtt_comms.o
- .debug_abbrev  0x000003af      0x22d ./src/SEGGER/SEGGER_RTT.o
- .debug_abbrev  0x000005dc      0x18d ./src/SEGGER/SEGGER_RTT_printf.o
- .debug_abbrev  0x00000769      0x186 ./src/application.o
- .debug_abbrev  0x000008ef       0x44 ./src/blinky_thread_entry.o
- .debug_abbrev  0x00000933      0x1ce ./src/console.o
- .debug_abbrev  0x00000b01      0x168 ./src/console_callbacks.o
- .debug_abbrev  0x00000c69      0x1b9 ./src/hal_entry.o
- .debug_abbrev  0x00000e22      0x12c ./ra_gen/blinky_thread.o
- .debug_abbrev  0x00000f4e      0x150 ./ra_gen/common_data.o
- .debug_abbrev  0x0000109e       0x44 ./ra_gen/hal_data.o
- .debug_abbrev  0x000010e2      0x12d ./ra_gen/main.o
- .debug_abbrev  0x0000120f       0xdc ./ra_gen/pin_data.o
- .debug_abbrev  0x000012eb      0x195 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_abbrev  0x00001480      0x180 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_abbrev  0x00001600      0x17b ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_abbrev  0x0000177b      0x19f ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_abbrev  0x0000191a       0xd9 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_abbrev  0x000019f3       0x87 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_abbrev  0x00001a7a      0x180 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_abbrev  0x00001bfa      0x17b ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_abbrev  0x00001d75      0x182 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_abbrev  0x00001ef7      0x182 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_abbrev  0x00002079      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_abbrev  0x0000221f       0xf9 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_abbrev  0x00002318      0x18b ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_abbrev  0x000024a3      0x182 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_abbrev  0x00002625      0x1ef ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_abbrev  0x00002814      0x224 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_abbrev  0x00002a38      0x24a ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_abbrev  0x00002c82      0x18d ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_abbrev  0x00002e0f      0x180 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_abbrev  0x00002f8f      0x120 ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_abbrev  0x000030af      0x185 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_abbrev  0x00003234       0xd8 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_abbrev  0x0000330c       0xd2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_abbrev  0x000033de       0xbf ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_abbrev  0x0000349d      0x133 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_abbrev  0x000035d0      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_abbrev  0x00003776      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_abbrev  0x0000391c      0x120 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_abbrev  0x00003a3c       0xc8 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_abbrev  0x00003b04      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_abbrev  0x00003caa      0x1a8 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_abbrev  0x00003e52      0x1cb ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_abbrev  0x0000401d      0x1a0 ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_abbrev  0x000041bd       0xcf ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_abbrev  0x0000428c      0x11b ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_abbrev  0x000043a7      0x3a8 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_abbrev  0x0000474f      0x2be ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_abbrev  0x00004a0d      0x15e ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_abbrev  0x00004b6b       0xd2 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_abbrev  0x00004c3d      0x210 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_abbrev  0x00004e4d       0x5e ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_abbrev  0x00004eab      0x1ed ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_abbrev  0x00005098      0x20e ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_abbrev  0x000052a6       0x4d ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_abbrev  0x000052f3       0x95 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_abbrev  0x00005388       0xc6 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_abbrev  0x0000544e      0x203 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_abbrev  0x00005651       0x5c ./ra/board/ra6m4_ek/board_init.o
+ .debug_abbrev  0x000003af      0x1f5 ./src/SEGGER/SEGGER_RTT.o
+ .debug_abbrev  0x000005a4      0x18d ./src/SEGGER/SEGGER_RTT_printf.o
+ .debug_abbrev  0x00000731      0x186 ./src/application.o
+ .debug_abbrev  0x000008b7       0x44 ./src/blinky_thread_entry.o
+ .debug_abbrev  0x000008fb      0x1ce ./src/console.o
+ .debug_abbrev  0x00000ac9      0x168 ./src/console_callbacks.o
+ .debug_abbrev  0x00000c31      0x1b9 ./src/hal_entry.o
+ .debug_abbrev  0x00000dea      0x12c ./ra_gen/blinky_thread.o
+ .debug_abbrev  0x00000f16      0x150 ./ra_gen/common_data.o
+ .debug_abbrev  0x00001066       0x44 ./ra_gen/hal_data.o
+ .debug_abbrev  0x000010aa      0x12d ./ra_gen/main.o
+ .debug_abbrev  0x000011d7       0xdc ./ra_gen/pin_data.o
+ .debug_abbrev  0x000012b3      0x195 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_abbrev  0x00001448      0x180 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_abbrev  0x000015c8      0x17b ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_abbrev  0x00001743      0x19f ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_abbrev  0x000018e2       0xd9 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_abbrev  0x000019bb       0x87 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_abbrev  0x00001a42      0x180 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_abbrev  0x00001bc2      0x17b ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_abbrev  0x00001d3d      0x182 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_abbrev  0x00001ebf      0x182 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_abbrev  0x00002041      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_abbrev  0x000021e7       0xf9 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_abbrev  0x000022e0      0x18b ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_abbrev  0x0000246b      0x182 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_abbrev  0x000025ed      0x1ef ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_abbrev  0x000027dc      0x224 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_abbrev  0x00002a00      0x24a ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_abbrev  0x00002c4a      0x18d ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_abbrev  0x00002dd7      0x180 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_abbrev  0x00002f57      0x120 ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_abbrev  0x00003077      0x185 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_abbrev  0x000031fc       0xd8 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_abbrev  0x000032d4       0xd2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_abbrev  0x000033a6       0xbf ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_abbrev  0x00003465      0x133 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_abbrev  0x00003598      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_abbrev  0x0000373e      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_abbrev  0x000038e4      0x120 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_abbrev  0x00003a04       0xc8 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_abbrev  0x00003acc      0x1a6 ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_abbrev  0x00003c72      0x1a8 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_abbrev  0x00003e1a      0x1cb ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_abbrev  0x00003fe5      0x1a0 ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_abbrev  0x00004185       0xcf ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_abbrev  0x00004254      0x11b ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_abbrev  0x0000436f      0x3a8 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_abbrev  0x00004717      0x2be ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_abbrev  0x000049d5      0x15e ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_abbrev  0x00004b33       0xd2 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_abbrev  0x00004c05      0x210 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_abbrev  0x00004e15       0x5e ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_abbrev  0x00004e73      0x1ed ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_abbrev  0x00005060      0x20e ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_abbrev  0x0000526e       0x4d ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_abbrev  0x000052bb       0x95 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_abbrev  0x00005350       0xc6 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_abbrev  0x00005416      0x203 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_abbrev  0x00005619       0x5c ./ra/board/ra6m4_ek/board_init.o
 
 .debug_aranges  0x00000000      0xba8
  .debug_aranges
@@ -5631,289 +5893,289 @@ LOAD linker stubs
  .debug_ranges  0x000007d0       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
  .debug_ranges  0x000007e8       0x10 ./ra/board/ra6m4_ek/board_init.o
 
-.debug_line     0x00000000     0xdd0e
+.debug_line     0x00000000     0xdded
  .debug_line    0x00000000      0xbe4 ./src/sf_console/sf_console.o
  .debug_line    0x00000be4      0x3b4 ./src/sf_console/sf_rtt_comms.o
- .debug_line    0x00000f98      0x9ce ./src/SEGGER/SEGGER_RTT.o
- .debug_line    0x00001966      0x44c ./src/SEGGER/SEGGER_RTT_printf.o
- .debug_line    0x00001db2      0x2d8 ./src/application.o
- .debug_line    0x0000208a       0x51 ./src/blinky_thread_entry.o
- .debug_line    0x000020db      0x4fe ./src/console.o
- .debug_line    0x000025d9      0x3da ./src/console_callbacks.o
- .debug_line    0x000029b3      0x4a6 ./src/hal_entry.o
- .debug_line    0x00002e59      0x283 ./ra_gen/blinky_thread.o
- .debug_line    0x000030dc      0x347 ./ra_gen/common_data.o
- .debug_line    0x00003423       0x4a ./ra_gen/hal_data.o
- .debug_line    0x0000346d      0x2f3 ./ra_gen/main.o
- .debug_line    0x00003760      0x22a ./ra_gen/pin_data.o
- .debug_line    0x0000398a      0x439 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_line    0x00003dc3      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_line    0x00004191      0x3bf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_line    0x00004550      0x4a3 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_line    0x000049f3      0x1fd ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_line    0x00004bf0      0x1b1 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_line    0x00004da1      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_line    0x0000516f      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_line    0x000054f0      0x3e5 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_line    0x000058d5      0x395 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_line    0x00005c6a      0x437 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_line    0x000060a1      0x198 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_line    0x00006239      0x397 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_line    0x000065d0      0x3d6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_line    0x000069a6      0x3a0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_line    0x00006d46      0x493 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_line    0x000071d9      0x4c2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_line    0x0000769b      0x391 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_line    0x00007a2c      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_line    0x00007dad      0x33c ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_line    0x000080e9      0x479 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_line    0x00008562      0x19b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_line    0x000086fd      0x1db ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_line    0x000088d8      0x1aa ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_line    0x00008a82      0x398 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_line    0x00008e1a      0x420 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_line    0x0000923a      0x419 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_line    0x00009653      0x351 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_line    0x000099a4      0x189 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_line    0x00009b2d      0x45d ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_line    0x00009f8a      0x4c2 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_line    0x0000a44c      0x44b ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_line    0x0000a897      0x3da ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_line    0x0000ac71      0x19a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_line    0x0000ae0b      0x37c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_line    0x0000b187      0x8d9 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_line    0x0000ba60      0x6ed ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_line    0x0000c14d      0x300 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_line    0x0000c44d      0x2bb ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_line    0x0000c708      0x350 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_line    0x0000ca58      0x1c8 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_line    0x0000cc20      0x43b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_line    0x0000d05b      0x3c8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_line    0x0000d423      0x161 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_line    0x0000d584      0x1a2 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_line    0x0000d726      0x19f ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_line    0x0000d8c5      0x3f5 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_line    0x0000dcba       0x54 ./ra/board/ra6m4_ek/board_init.o
+ .debug_line    0x00000f98      0xaad ./src/SEGGER/SEGGER_RTT.o
+ .debug_line    0x00001a45      0x44c ./src/SEGGER/SEGGER_RTT_printf.o
+ .debug_line    0x00001e91      0x2d8 ./src/application.o
+ .debug_line    0x00002169       0x51 ./src/blinky_thread_entry.o
+ .debug_line    0x000021ba      0x4fe ./src/console.o
+ .debug_line    0x000026b8      0x3da ./src/console_callbacks.o
+ .debug_line    0x00002a92      0x4a6 ./src/hal_entry.o
+ .debug_line    0x00002f38      0x283 ./ra_gen/blinky_thread.o
+ .debug_line    0x000031bb      0x347 ./ra_gen/common_data.o
+ .debug_line    0x00003502       0x4a ./ra_gen/hal_data.o
+ .debug_line    0x0000354c      0x2f3 ./ra_gen/main.o
+ .debug_line    0x0000383f      0x22a ./ra_gen/pin_data.o
+ .debug_line    0x00003a69      0x439 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_line    0x00003ea2      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_line    0x00004270      0x3bf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_line    0x0000462f      0x4a3 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_line    0x00004ad2      0x1fd ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_line    0x00004ccf      0x1b1 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_line    0x00004e80      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_line    0x0000524e      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_line    0x000055cf      0x3e5 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_line    0x000059b4      0x395 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_line    0x00005d49      0x437 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_line    0x00006180      0x198 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_line    0x00006318      0x397 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_line    0x000066af      0x3d6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_line    0x00006a85      0x3a0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_line    0x00006e25      0x493 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_line    0x000072b8      0x4c2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_line    0x0000777a      0x391 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_line    0x00007b0b      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_line    0x00007e8c      0x33c ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_line    0x000081c8      0x479 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_line    0x00008641      0x19b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_line    0x000087dc      0x1db ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_line    0x000089b7      0x1aa ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_line    0x00008b61      0x398 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_line    0x00008ef9      0x420 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_line    0x00009319      0x419 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_line    0x00009732      0x351 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_line    0x00009a83      0x189 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_line    0x00009c0c      0x45d ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_line    0x0000a069      0x4c2 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_line    0x0000a52b      0x44b ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_line    0x0000a976      0x3da ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_line    0x0000ad50      0x19a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_line    0x0000aeea      0x37c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_line    0x0000b266      0x8d9 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_line    0x0000bb3f      0x6ed ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_line    0x0000c22c      0x300 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_line    0x0000c52c      0x2bb ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_line    0x0000c7e7      0x350 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_line    0x0000cb37      0x1c8 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_line    0x0000ccff      0x43b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_line    0x0000d13a      0x3c8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_line    0x0000d502      0x161 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_line    0x0000d663      0x1a2 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_line    0x0000d805      0x19f ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_line    0x0000d9a4      0x3f5 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_line    0x0000dd99       0x54 ./ra/board/ra6m4_ek/board_init.o
 
-.debug_str      0x00000000     0xc152
+.debug_str      0x00000000     0xc168
  .debug_str     0x00000000     0x2023 ./src/sf_console/sf_console.o
                                0x20fe (size before relaxing)
  .debug_str     0x00002023       0xce ./src/sf_console/sf_rtt_comms.o
                                0x1bfa (size before relaxing)
- .debug_str     0x000020f1      0x4c8 ./src/SEGGER/SEGGER_RTT.o
-                                0x6b7 (size before relaxing)
- .debug_str     0x000025b9      0x117 ./src/SEGGER/SEGGER_RTT_printf.o
+ .debug_str     0x000020f1      0x4de ./src/SEGGER/SEGGER_RTT.o
+                                0x6d7 (size before relaxing)
+ .debug_str     0x000025cf      0x117 ./src/SEGGER/SEGGER_RTT_printf.o
                                 0x314 (size before relaxing)
- .debug_str     0x000026d0      0x8d0 ./src/application.o
+ .debug_str     0x000026e6      0x8d0 ./src/application.o
                                 0xb3a (size before relaxing)
- .debug_str     0x00002fa0       0x31 ./src/blinky_thread_entry.o
+ .debug_str     0x00002fb6       0x31 ./src/blinky_thread_entry.o
                                 0x1e7 (size before relaxing)
- .debug_str     0x00002fd1      0x119 ./src/console.o
+ .debug_str     0x00002fe7      0x119 ./src/console.o
                                0x270a (size before relaxing)
- .debug_str     0x000030ea       0xd6 ./src/console_callbacks.o
+ .debug_str     0x00003100       0xd6 ./src/console_callbacks.o
                                 0xbe1 (size before relaxing)
- .debug_str     0x000031c0     0x1843 ./src/hal_entry.o
+ .debug_str     0x000031d6     0x1843 ./src/hal_entry.o
                                0x3bb8 (size before relaxing)
- .debug_str     0x00004a03       0x7e ./ra_gen/blinky_thread.o
+ .debug_str     0x00004a19       0x7e ./ra_gen/blinky_thread.o
                                 0x85d (size before relaxing)
- .debug_str     0x00004a81       0x47 ./ra_gen/common_data.o
+ .debug_str     0x00004a97       0x47 ./ra_gen/common_data.o
                                0x3278 (size before relaxing)
- .debug_str     0x00004ac8       0x20 ./ra_gen/hal_data.o
+ .debug_str     0x00004ade       0x20 ./ra_gen/hal_data.o
                                 0x1d6 (size before relaxing)
- .debug_str     0x00004ae8      0x18d ./ra_gen/main.o
+ .debug_str     0x00004afe      0x18d ./ra_gen/main.o
                                 0x987 (size before relaxing)
- .debug_str     0x00004c75      0x648 ./ra_gen/pin_data.o
+ .debug_str     0x00004c8b      0x648 ./ra_gen/pin_data.o
                                0x1d5e (size before relaxing)
- .debug_str     0x000052bd      0x127 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_str     0x000052d3      0x127 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
                                 0xa4a (size before relaxing)
- .debug_str     0x000053e4       0x5b ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_str     0x000053fa       0x5b ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
                                 0xa13 (size before relaxing)
- .debug_str     0x0000543f       0xdf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_str     0x00005455       0xdf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
                                 0xa46 (size before relaxing)
- .debug_str     0x0000551e       0xdc ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_str     0x00005534       0xdc ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
                                 0xa7a (size before relaxing)
- .debug_str     0x000055fa      0x54d ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_str     0x00005610      0x54d ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
                                 0xf38 (size before relaxing)
- .debug_str     0x00005b47       0x7f ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_str     0x00005b5d       0x7f ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
                                 0x278 (size before relaxing)
- .debug_str     0x00005bc6       0x69 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_str     0x00005bdc       0x69 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
                                 0x999 (size before relaxing)
- .debug_str     0x00005c2f       0x89 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_str     0x00005c45       0x89 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
                                 0x9a0 (size before relaxing)
- .debug_str     0x00005cb8       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_str     0x00005cce       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
                                 0x997 (size before relaxing)
- .debug_str     0x00005d0b       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_str     0x00005d21       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
                                 0x97d (size before relaxing)
- .debug_str     0x00005d5e       0xec ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_str     0x00005d74       0xec ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
                                 0x99d (size before relaxing)
- .debug_str     0x00005e4a      0x119 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_str     0x00005e60      0x119 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
                                 0x950 (size before relaxing)
- .debug_str     0x00005f63       0x95 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_str     0x00005f79       0x95 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
                                 0x8ed (size before relaxing)
- .debug_str     0x00005ff8       0x5d ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_str     0x0000600e       0x5d ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
                                 0x8c6 (size before relaxing)
- .debug_str     0x00006055      0x1e6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_str     0x0000606b      0x1e6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
                                 0xa4b (size before relaxing)
- .debug_str     0x0000623b       0x80 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_str     0x00006251       0x80 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
                                 0xacd (size before relaxing)
- .debug_str     0x000062bb       0xa0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_str     0x000062d1       0xa0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
                                 0xb16 (size before relaxing)
- .debug_str     0x0000635b       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_str     0x00006371       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
                                 0x8fd (size before relaxing)
- .debug_str     0x000063d3       0x63 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_str     0x000063e9       0x63 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
                                 0x8af (size before relaxing)
- .debug_str     0x00006436       0x6a ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_str     0x0000644c       0x6a ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
                                 0x282 (size before relaxing)
- .debug_str     0x000064a0      0x139 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_str     0x000064b6      0x139 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
                                 0x487 (size before relaxing)
- .debug_str     0x000065d9      0x10b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_str     0x000065ef      0x10b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
                                 0x4b4 (size before relaxing)
- .debug_str     0x000066e4       0x79 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_str     0x000066fa       0x79 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
                                 0x3c4 (size before relaxing)
- .debug_str     0x0000675d       0x67 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_str     0x00006773       0x67 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
                                 0x363 (size before relaxing)
- .debug_str     0x000067c4       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_str     0x000067da       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
                                 0x9b3 (size before relaxing)
- .debug_str     0x00006819       0x73 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_str     0x0000682f       0x73 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
                                 0xa68 (size before relaxing)
- .debug_str     0x0000688c       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_str     0x000068a2       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
                                 0x9f1 (size before relaxing)
- .debug_str     0x00006904       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_str     0x0000691a       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
                                 0x922 (size before relaxing)
- .debug_str     0x00006959       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_str     0x0000696f       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
                                 0x8d8 (size before relaxing)
- .debug_str     0x000069ae       0x7a ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_str     0x000069c4       0x7a ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
                                 0x98d (size before relaxing)
- .debug_str     0x00006a28      0x431 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_str     0x00006a3e      0x431 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
                                 0x7b1 (size before relaxing)
- .debug_str     0x00006e59     0x160a ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_str     0x00006e6f     0x160a ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
                                0x2113 (size before relaxing)
- .debug_str     0x00008463       0x66 ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_str     0x00008479       0x66 ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
                                 0x9f8 (size before relaxing)
- .debug_str     0x000084c9       0x5a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_str     0x000084df       0x5a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
                                 0x80b (size before relaxing)
- .debug_str     0x00008523       0x47 ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_str     0x00008539       0x47 ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
                                 0xa21 (size before relaxing)
- .debug_str     0x0000856a      0x896 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_str     0x00008580      0x896 ./ra/fsp/src/r_ioport/r_ioport.o
                                0x56e0 (size before relaxing)
- .debug_str     0x00008e00      0xb0e ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_str     0x00008e16      0xb0e ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
                                0x251a (size before relaxing)
- .debug_str     0x0000990e       0xf5 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_str     0x00009924       0xf5 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
                                0x1b8c (size before relaxing)
- .debug_str     0x00009a03       0xd0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_str     0x00009a19       0xd0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
                                 0x305 (size before relaxing)
- .debug_str     0x00009ad3      0x528 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_str     0x00009ae9      0x528 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
                                0x2097 (size before relaxing)
- .debug_str     0x00009ffb       0x23 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_str     0x0000a011       0x23 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
                                 0x205 (size before relaxing)
- .debug_str     0x0000a01e     0x1cec ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_str     0x0000a034     0x1cec ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
                                0x23c7 (size before relaxing)
- .debug_str     0x0000bd0a       0xc1 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_str     0x0000bd20       0xc1 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
                                0x1abc (size before relaxing)
- .debug_str     0x0000bdcb      0x197 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_str     0x0000bde1      0x197 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
                                 0x361 (size before relaxing)
- .debug_str     0x0000bf62       0x8e ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_str     0x0000bf78       0x8e ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
                                 0x25e (size before relaxing)
- .debug_str     0x0000bff0       0x74 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_str     0x0000c006       0x74 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
                                 0x246 (size before relaxing)
- .debug_str     0x0000c064       0xc3 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_str     0x0000c07a       0xc3 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
                                 0x5a5 (size before relaxing)
- .debug_str     0x0000c127       0x2b ./ra/board/ra6m4_ek/board_init.o
+ .debug_str     0x0000c13d       0x2b ./ra/board/ra6m4_ek/board_init.o
                                 0x1e8 (size before relaxing)
 
-.debug_frame    0x00000000     0x2fac
+.debug_frame    0x00000000     0x2fa8
  .debug_frame   0x00000000      0x344 ./src/sf_console/sf_console.o
  .debug_frame   0x00000344       0xf8 ./src/sf_console/sf_rtt_comms.o
- .debug_frame   0x0000043c      0x530 ./src/SEGGER/SEGGER_RTT.o
- .debug_frame   0x0000096c       0xe0 ./src/SEGGER/SEGGER_RTT_printf.o
- .debug_frame   0x00000a4c       0x8c ./src/application.o
- .debug_frame   0x00000ad8       0x30 ./src/blinky_thread_entry.o
- .debug_frame   0x00000b08       0x84 ./src/console.o
- .debug_frame   0x00000b8c       0xa8 ./src/console_callbacks.o
- .debug_frame   0x00000c34       0x58 ./src/hal_entry.o
- .debug_frame   0x00000c8c       0x58 ./ra_gen/blinky_thread.o
- .debug_frame   0x00000ce4       0x30 ./ra_gen/common_data.o
- .debug_frame   0x00000d14       0x2c ./ra_gen/hal_data.o
- .debug_frame   0x00000d40       0xc4 ./ra_gen/main.o
- .debug_frame   0x00000e04       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_frame   0x00000e38       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_frame   0x00000e6c       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_frame   0x00000ea0       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_frame   0x00000ed8       0x2c ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_frame   0x00000f04       0x2c ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_frame   0x00000f30       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_frame   0x00000f64       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_frame   0x00000f98       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_frame   0x00000fcc       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_frame   0x00001000       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_frame   0x00001034       0x30 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_frame   0x00001064       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_frame   0x00001098       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_frame   0x000010cc       0x5c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_frame   0x00001128       0x5c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_frame   0x00001184       0x5c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_frame   0x000011e0       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_frame   0x00001218       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_frame   0x0000124c       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_frame   0x00001284       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_frame   0x000012b8       0x30 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_frame   0x000012e8       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_frame   0x00001320       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_frame   0x00001358       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_frame   0x0000138c       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_frame   0x000013c0       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_frame   0x000013f4       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_frame   0x00001428       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_frame   0x0000145c       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_frame   0x00001494       0x78 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_frame   0x0000150c       0x38 ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_frame   0x00001544       0x7c ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_frame   0x000015c0       0x34 ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_frame   0x000015f4       0x2c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_frame   0x00001620      0x314 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_frame   0x00001934      0x24c ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_frame   0x00001b80       0x7c ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_frame   0x00001bfc       0x50 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_frame   0x00001c4c       0x80 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_frame   0x00001ccc       0x34 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_frame   0x00001d00       0x60 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_frame   0x00001d60       0x34 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_frame   0x00001d94       0x4c ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_frame   0x00001de0       0x5c ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_frame   0x00001e3c       0x38 ./ra/board/ra6m4_ek/board_init.o
- .debug_frame   0x00001e74       0xac n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00001f20       0x50 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00001f70       0xc4 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x00002034       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-atoi.o)
- .debug_frame   0x00002064       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00002084       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x000020ac       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memset.o)
- .debug_frame   0x000020cc       0xa0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_float.o)
- .debug_frame   0x0000216c       0x60 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x000021cc       0x7c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-snprintf.o)
- .debug_frame   0x00002248       0x64 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-strtol.o)
- .debug_frame   0x000022ac       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-time.o)
- .debug_frame   0x000022d8       0x88 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-dtoa.o)
- .debug_frame   0x00002360       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-gettimeofdayr.o)
- .debug_frame   0x0000238c       0x40 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-localeconv.o)
- .debug_frame   0x000023cc       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-malloc.o)
- .debug_frame   0x000023fc       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memchr-stub.o)
- .debug_frame   0x00002424      0x25c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
- .debug_frame   0x00002680       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-callocr.o)
- .debug_frame   0x000026b0       0x38 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x000026e8       0x4c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00002734       0x90 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x000027c4       0x5c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-reent.o)
- .debug_frame   0x00002820       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x0000284c       0x48 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-locale.o)
- .debug_frame   0x00002894       0x48 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mbtowc_r.o)
- .debug_frame   0x000028dc       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x00002904       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x00002934       0x3c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x00002970       0x3c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-wctomb_r.o)
- .debug_frame   0x000029ac       0xb0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-lock.o)
- .debug_frame   0x00002a5c       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-msizer.o)
- .debug_frame   0x00002a7c       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_unorddf2.o)
- .debug_frame   0x00002a9c       0x24 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixdfsi.o)
- .debug_frame   0x00002ac0      0x3a0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
- .debug_frame   0x00002e60      0x14c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)
+ .debug_frame   0x0000043c      0x52c ./src/SEGGER/SEGGER_RTT.o
+ .debug_frame   0x00000968       0xe0 ./src/SEGGER/SEGGER_RTT_printf.o
+ .debug_frame   0x00000a48       0x8c ./src/application.o
+ .debug_frame   0x00000ad4       0x30 ./src/blinky_thread_entry.o
+ .debug_frame   0x00000b04       0x84 ./src/console.o
+ .debug_frame   0x00000b88       0xa8 ./src/console_callbacks.o
+ .debug_frame   0x00000c30       0x58 ./src/hal_entry.o
+ .debug_frame   0x00000c88       0x58 ./ra_gen/blinky_thread.o
+ .debug_frame   0x00000ce0       0x30 ./ra_gen/common_data.o
+ .debug_frame   0x00000d10       0x2c ./ra_gen/hal_data.o
+ .debug_frame   0x00000d3c       0xc4 ./ra_gen/main.o
+ .debug_frame   0x00000e00       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_frame   0x00000e34       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_frame   0x00000e68       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_frame   0x00000e9c       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_frame   0x00000ed4       0x2c ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_frame   0x00000f00       0x2c ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_frame   0x00000f2c       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_frame   0x00000f60       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_frame   0x00000f94       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_frame   0x00000fc8       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_frame   0x00000ffc       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_frame   0x00001030       0x30 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_frame   0x00001060       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_frame   0x00001094       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_frame   0x000010c8       0x5c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_frame   0x00001124       0x5c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_frame   0x00001180       0x5c ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_frame   0x000011dc       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_frame   0x00001214       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_frame   0x00001248       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_frame   0x00001280       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_frame   0x000012b4       0x30 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_frame   0x000012e4       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_frame   0x0000131c       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_frame   0x00001354       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_frame   0x00001388       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_frame   0x000013bc       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_frame   0x000013f0       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_frame   0x00001424       0x34 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_frame   0x00001458       0x38 ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_frame   0x00001490       0x78 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_frame   0x00001508       0x38 ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_frame   0x00001540       0x7c ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_frame   0x000015bc       0x34 ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_frame   0x000015f0       0x2c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_frame   0x0000161c      0x314 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_frame   0x00001930      0x24c ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_frame   0x00001b7c       0x7c ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_frame   0x00001bf8       0x50 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_frame   0x00001c48       0x80 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_frame   0x00001cc8       0x34 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_frame   0x00001cfc       0x60 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_frame   0x00001d5c       0x34 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_frame   0x00001d90       0x4c ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_frame   0x00001ddc       0x5c ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_frame   0x00001e38       0x38 ./ra/board/ra6m4_ek/board_init.o
+ .debug_frame   0x00001e70       0xac n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00001f1c       0x50 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00001f6c       0xc4 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x00002030       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-atoi.o)
+ .debug_frame   0x00002060       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00002080       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000020a8       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x000020c8       0xa0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_float.o)
+ .debug_frame   0x00002168       0x60 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x000021c8       0x7c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-snprintf.o)
+ .debug_frame   0x00002244       0x64 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-strtol.o)
+ .debug_frame   0x000022a8       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-time.o)
+ .debug_frame   0x000022d4       0x88 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-dtoa.o)
+ .debug_frame   0x0000235c       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-gettimeofdayr.o)
+ .debug_frame   0x00002388       0x40 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-localeconv.o)
+ .debug_frame   0x000023c8       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-malloc.o)
+ .debug_frame   0x000023f8       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memchr-stub.o)
+ .debug_frame   0x00002420      0x25c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mprec.o)
+ .debug_frame   0x0000267c       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-callocr.o)
+ .debug_frame   0x000026ac       0x38 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x000026e4       0x4c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00002730       0x90 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x000027c0       0x5c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000281c       0x2c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00002848       0x48 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-locale.o)
+ .debug_frame   0x00002890       0x48 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mbtowc_r.o)
+ .debug_frame   0x000028d8       0x28 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x00002900       0x30 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00002930       0x3c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x0000296c       0x3c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-wctomb_r.o)
+ .debug_frame   0x000029a8       0xb0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-lock.o)
+ .debug_frame   0x00002a58       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x00002a78       0x20 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_unorddf2.o)
+ .debug_frame   0x00002a98       0x24 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x00002abc      0x3a0 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\librdimon_nano.a(rdimon-syscalls.o)
+ .debug_frame   0x00002e5c      0x14c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(lib_a-findfp.o)

@@ -61,6 +61,7 @@ ra/fsp/src/rm_threadx_port \
 ra/microsoft/azure-rtos/threadx/common/src \
 ra_gen \
 src/SEGGER \
+src/SEGGER/Syscalls \
 src \
 src/sf_console \
 
