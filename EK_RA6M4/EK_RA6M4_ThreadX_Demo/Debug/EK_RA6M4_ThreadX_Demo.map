@@ -21,7 +21,7 @@ n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-init.o)
                               n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/rdimon-crt0.o (__libc_init_array)
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memcpy-stub.o)
-                              ./src/SEGGER_RTT/SEGGER_RTT.o (memcpy)
+                              ./src/SEGGER/SEGGER_RTT.o (memcpy)
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-memset.o)
                               n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/rdimon-crt0.o (memset)
 n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libg_nano.a(lib_a-nano-vfprintf_float.o)
@@ -125,68 +125,68 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/sf_console/sf_rtt_comms.o
  .data          0x00000000        0x0 ./src/sf_console/sf_rtt_comms.o
  .bss           0x00000000        0x0 ./src/sf_console/sf_rtt_comms.o
- .text          0x00000000        0x0 ./src/SEGGER_RTT/SEGGER_RTT.o
- .data          0x00000000        0x0 ./src/SEGGER_RTT/SEGGER_RTT.o
- .bss           0x00000000        0x0 ./src/SEGGER_RTT/SEGGER_RTT.o
+ .text          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT.o
+ .data          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT.o
+ .bss           0x00000000        0x0 ./src/SEGGER/SEGGER_RTT.o
  .data._aTerminalId
-                0x00000000       0x10 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x10 ./src/SEGGER/SEGGER_RTT.o
  .bss._ActiveTerminal
-                0x00000000        0x1 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000        0x1 ./src/SEGGER/SEGGER_RTT.o
  .text._PostTerminalSwitch
-                0x00000000       0x34 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x34 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_ReadUpBufferNoLock
-                0x00000000      0x10c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000      0x10c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_ReadUpBuffer
-                0x00000000       0x36 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x36 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_WriteWithOverwriteNoLock
-                0x00000000      0x124 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000      0x124 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_WriteDownBufferNoLock
-                0x00000000       0xa0 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0xa0 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_WriteDownBuffer
-                0x00000000       0x4c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x4c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_WriteString
-                0x00000000       0x26 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x26 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_PutCharSkipNoLock
-                0x00000000       0x78 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x78 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_PutCharSkip
-                0x00000000       0x98 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x98 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_WaitKey
-                0x00000000       0x1c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x1c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_HasKey
-                0x00000000       0x48 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x48 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_HasData
-                0x00000000       0x38 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x38 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_HasDataUp
-                0x00000000       0x38 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x38 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_AllocDownBuffer
-                0x00000000      0x104 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000      0x104 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_AllocUpBuffer
-                0x00000000      0x108 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000      0x108 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_ConfigUpBuffer
-                0x00000000       0x94 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x94 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_ConfigDownBuffer
-                0x00000000       0x98 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x98 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_SetNameUpBuffer
-                0x00000000       0x6c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x6c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_SetNameDownBuffer
-                0x00000000       0x6c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x6c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_SetFlagsUpBuffer
-                0x00000000       0x6c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x6c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_SetFlagsDownBuffer
-                0x00000000       0x6c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x6c ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_Init
-                0x00000000        0xc ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000        0xc ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_SetTerminal
-                0x00000000       0xb8 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0xb8 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_TerminalOut
-                0x00000000      0x128 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000      0x128 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_GetAvailWriteSpace
-                0x00000000       0x30 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000000       0x30 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_GetBytesInBuffer
-                0x00000000       0x74 ./src/SEGGER_RTT/SEGGER_RTT.o
- .text          0x00000000        0x0 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
- .data          0x00000000        0x0 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
- .bss           0x00000000        0x0 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x00000000       0x74 ./src/SEGGER/SEGGER_RTT.o
+ .text          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_printf.o
+ .data          0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_printf.o
+ .bss           0x00000000        0x0 ./src/SEGGER/SEGGER_RTT_printf.o
  .text          0x00000000        0x0 ./src/application.o
  .data          0x00000000        0x0 ./src/application.o
  .bss           0x00000000        0x0 ./src/application.o
@@ -3477,8 +3477,8 @@ LOAD n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-
 START GROUP
 LOAD ./src/sf_console/sf_console.o
 LOAD ./src/sf_console/sf_rtt_comms.o
-LOAD ./src/SEGGER_RTT/SEGGER_RTT.o
-LOAD ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+LOAD ./src/SEGGER/SEGGER_RTT.o
+LOAD ./src/SEGGER/SEGGER_RTT_printf.o
 LOAD ./src/application.o
 LOAD ./src/blinky_thread_entry.o
 LOAD ./src/console.o
@@ -3883,45 +3883,45 @@ END GROUP
                 0x00001018       0x1e ./src/sf_console/sf_rtt_comms.o
                 0x00001018                SF_RTT_COMMS_Unlock
  *fill*         0x00001036        0x2 ff
- .text._DoInit  0x00001038       0xb0 ./src/SEGGER_RTT/SEGGER_RTT.o
+ .text._DoInit  0x00001038       0xb0 ./src/SEGGER/SEGGER_RTT.o
  .text._WriteBlocking
-                0x000010e8       0xba ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x000010e8       0xba ./src/SEGGER/SEGGER_RTT.o
  .text._WriteNoCheck
-                0x000011a2       0x90 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x000011a2       0x90 ./src/SEGGER/SEGGER_RTT.o
  .text._GetAvailWriteSpace
-                0x00001232       0x46 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00001232       0x46 ./src/SEGGER/SEGGER_RTT.o
  .text.SEGGER_RTT_ReadNoLock
-                0x00001278      0x10c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00001278      0x10c ./src/SEGGER/SEGGER_RTT.o
                 0x00001278                SEGGER_RTT_ReadNoLock
  .text.SEGGER_RTT_Read
-                0x00001384       0x36 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00001384       0x36 ./src/SEGGER/SEGGER_RTT.o
                 0x00001384                SEGGER_RTT_Read
  *fill*         0x000013ba        0x2 ff
  .text.SEGGER_RTT_WriteNoLock
-                0x000013bc       0xa0 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x000013bc       0xa0 ./src/SEGGER/SEGGER_RTT.o
                 0x000013bc                SEGGER_RTT_WriteNoLock
  .text.SEGGER_RTT_Write
-                0x0000145c       0x4c ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x0000145c       0x4c ./src/SEGGER/SEGGER_RTT.o
                 0x0000145c                SEGGER_RTT_Write
  .text.SEGGER_RTT_PutChar
-                0x000014a8       0xac ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x000014a8       0xac ./src/SEGGER/SEGGER_RTT.o
                 0x000014a8                SEGGER_RTT_PutChar
  .text.SEGGER_RTT_GetKey
-                0x00001554       0x36 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00001554       0x36 ./src/SEGGER/SEGGER_RTT.o
                 0x00001554                SEGGER_RTT_GetKey
  .text._StoreChar
-                0x0000158a       0x7c ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x0000158a       0x7c ./src/SEGGER/SEGGER_RTT_printf.o
  *fill*         0x00001606        0x2 ff
  .text._PrintUnsigned
-                0x00001608      0x15c ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x00001608      0x15c ./src/SEGGER/SEGGER_RTT_printf.o
  .text._PrintInt
-                0x00001764      0x14e ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x00001764      0x14e ./src/SEGGER/SEGGER_RTT_printf.o
  *fill*         0x000018b2        0x2 ff
  .text.SEGGER_RTT_vprintf
-                0x000018b4      0x3a8 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x000018b4      0x3a8 ./src/SEGGER/SEGGER_RTT_printf.o
                 0x000018b4                SEGGER_RTT_vprintf
  .text.SEGGER_RTT_printf
-                0x00001c5c       0x30 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x00001c5c       0x30 ./src/SEGGER/SEGGER_RTT_printf.o
                 0x00001c5c                SEGGER_RTT_printf
  .text.application_define
                 0x00001c8c       0xac ./src/application.o
@@ -4424,10 +4424,10 @@ END GROUP
                 0x00008314                g_sf_console_on_sf_console
  .rodata        0x00008330       0x76 ./src/sf_console/sf_console.o
  *fill*         0x000083a6        0x2 ff
- .rodata        0x000083a8       0x17 ./src/SEGGER_RTT/SEGGER_RTT.o
+ .rodata        0x000083a8       0x17 ./src/SEGGER/SEGGER_RTT.o
  *fill*         0x000083bf        0x1 ff
  .rodata._aV2C.0
-                0x000083c0       0x10 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x000083c0       0x10 ./src/SEGGER/SEGGER_RTT_printf.o
  .rodata.g_features
                 0x000083d0       0x50 ./src/application.o
  .rodata        0x00008420       0xae ./src/application.o
@@ -4714,12 +4714,12 @@ END GROUP
  *(.bss*)
  .bss           0x20000348       0x1c n:/renesas/ra/e2studio_v2023-04_fsp_v4.5.0/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
  .bss._SEGGER_RTT
-                0x20000364       0xa8 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x20000364       0xa8 ./src/SEGGER/SEGGER_RTT.o
                 0x20000364                _SEGGER_RTT
  .bss._acUpBuffer
-                0x2000040c      0x400 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x2000040c      0x400 ./src/SEGGER/SEGGER_RTT.o
  .bss._acDownBuffer
-                0x2000080c       0x10 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x2000080c       0x10 ./src/SEGGER/SEGGER_RTT.o
  *fill*         0x2000081c        0x4 
  .bss.prev_time.1
                 0x20000820        0x8 ./src/application.o
@@ -5049,9 +5049,9 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000094       0x3a ./src/sf_console/sf_rtt_comms.o
  .ARM.attributes
-                0x000000ce       0x3a ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x000000ce       0x3a ./src/SEGGER/SEGGER_RTT.o
  .ARM.attributes
-                0x00000108       0x3a ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x00000108       0x3a ./src/SEGGER/SEGGER_RTT_printf.o
  .ARM.attributes
                 0x00000142       0x3a ./src/application.o
  .ARM.attributes
@@ -5255,8 +5255,8 @@ LOAD linker stubs
  .comment       0x00000000       0x49 ./src/sf_console/sf_console.o
                                  0x4a (size before relaxing)
  .comment       0x00000049       0x4a ./src/sf_console/sf_rtt_comms.o
- .comment       0x00000049       0x4a ./src/SEGGER_RTT/SEGGER_RTT.o
- .comment       0x00000049       0x4a ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+ .comment       0x00000049       0x4a ./src/SEGGER/SEGGER_RTT.o
+ .comment       0x00000049       0x4a ./src/SEGGER/SEGGER_RTT_printf.o
  .comment       0x00000049       0x4a ./src/application.o
  .comment       0x00000049       0x4a ./src/blinky_thread_entry.o
  .comment       0x00000049       0x4a ./src/console.o
@@ -5319,8 +5319,8 @@ LOAD linker stubs
 .debug_info     0x00000000    0x30ce5
  .debug_info    0x00000000     0x192a ./src/sf_console/sf_console.o
  .debug_info    0x0000192a      0xa8b ./src/sf_console/sf_rtt_comms.o
- .debug_info    0x000023b5     0x1528 ./src/SEGGER_RTT/SEGGER_RTT.o
- .debug_info    0x000038dd      0x418 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+ .debug_info    0x000023b5     0x1528 ./src/SEGGER/SEGGER_RTT.o
+ .debug_info    0x000038dd      0x418 ./src/SEGGER/SEGGER_RTT_printf.o
  .debug_info    0x00003cf5      0x7ff ./src/application.o
  .debug_info    0x000044f4       0x85 ./src/blinky_thread_entry.o
  .debug_info    0x00004579     0x1487 ./src/console.o
@@ -5383,8 +5383,8 @@ LOAD linker stubs
 .debug_abbrev   0x00000000     0x56ad
  .debug_abbrev  0x00000000      0x268 ./src/sf_console/sf_console.o
  .debug_abbrev  0x00000268      0x147 ./src/sf_console/sf_rtt_comms.o
- .debug_abbrev  0x000003af      0x22d ./src/SEGGER_RTT/SEGGER_RTT.o
- .debug_abbrev  0x000005dc      0x18d ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+ .debug_abbrev  0x000003af      0x22d ./src/SEGGER/SEGGER_RTT.o
+ .debug_abbrev  0x000005dc      0x18d ./src/SEGGER/SEGGER_RTT_printf.o
  .debug_abbrev  0x00000769      0x186 ./src/application.o
  .debug_abbrev  0x000008ef       0x44 ./src/blinky_thread_entry.o
  .debug_abbrev  0x00000933      0x1ce ./src/console.o
@@ -5450,9 +5450,9 @@ LOAD linker stubs
  .debug_aranges
                 0x000000c8       0x48 ./src/sf_console/sf_rtt_comms.o
  .debug_aranges
-                0x00000110      0x138 ./src/SEGGER_RTT/SEGGER_RTT.o
+                0x00000110      0x138 ./src/SEGGER/SEGGER_RTT.o
  .debug_aranges
-                0x00000248       0x40 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+                0x00000248       0x40 ./src/SEGGER/SEGGER_RTT_printf.o
  .debug_aranges
                 0x00000288       0x30 ./src/application.o
  .debug_aranges
@@ -5573,8 +5573,8 @@ LOAD linker stubs
 .debug_ranges   0x00000000      0x7f8
  .debug_ranges  0x00000000       0xe8 ./src/sf_console/sf_console.o
  .debug_ranges  0x000000e8       0x38 ./src/sf_console/sf_rtt_comms.o
- .debug_ranges  0x00000120      0x128 ./src/SEGGER_RTT/SEGGER_RTT.o
- .debug_ranges  0x00000248       0x48 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+ .debug_ranges  0x00000120      0x128 ./src/SEGGER/SEGGER_RTT.o
+ .debug_ranges  0x00000248       0x48 ./src/SEGGER/SEGGER_RTT_printf.o
  .debug_ranges  0x00000290       0x20 ./src/application.o
  .debug_ranges  0x000002b0       0x10 ./src/blinky_thread_entry.o
  .debug_ranges  0x000002c0       0x20 ./src/console.o
@@ -5631,201 +5631,201 @@ LOAD linker stubs
  .debug_ranges  0x000007d0       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
  .debug_ranges  0x000007e8       0x10 ./ra/board/ra6m4_ek/board_init.o
 
-.debug_line     0x00000000     0xdcbc
+.debug_line     0x00000000     0xdd0e
  .debug_line    0x00000000      0xbe4 ./src/sf_console/sf_console.o
  .debug_line    0x00000be4      0x3b4 ./src/sf_console/sf_rtt_comms.o
- .debug_line    0x00000f98      0x978 ./src/SEGGER_RTT/SEGGER_RTT.o
- .debug_line    0x00001910      0x450 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
- .debug_line    0x00001d60      0x2d8 ./src/application.o
- .debug_line    0x00002038       0x51 ./src/blinky_thread_entry.o
- .debug_line    0x00002089      0x4fe ./src/console.o
- .debug_line    0x00002587      0x3da ./src/console_callbacks.o
- .debug_line    0x00002961      0x4a6 ./src/hal_entry.o
- .debug_line    0x00002e07      0x283 ./ra_gen/blinky_thread.o
- .debug_line    0x0000308a      0x347 ./ra_gen/common_data.o
- .debug_line    0x000033d1       0x4a ./ra_gen/hal_data.o
- .debug_line    0x0000341b      0x2f3 ./ra_gen/main.o
- .debug_line    0x0000370e      0x22a ./ra_gen/pin_data.o
- .debug_line    0x00003938      0x439 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
- .debug_line    0x00003d71      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
- .debug_line    0x0000413f      0x3bf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
- .debug_line    0x000044fe      0x4a3 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
- .debug_line    0x000049a1      0x1fd ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
- .debug_line    0x00004b9e      0x1b1 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
- .debug_line    0x00004d4f      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
- .debug_line    0x0000511d      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
- .debug_line    0x0000549e      0x3e5 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
- .debug_line    0x00005883      0x395 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
- .debug_line    0x00005c18      0x437 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
- .debug_line    0x0000604f      0x198 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
- .debug_line    0x000061e7      0x397 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
- .debug_line    0x0000657e      0x3d6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
- .debug_line    0x00006954      0x3a0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
- .debug_line    0x00006cf4      0x493 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
- .debug_line    0x00007187      0x4c2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
- .debug_line    0x00007649      0x391 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
- .debug_line    0x000079da      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
- .debug_line    0x00007d5b      0x33c ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
- .debug_line    0x00008097      0x479 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
- .debug_line    0x00008510      0x19b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
- .debug_line    0x000086ab      0x1db ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
- .debug_line    0x00008886      0x1aa ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
- .debug_line    0x00008a30      0x398 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
- .debug_line    0x00008dc8      0x420 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
- .debug_line    0x000091e8      0x419 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
- .debug_line    0x00009601      0x351 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
- .debug_line    0x00009952      0x189 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
- .debug_line    0x00009adb      0x45d ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
- .debug_line    0x00009f38      0x4c2 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
- .debug_line    0x0000a3fa      0x44b ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
- .debug_line    0x0000a845      0x3da ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
- .debug_line    0x0000ac1f      0x19a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
- .debug_line    0x0000adb9      0x37c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
- .debug_line    0x0000b135      0x8d9 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_line    0x0000ba0e      0x6ed ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_line    0x0000c0fb      0x300 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_line    0x0000c3fb      0x2bb ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_line    0x0000c6b6      0x350 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_line    0x0000ca06      0x1c8 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_line    0x0000cbce      0x43b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_line    0x0000d009      0x3c8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_line    0x0000d3d1      0x161 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_line    0x0000d532      0x1a2 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_line    0x0000d6d4      0x19f ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_line    0x0000d873      0x3f5 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_line    0x0000dc68       0x54 ./ra/board/ra6m4_ek/board_init.o
+ .debug_line    0x00000f98      0x9ce ./src/SEGGER/SEGGER_RTT.o
+ .debug_line    0x00001966      0x44c ./src/SEGGER/SEGGER_RTT_printf.o
+ .debug_line    0x00001db2      0x2d8 ./src/application.o
+ .debug_line    0x0000208a       0x51 ./src/blinky_thread_entry.o
+ .debug_line    0x000020db      0x4fe ./src/console.o
+ .debug_line    0x000025d9      0x3da ./src/console_callbacks.o
+ .debug_line    0x000029b3      0x4a6 ./src/hal_entry.o
+ .debug_line    0x00002e59      0x283 ./ra_gen/blinky_thread.o
+ .debug_line    0x000030dc      0x347 ./ra_gen/common_data.o
+ .debug_line    0x00003423       0x4a ./ra_gen/hal_data.o
+ .debug_line    0x0000346d      0x2f3 ./ra_gen/main.o
+ .debug_line    0x00003760      0x22a ./ra_gen/pin_data.o
+ .debug_line    0x0000398a      0x439 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_line    0x00003dc3      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_line    0x00004191      0x3bf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_line    0x00004550      0x4a3 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_line    0x000049f3      0x1fd ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_line    0x00004bf0      0x1b1 ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_line    0x00004da1      0x3ce ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_line    0x0000516f      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_line    0x000054f0      0x3e5 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_line    0x000058d5      0x395 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_line    0x00005c6a      0x437 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_line    0x000060a1      0x198 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_line    0x00006239      0x397 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_line    0x000065d0      0x3d6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_line    0x000069a6      0x3a0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_line    0x00006d46      0x493 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_line    0x000071d9      0x4c2 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_line    0x0000769b      0x391 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_line    0x00007a2c      0x381 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_line    0x00007dad      0x33c ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_line    0x000080e9      0x479 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_line    0x00008562      0x19b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_line    0x000086fd      0x1db ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_line    0x000088d8      0x1aa ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_line    0x00008a82      0x398 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_line    0x00008e1a      0x420 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_line    0x0000923a      0x419 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_line    0x00009653      0x351 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_line    0x000099a4      0x189 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_line    0x00009b2d      0x45d ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_line    0x00009f8a      0x4c2 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_line    0x0000a44c      0x44b ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_line    0x0000a897      0x3da ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_line    0x0000ac71      0x19a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_line    0x0000ae0b      0x37c ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_line    0x0000b187      0x8d9 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_line    0x0000ba60      0x6ed ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_line    0x0000c14d      0x300 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_line    0x0000c44d      0x2bb ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_line    0x0000c708      0x350 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_line    0x0000ca58      0x1c8 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_line    0x0000cc20      0x43b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_line    0x0000d05b      0x3c8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_line    0x0000d423      0x161 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_line    0x0000d584      0x1a2 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_line    0x0000d726      0x19f ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_line    0x0000d8c5      0x3f5 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_line    0x0000dcba       0x54 ./ra/board/ra6m4_ek/board_init.o
 
-.debug_str      0x00000000     0xc15a
+.debug_str      0x00000000     0xc152
  .debug_str     0x00000000     0x2023 ./src/sf_console/sf_console.o
                                0x20fe (size before relaxing)
  .debug_str     0x00002023       0xce ./src/sf_console/sf_rtt_comms.o
                                0x1bfa (size before relaxing)
- .debug_str     0x000020f1      0x4cc ./src/SEGGER_RTT/SEGGER_RTT.o
-                                0x6bb (size before relaxing)
- .debug_str     0x000025bd      0x11b ./src/SEGGER_RTT/SEGGER_RTT_printf.o
-                                0x318 (size before relaxing)
- .debug_str     0x000026d8      0x8d0 ./src/application.o
+ .debug_str     0x000020f1      0x4c8 ./src/SEGGER/SEGGER_RTT.o
+                                0x6b7 (size before relaxing)
+ .debug_str     0x000025b9      0x117 ./src/SEGGER/SEGGER_RTT_printf.o
+                                0x314 (size before relaxing)
+ .debug_str     0x000026d0      0x8d0 ./src/application.o
                                 0xb3a (size before relaxing)
- .debug_str     0x00002fa8       0x31 ./src/blinky_thread_entry.o
+ .debug_str     0x00002fa0       0x31 ./src/blinky_thread_entry.o
                                 0x1e7 (size before relaxing)
- .debug_str     0x00002fd9      0x119 ./src/console.o
+ .debug_str     0x00002fd1      0x119 ./src/console.o
                                0x270a (size before relaxing)
- .debug_str     0x000030f2       0xd6 ./src/console_callbacks.o
+ .debug_str     0x000030ea       0xd6 ./src/console_callbacks.o
                                 0xbe1 (size before relaxing)
- .debug_str     0x000031c8     0x1843 ./src/hal_entry.o
+ .debug_str     0x000031c0     0x1843 ./src/hal_entry.o
                                0x3bb8 (size before relaxing)
- .debug_str     0x00004a0b       0x7e ./ra_gen/blinky_thread.o
+ .debug_str     0x00004a03       0x7e ./ra_gen/blinky_thread.o
                                 0x85d (size before relaxing)
- .debug_str     0x00004a89       0x47 ./ra_gen/common_data.o
+ .debug_str     0x00004a81       0x47 ./ra_gen/common_data.o
                                0x3278 (size before relaxing)
- .debug_str     0x00004ad0       0x20 ./ra_gen/hal_data.o
+ .debug_str     0x00004ac8       0x20 ./ra_gen/hal_data.o
                                 0x1d6 (size before relaxing)
- .debug_str     0x00004af0      0x18d ./ra_gen/main.o
+ .debug_str     0x00004ae8      0x18d ./ra_gen/main.o
                                 0x987 (size before relaxing)
- .debug_str     0x00004c7d      0x648 ./ra_gen/pin_data.o
+ .debug_str     0x00004c75      0x648 ./ra_gen/pin_data.o
                                0x1d5e (size before relaxing)
- .debug_str     0x000052c5      0x127 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
+ .debug_str     0x000052bd      0x127 ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_allocate.o
                                 0xa4a (size before relaxing)
- .debug_str     0x000053ec       0x5b ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
+ .debug_str     0x000053e4       0x5b ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_cleanup.o
                                 0xa13 (size before relaxing)
- .debug_str     0x00005447       0xdf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
+ .debug_str     0x0000543f       0xdf ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_create.o
                                 0xa46 (size before relaxing)
- .debug_str     0x00005526       0xdc ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
+ .debug_str     0x0000551e       0xdc ./ra/microsoft/azure-rtos/threadx/common/src/tx_byte_pool_search.o
                                 0xa7a (size before relaxing)
- .debug_str     0x00005602      0x54d ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
+ .debug_str     0x000055fa      0x54d ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_high_level.o
                                 0xf38 (size before relaxing)
- .debug_str     0x00005b4f       0x7f ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
+ .debug_str     0x00005b47       0x7f ./ra/microsoft/azure-rtos/threadx/common/src/tx_initialize_kernel_enter.o
                                 0x278 (size before relaxing)
- .debug_str     0x00005bce       0x69 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
+ .debug_str     0x00005bc6       0x69 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_cleanup.o
                                 0x999 (size before relaxing)
- .debug_str     0x00005c37       0x89 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
+ .debug_str     0x00005c2f       0x89 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_create.o
                                 0x9a0 (size before relaxing)
- .debug_str     0x00005cc0       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
+ .debug_str     0x00005cb8       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_get.o
                                 0x997 (size before relaxing)
- .debug_str     0x00005d13       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
+ .debug_str     0x00005d0b       0x53 ./ra/microsoft/azure-rtos/threadx/common/src/tx_semaphore_put.o
                                 0x97d (size before relaxing)
- .debug_str     0x00005d66       0xec ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
+ .debug_str     0x00005d5e       0xec ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_create.o
                                 0x99d (size before relaxing)
- .debug_str     0x00005e52      0x119 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
+ .debug_str     0x00005e4a      0x119 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_initialize.o
                                 0x950 (size before relaxing)
- .debug_str     0x00005f6b       0x95 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
+ .debug_str     0x00005f63       0x95 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_shell_entry.o
                                 0x8ed (size before relaxing)
- .debug_str     0x00006000       0x5d ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
+ .debug_str     0x00005ff8       0x5d ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_sleep.o
                                 0x8c6 (size before relaxing)
- .debug_str     0x0000605d      0x1e6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
+ .debug_str     0x00006055      0x1e6 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_preempt_check.o
                                 0xa4b (size before relaxing)
- .debug_str     0x00006243       0x80 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
+ .debug_str     0x0000623b       0x80 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_resume.o
                                 0xacd (size before relaxing)
- .debug_str     0x000062c3       0xa0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
+ .debug_str     0x000062bb       0xa0 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_system_suspend.o
                                 0xb16 (size before relaxing)
- .debug_str     0x00006363       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
+ .debug_str     0x0000635b       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_time_slice.o
                                 0x8fd (size before relaxing)
- .debug_str     0x000063db       0x63 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
+ .debug_str     0x000063d3       0x63 ./ra/microsoft/azure-rtos/threadx/common/src/tx_thread_timeout.o
                                 0x8af (size before relaxing)
- .debug_str     0x0000643e       0x6a ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
+ .debug_str     0x00006436       0x6a ./ra/microsoft/azure-rtos/threadx/common/src/tx_time_get.o
                                 0x282 (size before relaxing)
- .debug_str     0x000064a8      0x139 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
+ .debug_str     0x000064a0      0x139 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_expiration_process.o
                                 0x487 (size before relaxing)
- .debug_str     0x000065e1      0x10b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
+ .debug_str     0x000065d9      0x10b ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_initialize.o
                                 0x4b4 (size before relaxing)
- .debug_str     0x000066ec       0x79 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
+ .debug_str     0x000066e4       0x79 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_activate.o
                                 0x3c4 (size before relaxing)
- .debug_str     0x00006765       0x67 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
+ .debug_str     0x0000675d       0x67 ./ra/microsoft/azure-rtos/threadx/common/src/tx_timer_system_deactivate.o
                                 0x363 (size before relaxing)
- .debug_str     0x000067cc       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
+ .debug_str     0x000067c4       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_allocate.o
                                 0x9b3 (size before relaxing)
- .debug_str     0x00006821       0x73 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
+ .debug_str     0x00006819       0x73 ./ra/microsoft/azure-rtos/threadx/common/src/txe_byte_pool_create.o
                                 0xa68 (size before relaxing)
- .debug_str     0x00006894       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
+ .debug_str     0x0000688c       0x78 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_create.o
                                 0x9f1 (size before relaxing)
- .debug_str     0x0000690c       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
+ .debug_str     0x00006904       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_get.o
                                 0x922 (size before relaxing)
- .debug_str     0x00006961       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
+ .debug_str     0x00006959       0x55 ./ra/microsoft/azure-rtos/threadx/common/src/txe_semaphore_put.o
                                 0x8d8 (size before relaxing)
- .debug_str     0x000069b6       0x7a ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
+ .debug_str     0x000069ae       0x7a ./ra/microsoft/azure-rtos/threadx/common/src/txe_thread_create.o
                                 0x98d (size before relaxing)
- .debug_str     0x00006a30      0x431 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
+ .debug_str     0x00006a28      0x431 ./ra/fsp/src/rm_threadx_port/tx_initialize_low_level.o
                                 0x7b1 (size before relaxing)
- .debug_str     0x00006e61     0x160a ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
+ .debug_str     0x00006e59     0x160a ./ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.o
                                0x2113 (size before relaxing)
- .debug_str     0x0000846b       0x66 ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
+ .debug_str     0x00008463       0x66 ./ra/fsp/src/rm_threadx_port/tx_thread_schedule.o
                                 0x9f8 (size before relaxing)
- .debug_str     0x000084d1       0x5a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
+ .debug_str     0x000084c9       0x5a ./ra/fsp/src/rm_threadx_port/tx_thread_stack_build.o
                                 0x80b (size before relaxing)
- .debug_str     0x0000852b       0x47 ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
+ .debug_str     0x00008523       0x47 ./ra/fsp/src/rm_threadx_port/tx_timer_interrupt.o
                                 0xa21 (size before relaxing)
- .debug_str     0x00008572      0x896 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_str     0x0000856a      0x896 ./ra/fsp/src/r_ioport/r_ioport.o
                                0x56e0 (size before relaxing)
- .debug_str     0x00008e08      0xb0e ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_str     0x00008e00      0xb0e ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
                                0x251a (size before relaxing)
- .debug_str     0x00009916       0xf5 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_str     0x0000990e       0xf5 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
                                0x1b8c (size before relaxing)
- .debug_str     0x00009a0b       0xd0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_str     0x00009a03       0xd0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
                                 0x305 (size before relaxing)
- .debug_str     0x00009adb      0x528 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_str     0x00009ad3      0x528 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
                                0x2097 (size before relaxing)
- .debug_str     0x0000a003       0x23 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_str     0x00009ffb       0x23 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
                                 0x205 (size before relaxing)
- .debug_str     0x0000a026     0x1cec ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_str     0x0000a01e     0x1cec ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
                                0x23c7 (size before relaxing)
- .debug_str     0x0000bd12       0xc1 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_str     0x0000bd0a       0xc1 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
                                0x1abc (size before relaxing)
- .debug_str     0x0000bdd3      0x197 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_str     0x0000bdcb      0x197 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
                                 0x361 (size before relaxing)
- .debug_str     0x0000bf6a       0x8e ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_str     0x0000bf62       0x8e ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
                                 0x25e (size before relaxing)
- .debug_str     0x0000bff8       0x74 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_str     0x0000bff0       0x74 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
                                 0x246 (size before relaxing)
- .debug_str     0x0000c06c       0xc3 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_str     0x0000c064       0xc3 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
                                 0x5a5 (size before relaxing)
- .debug_str     0x0000c12f       0x2b ./ra/board/ra6m4_ek/board_init.o
+ .debug_str     0x0000c127       0x2b ./ra/board/ra6m4_ek/board_init.o
                                 0x1e8 (size before relaxing)
 
 .debug_frame    0x00000000     0x2fac
  .debug_frame   0x00000000      0x344 ./src/sf_console/sf_console.o
  .debug_frame   0x00000344       0xf8 ./src/sf_console/sf_rtt_comms.o
- .debug_frame   0x0000043c      0x530 ./src/SEGGER_RTT/SEGGER_RTT.o
- .debug_frame   0x0000096c       0xe0 ./src/SEGGER_RTT/SEGGER_RTT_printf.o
+ .debug_frame   0x0000043c      0x530 ./src/SEGGER/SEGGER_RTT.o
+ .debug_frame   0x0000096c       0xe0 ./src/SEGGER/SEGGER_RTT_printf.o
  .debug_frame   0x00000a4c       0x8c ./src/application.o
  .debug_frame   0x00000ad8       0x30 ./src/blinky_thread_entry.o
  .debug_frame   0x00000b08       0x84 ./src/console.o

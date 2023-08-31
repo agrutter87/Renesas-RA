@@ -60,7 +60,7 @@ ra/fsp/src/r_ioport \
 ra/fsp/src/rm_threadx_port \
 ra/microsoft/azure-rtos/threadx/common/src \
 ra_gen \
-src/SEGGER_RTT \
+src/SEGGER \
 src \
 src/sf_console \
 
