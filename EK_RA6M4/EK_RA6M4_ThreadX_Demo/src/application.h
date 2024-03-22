@@ -17,10 +17,9 @@
 #define APPLICATION_THREAD_PREEMPT_THRESHOLD    (1)
 #define APPLICATION_THREAD_PERIOD               (TX_TIMER_TICKS_PER_SECOND)
 #define APPLICATION_THREAD_STACK_SIZE           (1024U)
-#define APPLICATION_EVENT_QUEUE_NAME            ("Application Event Queue")
 
 #define APPLICATION_THREAD_MONITOR_TIMER_NAME   ("Application Thread Monitor Timer")
-#define APPLICATION_THREAD_MONITOR_TICKS        (1000)
+#define APPLICATION_THREAD_MONITOR_TICKS        (5000)
 
 #define THREAD_OBJECT_NAME_LENGTH_MAX           (32)
 #define FEATURE_NAME_MAX_LENGTH                 (32)
@@ -62,15 +61,20 @@ typedef struct st_feature_status
 typedef struct st_feature
 {
     /* Readable name */
-    CHAR feature_name[FEATURE_NAME_MAX_LENGTH];
+    CHAR        feature_name[FEATURE_NAME_MAX_LENGTH];
 
     /* Function to be called with tx_application_define.
      * - Allocates memory from p_memory_pool for everything */
-    void (*feature_define)(TX_BYTE_POOL * p_memory_pool);
+    void        (*feature_define)(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 
     /* Function to be use by console (or other features in general?) to get the status
      * of the feature */
-    void (*feature_get_status)(feature_status_t * p_status);
+    void        (*feature_get_status)(feature_status_t * p_status);
+
+    /* Event Queue Related */
+    TX_QUEUE    event_queue;
+    VOID        *p_event_queue_memory;
+    CHAR        event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 } feature_t;
 
 typedef struct st_application_ctrl
@@ -83,8 +87,7 @@ typedef struct st_application_ctrl
     VOID                *p_thread_stack;
 
     /* Event Queue Related */
-    TX_QUEUE            event_queue;
-    VOID                *p_event_queue_memory;
+    TX_QUEUE            *p_event_queue;
 
     /* Queryable status */
     feature_status_t    status;
@@ -99,9 +102,6 @@ typedef struct st_application_cfg
     ULONG               thread_stack_size;
     UINT                thread_priority;
     UINT                thread_preempt_threshold;
-
-    /* Event Queue Related */
-    CHAR                event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 
     /* Thread Monitor Timer Related */
     CHAR                thread_monitor_timer_name[THREAD_OBJECT_NAME_LENGTH_MAX];
@@ -129,7 +129,7 @@ extern const application_t g_application;
 /******************************************************************************
  * PROTOTYPES
  *****************************************************************************/
-void application_define(TX_BYTE_POOL * p_memory_pool);
+void application_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 void application_get_status(feature_status_t * p_status);
 void application_thread_entry(ULONG thread_input);
 

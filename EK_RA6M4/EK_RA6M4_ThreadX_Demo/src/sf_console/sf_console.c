@@ -224,7 +224,7 @@ uint32_t SF_CONSOLE_Open (sf_console_ctrl_t * const p_api_ctrl, sf_console_cfg_t
     /** Prompt for input autostart is true */
     if (p_cfg->autostart)
     {
-        err = SF_CONSOLE_Prompt(p_ctrl, p_cfg->p_initial_menu, SF_CONSOLE_PRV_TIMEOUT);
+        err = SF_CONSOLE_Prompt(p_ctrl, p_cfg->p_initial_menu, SF_CONSOLE_PRV_TIMEOUT, true);
         SF_CONSOLE_ERROR_RETURN(FSP_SUCCESS == err, err);
     }
 
@@ -340,9 +340,10 @@ uint32_t SF_CONSOLE_Parse(sf_console_ctrl_t       * const p_api_ctrl,
  * @return                       See @ref Common_Error_Codes or lower level drivers for other possible return codes.
  * @note This function is reentrant for any channel.
 ***********************************************************************************************************************/
-uint32_t SF_CONSOLE_Prompt(   sf_console_ctrl_t        * const p_api_ctrl,
+uint32_t SF_CONSOLE_Prompt(   sf_console_ctrl_t * const         p_api_ctrl,
                                 sf_console_menu_t const * const p_menu,
-                                UINT                       const timeout)
+                                UINT const                      timeout,
+                                bool                            print_menu)
 {
     sf_console_instance_ctrl_t * p_ctrl = (sf_console_instance_ctrl_t *) p_api_ctrl;
 
@@ -356,9 +357,12 @@ uint32_t SF_CONSOLE_Prompt(   sf_console_ctrl_t        * const p_api_ctrl,
         p_ctrl->p_current_menu = p_menu;
     }
 
-    /** Print menu name followed by ">" to prompt for user input. */
-    SF_CONSOLE_Write(p_ctrl, p_ctrl->p_current_menu->menu_name, SF_CONSOLE_PRV_TIMEOUT);
-    SF_CONSOLE_Write(p_ctrl, (uint8_t *) ">", SF_CONSOLE_PRV_TIMEOUT);
+    if(print_menu)
+    {
+        /** Print menu name followed by ">" to prompt for user input. */
+        SF_CONSOLE_Write(p_ctrl, p_ctrl->p_current_menu->menu_name, SF_CONSOLE_PRV_TIMEOUT);
+        SF_CONSOLE_Write(p_ctrl, (uint8_t *) ">", SF_CONSOLE_PRV_TIMEOUT);
+    }
 
     /** Lock the console UART framework to reserve exclusive access until the command completes.
      *  @note Transmission is only locked while the menu name is printed and while the input command is non-zero in length.
