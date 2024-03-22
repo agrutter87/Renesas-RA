@@ -16,16 +16,15 @@
 #define CONSOLE_THREAD_PREEMPT_THRESHOLD    (TX_MAX_PRIORITIES - 1)
 #define CONSOLE_THREAD_PERIOD               (TX_TIMER_TICKS_PER_SECOND)
 #define CONSOLE_THREAD_STACK_SIZE           (APPLICATION_THREAD_STACK_SIZE)
-#define CONSOLE_EVENT_QUEUE_NAME            ("Console Event Queue")
+#define CONSOLE_RX_TICKS                    (100)
 
 /******************************************************************************
  * TYPES
  *****************************************************************************/
-/* TODO: Define console interface functions according to SF COMMS API, use sf_uart as example */
-#if 0
-typedef void * sf_cmd_comms_instance_ctrl_t;
-typedef void * sf_cmd_comms_cfg_t;
-#endif
+typedef enum st_console_event
+{
+    CONSOLE_EVENT_CHECK_RX = APPLICATION_EVENT_END
+} console_event_t;
 
 typedef struct st_console_ctrl
 {
@@ -34,8 +33,10 @@ typedef struct st_console_ctrl
     VOID                            *p_thread_stack;
 
     /* Event Queue Related */
-    TX_QUEUE                        event_queue;
-    VOID                            *p_event_queue_memory;
+    TX_QUEUE                        *p_event_queue;
+
+    /* Timer Related */
+    TX_TIMER                        rx_timer;
 
     /* Queryable status */
     feature_status_t                status;
@@ -51,8 +52,8 @@ typedef struct st_console_cfg
     UINT                            thread_priority;
     UINT                            thread_preempt_threshold;
 
-    /* Event Queue Related */
-    CHAR                            event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
+    /* Timer Related */
+    CHAR                            rx_timer_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 
     /* Console Related */
     sf_console_instance_t const     *p_console;
@@ -67,7 +68,7 @@ typedef struct st_console
 /******************************************************************************
  * PROTOTYPES
  *****************************************************************************/
-void console_define(TX_BYTE_POOL * p_memory_pool);
+void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 void console_get_status(feature_status_t * p_status);
 void console_thread_entry(ULONG thread_input);
 

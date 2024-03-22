@@ -11,6 +11,7 @@
 /******************************************************************************
  * PROTOTYPES
  *****************************************************************************/
+VOID console_rx_timer_callback(ULONG id);
 
 /******************************************************************************
  * GLOBALS
@@ -95,9 +96,6 @@ const console_cfg_t   g_console_cfg =
  .thread_priority           = CONSOLE_THREAD_PRIORITY,
  .thread_preempt_threshold  = CONSOLE_THREAD_PREEMPT_THRESHOLD,
 
- /* Event queue creation arguments */
- .event_queue_name          = CONSOLE_EVENT_QUEUE_NAME,
-
  /* SF Console */
  .p_console                 = &g_sf_console
 
@@ -111,33 +109,14 @@ const console_t g_console =
 /******************************************************************************
  * FUNCTION: console_define
  *****************************************************************************/
-void console_define(TX_BYTE_POOL * p_memory_pool)
+void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
 {
     UINT        tx_err          = TX_SUCCESS;
     event_t     event_data      = { .event_type = APPLICATION_EVENT_INIT, .event_payload = { 0 } };
 
     SEGGER_RTT_printf(0, "Initializing console...\r\n");
 
-    /* Allocate the memory for the event queue */
-    tx_err = tx_byte_allocate(p_memory_pool,
-                              (VOID **) &g_console.p_ctrl->p_event_queue_memory,
-                              EVENT_QUEUE_MEMORY_MAX,
-                              TX_NO_WAIT);
-    if(TX_SUCCESS != tx_err)
-    {
-        SEGGER_RTT_printf(0, "Failed console_define::tx_byte_allocate (p_event_queue_memory), tx_err = %d\r\n", tx_err);
-    }
-
-    /* Create the event queue */
-    tx_err = tx_queue_create(&g_console.p_ctrl->event_queue,
-                             (CHAR *)g_console.p_cfg->event_queue_name,
-                             EVENT_QUEUE_MESSAGE_SIZE,
-                             g_console.p_ctrl->p_event_queue_memory,
-                             EVENT_QUEUE_MEMORY_MAX);
-    if(TX_SUCCESS != tx_err)
-    {
-        SEGGER_RTT_printf(0, "Failed console_define::tx_queue_create, tx_err = %d\r\n", tx_err);
-    }
+    g_console.p_ctrl->p_event_queue = p_event_queue;
 
     /* Allocate the stack for the thread */
     tx_err = tx_byte_allocate(p_memory_pool,
@@ -165,8 +144,14 @@ void console_define(TX_BYTE_POOL * p_memory_pool)
         SEGGER_RTT_printf(0, "Failed console_define::tx_thread_create, tx_err = %d\r\n", tx_err);
     }
 
+    /* Create the thread monitor timer */
+    tx_err = tx_timer_create(&g_console.p_ctrl->rx_timer,
+                             (CHAR *)g_console.p_cfg->rx_timer_name,
+                             console_rx_timer_callback,
+                             0, CONSOLE_RX_TICKS, CONSOLE_RX_TICKS, TX_NO_ACTIVATE);
+
     /* Send the initialize event */
-    tx_err = tx_queue_send(&g_console.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
+    tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
         SEGGER_RTT_printf(0, "Failed console_define::tx_queue_send, tx_err = %d\r\n", tx_err);
@@ -195,9 +180,9 @@ void console_thread_entry(ULONG thread_input)
 
     while(1)
     {
-        tx_queue_receive(&g_console.p_ctrl->event_queue, &event_data, TX_WAIT_FOREVER);
+        tx_queue_receive(g_console.p_ctrl->p_event_queue, &event_data, TX_WAIT_FOREVER);
 
-        SEGGER_RTT_printf(0, "CONSOLE EVENT %d\r\n", event_data.event_type);
+        //SEGGER_RTT_printf(0, "CONSOLE EVENT %d\r\n", event_data.event_type);
         switch(event_data.event_type)
         {
             case APPLICATION_EVENT_INIT:
@@ -213,28 +198,51 @@ void console_thread_entry(ULONG thread_input)
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->write, fsp_err = %d\r\n", fsp_err);
                 }
 
-#if 0
-                /* This version blocks, so its unclear if it is sleeping or not */
-                fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT);
+                fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT, true);
                 if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
                 }
-#endif
+
+                tx_err = tx_timer_activate(&g_console.p_ctrl->rx_timer);
+
                 break;
 
             case APPLICATION_EVENT_FEATURE_MONITOR_REQUEST:
                 event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REPORT;
                 event_data.event_payload.event_ulongdata = (ULONG)&console_get_status;
-                tx_err = tx_queue_send(&g_application.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
+                tx_err = tx_queue_send(g_application.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
                 if(TX_SUCCESS != tx_err)
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::tx_queue_send, tx_err = %d\r\n", tx_err);
                 }
                 break;
 
+            case CONSOLE_EVENT_CHECK_RX:
+                fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT, false);
+                if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+                }
+                break;
+
+
             default:
                 break;
         }
+    }
+}
+
+VOID console_rx_timer_callback(ULONG id)
+{
+    FSP_PARAMETER_NOT_USED(id);
+
+    UINT        tx_err          = TX_SUCCESS;
+    event_t     event_data      = { .event_type = CONSOLE_EVENT_CHECK_RX, .event_payload = { 0 } };
+
+    tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
+    if(TX_SUCCESS != tx_err)
+    {
+        SEGGER_RTT_printf(0, "Failed console_rx_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
     }
 }

@@ -73,7 +73,24 @@ void tx_application_define_user(void *first_unused_memory)
     {
         for(ULONG feature_num = 0; feature_num < g_application.p_cfg->feature_count; feature_num++)
         {
-            g_application.p_cfg->p_features[feature_num].feature_define(&g_application.p_ctrl->memory_byte_pool);
+            /* Allocate the memory for the event queue for this feature */
+            tx_err = tx_byte_allocate(&g_application.p_ctrl->memory_byte_pool,
+                                      (VOID **) &g_application.p_cfg->p_features[feature_num].p_event_queue_memory,
+                                      EVENT_QUEUE_MEMORY_MAX,
+                                      TX_NO_WAIT);
+            if(TX_SUCCESS != tx_err)
+            {
+                SEGGER_RTT_printf(0, "Failed tx_application_define_user::tx_byte_allocate (p_event_queue_memory), tx_err = %d\r\n", tx_err);
+            }
+
+            /* Create the event queue for this feature */
+            tx_err = tx_queue_create(&g_application.p_cfg->p_features[feature_num].event_queue,
+                                     (CHAR *)g_application.p_cfg->p_features[feature_num].event_queue_name,
+                                     EVENT_QUEUE_MESSAGE_SIZE,
+                                     g_application.p_cfg->p_features[feature_num].p_event_queue_memory,
+                                     EVENT_QUEUE_MEMORY_MAX);
+
+            g_application.p_cfg->p_features[feature_num].feature_define(&g_application.p_ctrl->memory_byte_pool, &g_application.p_cfg->p_features[feature_num].event_queue);
         }
     }
 }

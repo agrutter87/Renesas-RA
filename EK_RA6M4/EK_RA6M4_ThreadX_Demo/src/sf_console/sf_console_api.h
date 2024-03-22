@@ -153,7 +153,8 @@ typedef struct st_sf_console_api
      */
     uint32_t (* prompt)(sf_console_ctrl_t       * const p_ctrl,
                          sf_console_menu_t const * const p_menu,
-                         UINT                      const timeout);    
+                         UINT                      const timeout,
+                         bool                      print_menu);
 
      /** @brief  Looks for input string in menu, and calls callback function if found.
      * @par Implemented as

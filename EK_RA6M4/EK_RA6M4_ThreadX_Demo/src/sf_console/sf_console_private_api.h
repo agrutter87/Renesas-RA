@@ -32,7 +32,8 @@ uint32_t SF_CONSOLE_Open(sf_console_ctrl_t      * const p_ctrl,
 uint32_t SF_CONSOLE_Close(sf_console_ctrl_t     * const p_ctrl);
 uint32_t SF_CONSOLE_Prompt(sf_console_ctrl_t       * const p_ctrl,
                             sf_console_menu_t const * const p_menu,
-                            UINT                       const timeout);
+                            UINT                       const timeout,
+                            bool                            print_menu);
 uint32_t SF_CONSOLE_Parse(sf_console_ctrl_t        * const p_ctrl,
                            sf_console_menu_t  const * const p_cmd_list,
                            uint8_t            const * const p_input,
