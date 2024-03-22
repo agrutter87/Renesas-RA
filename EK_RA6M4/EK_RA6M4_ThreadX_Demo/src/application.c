@@ -233,9 +233,11 @@ VOID application_feature_monitor_timer_callback(ULONG id)
         SEGGER_RTT_printf(0, "Failed application_thread_monitor_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
     }
 
+#if 0
     tx_err = tx_queue_send(&g_console.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
         SEGGER_RTT_printf(0, "Failed application_thread_monitor_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
     }
+#endif
 }
