@@ -16,44 +16,52 @@
 #define CONSOLE_THREAD_PREEMPT_THRESHOLD    (TX_MAX_PRIORITIES - 1)
 #define CONSOLE_THREAD_PERIOD               (TX_TIMER_TICKS_PER_SECOND)
 #define CONSOLE_THREAD_STACK_SIZE           (APPLICATION_THREAD_STACK_SIZE)
+#define CONSOLE_EVENT_QUEUE_NAME            ("Console Event Queue")
 
 /******************************************************************************
  * TYPES
  *****************************************************************************/
 /* TODO: Define console interface functions according to SF COMMS API, use sf_uart as example */
-#if 1
+#if 0
 typedef void * sf_cmd_comms_instance_ctrl_t;
 typedef void * sf_cmd_comms_cfg_t;
 #endif
 
-typedef struct st_console
+typedef struct st_console_ctrl
 {
     /* Thread Related */
     TX_THREAD                       thread;
+    VOID                            *p_thread_stack;
+
+    /* Event Queue Related */
+    TX_QUEUE                        event_queue;
+    VOID                            *p_event_queue_memory;
+
+    /* Queryable status */
+    feature_status_t                status;
+} console_ctrl_t;
+
+typedef struct st_console_cfg
+{
+    /* Thread Related */
     CHAR                            thread_name[THREAD_OBJECT_NAME_LENGTH_MAX];
     VOID                            (*thread_entry)(ULONG);
     ULONG                           thread_input;
-    VOID                            *p_thread_stack;
     ULONG                           thread_stack_size;
     UINT                            thread_priority;
     UINT                            thread_preempt_threshold;
 
-    /* Queryable status */
-    feature_status_t                status;
-
-    /* CMD Interface Related */
-    sf_cmd_comms_instance_ctrl_t    sf_comms_ctrl;          /* TODO: Define console interface functions according to SF COMMS API, use sf_uart as example */
-    sf_cmd_comms_cfg_t              sf_comms_cfg_extend;    /* TODO: Define console interface functions according to SF COMMS API, use sf_uart as example */
-    sf_comms_cfg_t                  sf_comms_cfg;
-    sf_comms_api_t                  sf_comms_api;
-    sf_comms_instance_t             sf_comms;
+    /* Event Queue Related */
+    CHAR                            event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 
     /* Console Related */
-    sf_console_command_t const      *p_sf_console_commands;
-    sf_console_menu_t               sf_console_menu;
-    sf_console_instance_ctrl_t      sf_console_instance_ctrl;
-    sf_console_cfg_t                sf_console_cfg;
-    sf_console_instance_t           sf_console;
+    sf_console_instance_t const     *p_console;
+} console_cfg_t;
+
+typedef struct st_console
+{
+    console_ctrl_t      *p_ctrl;
+    console_cfg_t const *p_cfg;
 } console_t;
 
 /******************************************************************************

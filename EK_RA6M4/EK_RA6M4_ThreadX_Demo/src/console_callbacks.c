@@ -41,7 +41,7 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
 
     SEGGER_RTT_printf(0, "Getting feature status...\n");
 
-    ULONG               feature_count   = g_application.feature_count;
+    ULONG               feature_count   = g_application.p_cfg->feature_count;
     feature_status_t    status          = { 0 };
 
     SEGGER_RTT_printf(0, "|                          Feature |   Status   |\n");
@@ -50,8 +50,8 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
     for(uint32_t feature_num = 0; feature_num < feature_count; feature_num++)
     {
         /* Do something */
-        g_application.p_features[feature_num].feature_get_status(&status);
-        SEGGER_RTT_printf(0, "| %32s | %10d |\n", g_application.p_features[feature_num].feature_name, status.return_code);
+        g_application.p_cfg->p_features[feature_num].feature_get_status(&status);
+        SEGGER_RTT_printf(0, "| %32s | %10d |\n", g_application.p_cfg->p_features[feature_num].feature_name, status.return_code);
     }
 
     SEGGER_RTT_printf(0, "done\r\n");
