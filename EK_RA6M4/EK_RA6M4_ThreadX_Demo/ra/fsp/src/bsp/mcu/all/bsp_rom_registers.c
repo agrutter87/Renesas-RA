@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright [2020-2023] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
+ * Copyright [2020-2024] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
  *
  * This software and documentation are supplied by Renesas Electronics America Inc. and may only be used with products
  * of Renesas Electronics Corp. and its affiliates ("Renesas").  No other uses are authorized.  Renesas products are
@@ -90,6 +90,7 @@ BSP_DONT_REMOVE static const uint32_t g_bsp_rom_registers[] BSP_PLACE_IN_SECTION
 {
     (uint32_t) BSP_CFG_ROM_REG_OFS0,
     (uint32_t) BSP_ROM_REG_OFS1_SETTING,
+  #if __MPU_PRESENT
     ((uint32_t) BSP_CFG_ROM_REG_MPU_PC0_START & 0xFFFFFFFCU),
     ((uint32_t) BSP_CFG_ROM_REG_MPU_PC0_END | 0x00000003U),
     ((uint32_t) BSP_CFG_ROM_REG_MPU_PC1_START & 0xFFFFFFFCU),
@@ -103,6 +104,7 @@ BSP_DONT_REMOVE static const uint32_t g_bsp_rom_registers[] BSP_PLACE_IN_SECTION
     (((uint32_t) BSP_CFG_ROM_REG_MPU_REGION3_START & 0x407FFFFCU) | 0x40000000U),
     (((uint32_t) BSP_CFG_ROM_REG_MPU_REGION3_END & 0x407FFFFCU) | 0x40000003U),
     (uint32_t) BSP_ROM_REG_MPU_CONTROL_SETTING
+  #endif
 };
 
  #elif BSP_FEATURE_FLASH_SUPPORTS_ID_CODE == 1
@@ -125,7 +127,7 @@ BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_pbps
 
   #endif
 
- #else                                 /* CM33 parts */
+ #else                                 /* CM33 & CM85 parts */
 
   #if !BSP_TZ_NONSECURE_BUILD
 
@@ -212,8 +214,11 @@ BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_ofs3
     BSP_CFG_ROM_REG_OFS3_SEL;
 
    #endif
+   #if BSP_FEATURE_FLASH_HP_SUPPORTS_DUAL_BANK
 BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_banksel_sel") g_bsp_rom_banksel_sel =
-    0xFFFFFFFF;
+    BSP_CFG_ROM_REG_BANKSEL_SEL;
+
+   #endif
 BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_bps_sel0") g_bsp_rom_bps_sel0 =
     BSP_CFG_ROM_REG_BPS_SEL0;
 BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_bps_sel1") g_bsp_rom_bps_sel1 =
@@ -222,6 +227,27 @@ BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_bps_
     BSP_CFG_ROM_REG_BPS_SEL2;
 BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_bps_sel3") g_bsp_rom_bps_sel3 =
     BSP_CFG_ROM_REG_BPS_SEL3;
+
+  #endif
+
+  #if 85U == __CORTEX_M && !BSP_TZ_NONSECURE_BUILD
+BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_data_flash_fsblctrl0") g_bsp_rom_fsblctrl0 =
+    BSP_CFG_ROM_REG_FSBLCTRL0;
+
+BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_data_flash_fsblctrl1") g_bsp_rom_fsblctrl1 =
+    BSP_CFG_ROM_REG_FSBLCTRL1;
+
+BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_data_flash_fsblctrl2") g_bsp_rom_fsblctrl2 =
+    BSP_CFG_ROM_REG_FSBLCTRL2;
+
+BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_data_flash_sacc0") g_bsp_rom_sacc0 =
+    BSP_CFG_ROM_REG_SACC0;
+
+BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_data_flash_sacc1") g_bsp_rom_sacc1 =
+    BSP_CFG_ROM_REG_SACC1;
+
+BSP_DONT_REMOVE static const uint32_t BSP_PLACE_IN_SECTION(".option_setting_data_flash_samr") g_bsp_rom_samr =
+    BSP_CFG_ROM_REG_SAMR;
 
   #endif
 

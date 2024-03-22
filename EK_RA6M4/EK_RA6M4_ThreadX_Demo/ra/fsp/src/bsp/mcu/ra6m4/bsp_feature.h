@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright [2020-2023] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
+ * Copyright [2020-2024] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
  *
  * This software and documentation are supplied by Renesas Electronics America Inc. and may only be used with products
  * of Renesas Electronics Corp. and its affiliates ("Renesas").  No other uses are authorized.  Renesas products are
@@ -65,6 +65,8 @@
 #define BSP_FEATURE_ADC_B_UNIT_1_CHANNELS                    (0U)
 #define BSP_FEATURE_ADC_CALIBRATION_REG_AVAILABLE            (0U)
 #define BSP_FEATURE_ADC_CLOCK_SOURCE                         (FSP_PRIV_CLOCK_PCLKC)
+#define BSP_FEATURE_ADC_D_CHANNELS                           (0) // Feature not available on this MCU
+#define BSP_FEATURE_ADC_D_SCAN_MODE_CHANNELS                 (0) // Feature not available on this MCU
 #define BSP_FEATURE_ADC_GROUP_B_SENSORS_ALLOWED              (1U)
 #define BSP_FEATURE_ADC_HAS_ADBUF                            (1U)
 #define BSP_FEATURE_ADC_HAS_ADCER_ADPRC                      (1U)
@@ -211,12 +213,23 @@
 #define BSP_FEATURE_CGC_PLLCCR_TYPE                          (1U)
 #define BSP_FEATURE_CGC_PLLCCR_VCO_MAX_HZ                    (200000000U)
 #define BSP_FEATURE_CGC_PLLCCR_WAIT_US                       (0U) // No wait between setting PLLCCR and clearing PLLSTP
+#define BSP_FEATURE_CGC_REGISTER_SET_B                       (0)
 #define BSP_FEATURE_CGC_SCKDIVCR_BCLK_MATCHES_PCLKB          (0)
 #define BSP_FEATURE_CGC_SODRV_MASK                           (0x02U)
 #define BSP_FEATURE_CGC_SODRV_SHIFT                          (0x01U)
 #define BSP_FEATURE_CGC_SRAMPRCR_KW_OFFSET                   (1)
 #define BSP_FEATURE_CGC_SRAMPRCR_KW_VALUE                    (0x78)
 #define BSP_FEATURE_CGC_STARTUP_OPCCR_MODE                   (0)
+#define BSP_FEATURE_CGC_HAS_OSTDCSE                          (0) // Feature not available on this MCU
+#define BSP_FEATURE_CGC_OSCILLATON_STOP_DETECT               (1)
+#define BSP_FEATURE_CGC_STARTUP_SCKDIVCR                     (0x22022222)
+#define BSP_FEATURE_CGC_STARTUP_SCKDIVCR2                    (0x00)
+#define BSP_FEATURE_CGC_STARTUP_SCKSCR                       (0x01)
+
+#define BSP_FEATURE_CRC_HAS_SNOOP                            (0U)
+#define BSP_FEATURE_CRC_SNOOP_ADDRESS_TYPE_TDR               (0x0U)
+#define BSP_FEATURE_CRC_HAS_CRCCR0_LMS                       (1)
+#define BSP_FEATURE_CRC_POLYNOMIAL_MASK                      (0x3EU)
 
 #define BSP_FEATURE_CRYPTO_HAS_AES                           (1)
 #define BSP_FEATURE_CRYPTO_HAS_AES_WRAPPED                   (1)
@@ -259,7 +272,7 @@
 
 #define BSP_FEATURE_DWT_CYCCNT                               (1U)          // RA6M4 has Data Watchpoint Cycle Count Register
 
-#define BSP_FEATURE_ELC_PERIPHERAL_MASK                      (0x0007FFFFU) // Positions of event link set registers (ELSRs) available on this MCU
+#define BSP_FEATURE_ELC_PERIPHERAL_MASK                      (0x0007FFFFU) // Deprecated (Removing in FSP v6.0)
 #define BSP_FEATURE_ELC_VERSION                              (1U)
 
 #define BSP_FEATURE_ETHER_FIFO_DEPTH                         (0x0000070FU)
@@ -285,6 +298,7 @@
 #define BSP_FEATURE_FLASH_LP_DF_BLOCK_SIZE                   (0) // Feature not available on this MCU
 #define BSP_FEATURE_FLASH_LP_DF_WRITE_SIZE                   (0) // Feature not available on this MCU
 #define BSP_FEATURE_FLASH_LP_FLASH_CLOCK_SRC                 (0) // Feature not available on this MCU
+#define BSP_FEATURE_FLASH_LP_SUPPORTS_DUAL_BANK              (0) // Feature not available on this MCU
 #define BSP_FEATURE_FLASH_LP_VERSION                         (0) // Feature not available on this MCU
 #define BSP_FEATURE_FLASH_SUPPORTS_ACCESS_WINDOW             (0) // Feature not available on this MCU
 #define BSP_FEATURE_FLASH_SUPPORTS_ID_CODE                   (0) // Feature not available on this MCU
@@ -309,6 +323,8 @@
 #define BSP_FEATURE_I3C_NUM_CHANNELS                         (0U) // Feature not available on this MCU
 #define BSP_FEATURE_I3C_MSTP_OFFSET                          (0U) // Feature not available on this MCU
 
+#define BSP_FEATURE_ICU_HAS_FILTER                           (1U)
+#define BSP_FEATURE_ICU_HAS_IELSR                            (1U)
 #define BSP_FEATURE_ICU_HAS_INTERRUPT_GROUPS                 (0U)
 #define BSP_FEATURE_ICU_HAS_WUPEN1                           (1U)
 #define BSP_FEATURE_ICU_IRQ_CHANNELS_MASK                    (0xFFFFU)
@@ -361,7 +377,12 @@
 #define BSP_FEATURE_LVD_MONITOR_1_LOW_THRESHOLD              (LVD_THRESHOLD_MONITOR_1_LEVEL_2_85V) // 2.85V
 #define BSP_FEATURE_LVD_MONITOR_2_HI_THRESHOLD               (LVD_THRESHOLD_MONITOR_2_LEVEL_2_99V) // 2.99V
 #define BSP_FEATURE_LVD_MONITOR_2_LOW_THRESHOLD              (LVD_THRESHOLD_MONITOR_2_LEVEL_2_85V) // 2.85V
-#define BSP_FEATURE_LVD_STABILIZATION_TIME_US                (10U)                                 // Time in microseconds required for LVD to stabalize
+#define BSP_FEATURE_LVD_MONITOR_1_STABILIZATION_TIME_US      (10U)                                 // LVD1 operation stabilization time after LVD1 is enabled
+#define BSP_FEATURE_LVD_MONITOR_2_STABILIZATION_TIME_US      (10U)                                 // LVD2 operation stabilization time after LVD2 is enabled
+#define BSP_FEATURE_LVD_SUPPORT_RESET_ON_RISING_EDGE         (0U)
+#define BSP_FEATURE_LVD_VERSION                              (1U)
+
+#define BSP_FEATURE_MACL_SUPPORTED                           (0U)
 
 #define BSP_FEATURE_NUM_PLL1_OUTPUT_CLOCKS                   (0U)
 #define BSP_FEATURE_NUM_PLL2_OUTPUT_CLOCKS                   (0U)
@@ -390,6 +411,8 @@
 #define BSP_FEATURE_RTC_RTCCR_CHANNELS                       (0U)
 #define BSP_FEATURE_SYSC_HAS_VBTICTLR                        (1U)
 
+#define BSP_FEATURE_SAU_UART_VALID_CHANNEL_MASK              (0U) // Feature not available on this MCU
+
 #define BSP_FEATURE_SCI_ADDRESS_MATCH_CHANNELS               (0x3F9U)
 #define BSP_FEATURE_SCI_CHANNELS                             (0x3FFU)
 #define BSP_FEATURE_SCI_CLOCK                                (FSP_PRIV_CLOCK_PCLKA)
@@ -398,10 +421,11 @@
 #define BSP_FEATURE_SCI_UART_FIFO_CHANNELS                   (0x3F9U)
 #define BSP_FEATURE_SCI_UART_FIFO_DEPTH                      (16U)
 #define BSP_FEATURE_SCI_VERSION                              (1U)
+#define BSP_FEATURE_SCI_LIN_CHANNELS                         (0U)      // Feature not available on this MCU
 
 #define BSP_FEATURE_SDHI_CLOCK                               (FSP_PRIV_CLOCK_PCLKB)
 #define BSP_FEATURE_SDHI_HAS_CARD_DETECTION                  (1U)
-#define BSP_FEATURE_SDHI_MIN_CLOCK_DIVISION_SHIFT            (0U) // 1 (2^0) is minimum division supported
+#define BSP_FEATURE_SDHI_MIN_CLOCK_DIVISION_SHIFT            (0U)      // 1 (2^0) is minimum division supported
 #define BSP_FEATURE_SDHI_SUPPORTS_8_BIT_MMC                  (1U)
 #define BSP_FEATURE_SDHI_VALID_CHANNEL_MASK                  (0x01U)
 
@@ -425,16 +449,18 @@
 #define BSP_FEATURE_SSI_FIFO_NUM_STAGES                      (32U)
 #define BSP_FEATURE_SSI_VALID_CHANNEL_MASK                   (1U)
 
-#define BSP_FEATURE_TFU_SUPPORTED                            (0U) // Trigonometric Function Unit (TFU) not available on this MCU
+#define BSP_FEATURE_TAU_CLOCK_SOURCE                         (NULL) // Feature not available on this MCU
+#define BSP_FEATURE_TAU_VALID_CHANNEL_MASK                   (0)    // Feature not available on this MCU
+
+#define BSP_FEATURE_TFU_SUPPORTED                            (0U)   // Trigonometric Function Unit (TFU) not available on this MCU
 
 #define BSP_FEATURE_TRNG_HAS_MODULE_STOP                     (0U)
+#define BSP_FEATURE_TZ_NS_OFFSET                             (0U)
 #define BSP_FEATURE_TZ_HAS_TRUSTZONE                         (1U)
 #define BSP_FEATURE_TZ_HAS_DLM                               (1U)
+#define BSP_FEATURE_TZ_VERSION                               (1U)
 
 #define BSP_FEATURE_ULPT_MAX_CHANNEL_NUM                     (0)
 #define BSP_FEATURE_ULPT_VALID_CHANNEL_MASK                  (0U)
-
-#define BSP_FEATURE_CRC_HAS_SNOOP                            (0U)
-#define BSP_FEATURE_CRC_SNOOP_ADDRESS_TYPE_TDR               (0x0U)
 
 #endif
