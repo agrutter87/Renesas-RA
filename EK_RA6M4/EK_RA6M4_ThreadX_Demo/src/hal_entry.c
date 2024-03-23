@@ -65,6 +65,7 @@ void tx_application_define_user(void *first_unused_memory)
                                  (CHAR *)g_application.p_cfg->memory_byte_pool_name,
                                  first_unused_memory,
                                  g_application.p_cfg->memory_byte_pool_size);
+
     if(TX_SUCCESS != tx_err)
     {
         SEGGER_RTT_printf(0, "Failed tx_application_define_user::tx_byte_pool_create, tx_err = %d\r\n", tx_err);

@@ -133,7 +133,23 @@ void application_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
  *****************************************************************************/
 void application_get_status(feature_status_t * p_status)
 {
-    *p_status = g_application.p_ctrl->status;
+    UINT tx_err = TX_SUCCESS;
+
+    if(g_application.p_ctrl->status.pp_thread == 0)
+    {
+        g_application.p_ctrl->status.thread_count = 1;
+
+        tx_err = tx_byte_allocate(&g_application.p_ctrl->memory_byte_pool,
+                                  (VOID **)&g_application.p_ctrl->status.pp_thread,
+                                  sizeof(TX_THREAD *) * g_application.p_ctrl->status.thread_count,
+                                  TX_NO_WAIT);
+    }
+
+    if(TX_SUCCESS == tx_err)
+    {
+        g_application.p_ctrl->status.pp_thread[0] = &g_application.p_ctrl->thread;
+        *p_status = g_application.p_ctrl->status;
+    }
 }
 
 /******************************************************************************

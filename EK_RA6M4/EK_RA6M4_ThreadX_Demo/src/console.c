@@ -116,6 +116,7 @@ void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
 
     SEGGER_RTT_printf(0, "Initializing console...\r\n");
 
+    g_console.p_ctrl->p_memory_byte_pool = p_memory_pool;
     g_console.p_ctrl->p_event_queue = p_event_queue;
 
     /* Allocate the stack for the thread */
@@ -163,7 +164,23 @@ void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
  *****************************************************************************/
 void console_get_status(feature_status_t * p_status)
 {
-    *p_status = g_console.p_ctrl->status;
+    UINT tx_err = TX_SUCCESS;
+
+    if(g_console.p_ctrl->status.pp_thread == 0)
+    {
+        g_console.p_ctrl->status.thread_count = 1;
+
+        tx_err = tx_byte_allocate(g_console.p_ctrl->p_memory_byte_pool,
+                                  (VOID **)&g_console.p_ctrl->status.pp_thread,
+                                  sizeof(TX_THREAD *) * g_console.p_ctrl->status.thread_count,
+                                  TX_NO_WAIT);
+    }
+
+    if(TX_SUCCESS == tx_err)
+    {
+        g_console.p_ctrl->status.pp_thread[0] = &g_console.p_ctrl->thread;
+        *p_status = g_console.p_ctrl->status;
+    }
 }
 
 /******************************************************************************

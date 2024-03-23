@@ -6,6 +6,8 @@
 extern "C" {
 #endif
 
+#define TX_ENABLE_STACK_CHECKING
+
 #ifndef TX_TIMER_TICKS_PER_SECOND
 #define TX_TIMER_TICKS_PER_SECOND (1000)
 #endif

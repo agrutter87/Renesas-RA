@@ -56,6 +56,8 @@ typedef struct st_event
 typedef struct st_feature_status
 {
     ULONG return_code;
+    TX_THREAD ** pp_thread;
+    ULONG thread_count;
 } feature_status_t;
 
 typedef struct st_feature
