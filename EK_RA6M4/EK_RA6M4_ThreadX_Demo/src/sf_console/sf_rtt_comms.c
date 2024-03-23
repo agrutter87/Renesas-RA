@@ -62,12 +62,12 @@ fsp_err_t SF_RTT_COMMS_Read(sf_comms_ctrl_t * const p_ctrl,
 {
     /* TODO: IMPLEMENT? */
     TX_PARAMETER_NOT_USED(p_ctrl);
+    TX_PARAMETER_NOT_USED(timeout);
 
     fsp_err_t fsp_err = FSP_SUCCESS;
     int c;
     uint8_t * p_buffer = p_dest;
     uint32_t bytes_read = 0;
-    ULONG start_time = tx_time_get();
 
     while(1)
     {
@@ -81,14 +81,6 @@ fsp_err_t SF_RTT_COMMS_Read(sf_comms_ctrl_t * const p_ctrl,
         if(bytes_read == bytes)
         {
             break;
-        }
-        else if(tx_time_get() - start_time > timeout)
-        {
-            return FSP_ERR_TIMEOUT;
-        }
-        else
-        {
-            tx_thread_sleep(1);
         }
     }
 
@@ -105,11 +97,11 @@ fsp_err_t SF_RTT_COMMS_Write(sf_comms_ctrl_t * const p_ctrl,
 {
     /* TODO: IMPLEMENT? */
     TX_PARAMETER_NOT_USED(p_ctrl);
+    TX_PARAMETER_NOT_USED(timeout);
 
     fsp_err_t fsp_err = FSP_SUCCESS;
     uint8_t const *p_buffer = p_src;
     uint32_t bytes_written = 0;
-    ULONG start_time = tx_time_get();
 
     while(1)
     {
@@ -120,14 +112,6 @@ fsp_err_t SF_RTT_COMMS_Write(sf_comms_ctrl_t * const p_ctrl,
         if(bytes_written == bytes)
         {
             break;
-        }
-        else if(tx_time_get() - start_time > timeout)
-        {
-            return FSP_ERR_TIMEOUT;
-        }
-        else
-        {
-            tx_thread_sleep(1);
         }
     }
 
