@@ -35,6 +35,9 @@ typedef struct st_console_ctrl
     /* Event Queue Related */
     TX_QUEUE                        *p_event_queue;
 
+    /* Memory Related */
+    TX_BYTE_POOL                    *p_memory_byte_pool;
+
     /* Timer Related */
     TX_TIMER                        rx_timer;
 
