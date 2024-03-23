@@ -205,6 +205,10 @@ void console_thread_entry(ULONG thread_input)
                 }
 
                 tx_err = tx_timer_activate(&g_console.p_ctrl->rx_timer);
+                if(TX_SUCCESS != tx_err)
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::tx_timer_activate, tx_err = %d\r\n", tx_err);
+                }
 
                 break;
 
@@ -219,11 +223,20 @@ void console_thread_entry(ULONG thread_input)
                 break;
 
             case CONSOLE_EVENT_CHECK_RX:
+                tx_timer_deactivate(&g_console.p_ctrl->rx_timer);
+
                 fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT, false);
                 if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
                 }
+
+                tx_err = tx_timer_activate(&g_console.p_ctrl->rx_timer);
+                if(TX_SUCCESS != tx_err)
+                {
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::tx_timer_activate, tx_err = %d\r\n", tx_err);
+                }
+
                 break;
 
 
