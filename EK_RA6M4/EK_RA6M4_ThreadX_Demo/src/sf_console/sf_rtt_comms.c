@@ -82,6 +82,11 @@ fsp_err_t SF_RTT_COMMS_Read(sf_comms_ctrl_t * const p_ctrl,
         {
             break;
         }
+        else if(c == -1)
+        {
+            fsp_err = FSP_ERR_TIMEOUT;
+            break;
+        }
     }
 
     return fsp_err;
