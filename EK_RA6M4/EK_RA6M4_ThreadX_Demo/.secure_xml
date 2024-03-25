@@ -129,8 +129,8 @@
       <configSetting altId="qspi0.qssl.p306" configurationId="qspi0.qssl"/>
       <configSetting altId="sci6.scl.p505" configurationId="sci6.scl"/>
       <configSetting altId="sci6.sda.p506" configurationId="sci6.sda"/>
-      <configSetting altId="sci7.rxd.p614" configurationId="sci7.rxd"/>
-      <configSetting altId="sci7.txd.p613" configurationId="sci7.txd"/>
+      <configSetting altId="sci7.rxd.p614" configurationId="sci7.rxd" isUsedByDriver="true"/>
+      <configSetting altId="sci7.txd.p613" configurationId="sci7.txd" isUsedByDriver="true"/>
       <configSetting altId="spi0.miso.p202" configurationId="spi0.miso"/>
       <configSetting altId="spi0.mosi.p203" configurationId="spi0.mosi"/>
       <configSetting altId="spi0.rspck.p204" configurationId="spi0.rspck"/>
