@@ -10,7 +10,7 @@
 /******************************************************************************
  * CONSTANTS
  *****************************************************************************/
-#define APPLICATION_MEMORY_MAX                  (8192U)
+#define APPLICATION_MEMORY_MAX                  (0x20040000UL)
 
 #define APPLICATION_THREAD_NAME                 ("Application Thread")
 #define APPLICATION_THREAD_PRIORITY             (1)
@@ -109,7 +109,6 @@ typedef struct st_application_cfg
 
     /* Application Memory */
     CHAR                memory_byte_pool_name[THREAD_OBJECT_NAME_LENGTH_MAX];
-    ULONG               memory_byte_pool_size;
 
     /* Features */
     feature_t const     *p_features;

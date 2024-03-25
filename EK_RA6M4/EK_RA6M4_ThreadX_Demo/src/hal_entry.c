@@ -64,7 +64,7 @@ void tx_application_define_user(void *first_unused_memory)
     tx_err = tx_byte_pool_create(&g_application.p_ctrl->memory_byte_pool,
                                  (CHAR *)g_application.p_cfg->memory_byte_pool_name,
                                  first_unused_memory,
-                                 g_application.p_cfg->memory_byte_pool_size);
+                                 (APPLICATION_MEMORY_MAX - (ULONG)first_unused_memory));
 
     if(TX_SUCCESS != tx_err)
     {

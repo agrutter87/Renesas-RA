@@ -55,6 +55,19 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
     SEGGER_RTT_printf(0, "|                          Feature |   Status   |                Threads(Priority) | Stack Utilization |\n");
     SEGGER_RTT_printf(0, "|----------------------------------|------------|----------------------------------|-------------------|\n");
 
+    tx_err = tx_byte_allocate(g_console.p_ctrl->p_memory_byte_pool, (VOID **)&p_buffer, 128, TX_NO_WAIT);
+    if(TX_SUCCESS == tx_err)
+    {
+        snprintf(p_buffer, 128, "| %32s |            |                                  | %7lu / %7lu |\n",
+                "Application Memory Pool",
+                (g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size
+                        - g_application.p_ctrl->memory_byte_pool.tx_byte_pool_available),
+                g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size,
+                status.pp_thread[0]->tx_thread_stack_size);
+        SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
+        tx_byte_release(p_buffer);
+    }
+
     for(uint32_t feature_num = 0; feature_num < feature_count; feature_num++)
     {
         tx_err = tx_byte_allocate(g_console.p_ctrl->p_memory_byte_pool, (VOID **)&p_buffer, 128, TX_NO_WAIT);
@@ -69,8 +82,6 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
                         status.return_code,
                         "No Threads");
                 SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
-
-                tx_byte_release(p_buffer);
             }
             else
             {
@@ -83,8 +94,6 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
                                 - (ULONG)status.pp_thread[0]->tx_thread_stack_highest_ptr),
                         status.pp_thread[0]->tx_thread_stack_size);
                 SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
-
-                tx_byte_release(p_buffer);
             }
 
             if(status.thread_count > 1)
@@ -101,11 +110,11 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
                                         - (ULONG)status.pp_thread[thread_index]->tx_thread_stack_highest_ptr),
                                 status.pp_thread[thread_index]->tx_thread_stack_size);
                         SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
-
-                        tx_byte_release(p_buffer);
                     }
                 }
             }
+
+            tx_byte_release(p_buffer);
         }
     }
 
