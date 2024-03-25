@@ -70,7 +70,6 @@ const application_cfg_t g_application_cfg =
  /* Application Memory */
  /* TX_BYTE_POOL creation arguments */
  .memory_byte_pool_name     = "Application Memory",
- .memory_byte_pool_size     = APPLICATION_MEMORY_MAX,
 
  /* Features */
  .p_features                = g_features,
