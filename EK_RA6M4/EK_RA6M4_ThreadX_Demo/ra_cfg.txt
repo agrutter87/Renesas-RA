@@ -408,7 +408,7 @@ FSP Configuration
     RS-485 Support: Disable
     
   Azure RTOS ThreadX
-    General: Custom tx_user.h: 
+    General: Custom tx_user.h: custom_tx_user.h
     General: Error Checking: Enabled
     Timer: Timer Ticks Per Second: 1000
     General: Max Priorities: 32
