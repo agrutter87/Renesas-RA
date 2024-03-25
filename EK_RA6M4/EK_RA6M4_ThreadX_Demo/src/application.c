@@ -82,7 +82,7 @@ VOID application_feature_monitor_timer_callback(ULONG id);
 void application_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
 {
     UINT        tx_err          = TX_SUCCESS;
-    event_t     event_data      = { .event_type = APPLICATION_EVENT_INIT, .event_payload = { 0 } };
+    event_t     event_data      = { 0 };
 
     SEGGER_RTT_printf(0, "Initializing application...\r\n");
 
@@ -115,6 +115,8 @@ void application_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
     }
 
     /* Send the initialize event */
+    event_data.event_type = APPLICATION_EVENT_INIT;
+
     tx_err = tx_queue_send(g_application.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
@@ -177,7 +179,7 @@ void application_thread_entry(ULONG thread_input)
 
             case APPLICATION_EVENT_FEATURE_MONITOR_REQUEST:
                 event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REPORT;
-                event_data.event_payload.event_ulongdata = (ULONG)&application_get_status;
+                event_data.event_payload.event_uint32data[0] = (ULONG)&application_get_status;
                 tx_err = tx_queue_send(g_application.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
                 if(TX_SUCCESS != tx_err)
                 {
@@ -188,7 +190,7 @@ void application_thread_entry(ULONG thread_input)
             case APPLICATION_EVENT_FEATURE_MONITOR_REPORT:
                 for(uint32_t feature_num = 0; feature_num < g_application.p_cfg->feature_count; feature_num++)
                 {
-                    if((event_data.event_payload.event_ulongdata) == ((ULONG)g_application.p_cfg->p_features[feature_num].feature_get_status))
+                    if((event_data.event_payload.event_uint32data[0]) == ((ULONG)g_application.p_cfg->p_features[feature_num].feature_get_status))
                     {
                         SEGGER_RTT_printf(0, "%s reported in @ t=%u\n", g_application.p_cfg->p_features[feature_num].feature_name, tx_time_get());
                     }
@@ -224,10 +226,11 @@ VOID application_feature_monitor_timer_callback(ULONG id)
     FSP_PARAMETER_NOT_USED(id);
 
     UINT        tx_err          = TX_SUCCESS;
-    event_t     event_data      = { .event_type = APPLICATION_EVENT_FEATURE_MONITOR_REQUEST, .event_payload = { 0 } };
+    event_t     event_data      = { 0 };
 
     for(ULONG feature_num = 0; feature_num < g_application.p_cfg->feature_count; feature_num++)
     {
+        event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REQUEST;
         tx_err = tx_queue_send(&g_application.p_cfg->p_features[feature_num].event_queue, &event_data, TX_NO_WAIT);
         if(TX_SUCCESS != tx_err)
         {

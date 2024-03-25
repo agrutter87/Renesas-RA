@@ -23,7 +23,7 @@
 
 #define THREAD_OBJECT_NAME_LENGTH_MAX           (32)
 #define FEATURE_NAME_MAX_LENGTH                 (32)
-#define EVENT_QUEUE_MESSAGE_SIZE                (2)
+#define EVENT_QUEUE_MESSAGE_SIZE                (3)
 #define EVENT_QUEUE_MEMORY_MAX                  ((10 * EVENT_QUEUE_MESSAGE_SIZE) + sizeof(void *))
 
 /******************************************************************************
@@ -42,14 +42,13 @@ typedef struct st_event
     ULONG  event_type;
     union
     {
-        UINT     event_timer_id;
-        UCHAR    event_uchardata[4];
-        USHORT   event_ushortdata[2];
-        ULONG    event_ulongdata;
-        CHAR     event_chardata[4];
-        SHORT    event_shortdata[2];
-        INT      event_intdata[2];
-        LONG     event_longdata;
+        UCHAR    event_uint8data[8];
+        USHORT   event_uint16data[4];
+        ULONG    event_uint32data[2];
+        CHAR     event_int8data[8];
+        SHORT    event_int16data[4];
+        LONG     event_int32data[2];
+        VOID     *event_p_data[2];
     } event_payload;
 } event_t;
 
