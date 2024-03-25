@@ -119,7 +119,6 @@ void uart_manager_thread_entry(ULONG thread_input)
     uart_instance_t const       *p_uart     = NULL;
     UINT                        tx_err      = TX_SUCCESS;
     event_t                     event_data  = { 0 };
-    ULONG                       rx_data  = 0;
 #if TESTING_uart_manager_request_tx
     char message[] = "Hello World\r\n";
 #endif
@@ -163,7 +162,9 @@ void uart_manager_thread_entry(ULONG thread_input)
 #if TESTING_uart_manager_register_rx
                 SEGGER_RTT_printf(0, "Sending \"%s\"...\r\n", message);
 #endif
+#if TESTING_uart_manager_request_tx
                 uart_manager_request_tx(7, (uint8_t *)message, (uint16_t)strlen(message));
+#endif
                 break;
 
             case UART_MANAGER_EVENT_TX:
@@ -227,7 +228,7 @@ void uart_callback(uart_callback_args_t *p_args)
                 event_data.event_type = g_uart_manager.p_ctrl->registered_rx_event[p_args->channel];
                 event_data.event_payload.event_uint8data[0] = (UCHAR)p_args->data;
 
-                tx_err = tx_queue_send(g_uart_manager.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
+                tx_err = tx_queue_send(g_uart_manager.p_ctrl->p_registered_rx_queue[p_args->channel], &event_data, TX_NO_WAIT);
                 if(TX_SUCCESS != tx_err)
                 {
                     SEGGER_RTT_printf(0, "Failed uart_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
@@ -316,7 +317,7 @@ UINT uart_manager_register_rx(uint8_t channel, TX_QUEUE * p_event_queue, ULONG e
     {
         tx_err = TX_PTR_ERROR;
     }
-    else if(!(event_id > APPLICATION_EVENT_END))
+    else if(event_id < APPLICATION_EVENT_END)
     {
         tx_err = TX_NOT_AVAILABLE;
     }

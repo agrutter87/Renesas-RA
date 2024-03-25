@@ -152,7 +152,7 @@ void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
                              0, CONSOLE_RX_TICKS, CONSOLE_RX_TICKS, TX_NO_ACTIVATE);
 
     /* Send the initialize event */
-    event_type = APPLICATION_EVENT_INIT;
+    event_data.event_type = APPLICATION_EVENT_INIT;
 
     tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
