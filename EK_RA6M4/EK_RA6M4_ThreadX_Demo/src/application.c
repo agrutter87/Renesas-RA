@@ -8,6 +8,7 @@
 
 /* Features */
 #include "console.h"
+#include "uart_manager.h"
 
 /******************************************************************************
  * CONSTANTS
@@ -33,6 +34,14 @@ static feature_t g_features[] =
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
         .event_queue_name = "Console Event Queue"
+    },
+    {
+        .feature_name = "UART Manager",
+        .feature_define = uart_manager_define,
+        .feature_get_status = uart_manager_get_status,
+        .event_queue = { 0 },
+        .p_event_queue_memory = NULL,
+        .event_queue_name = "UART Manager Event Queue"
     },
 #if 0
     {
