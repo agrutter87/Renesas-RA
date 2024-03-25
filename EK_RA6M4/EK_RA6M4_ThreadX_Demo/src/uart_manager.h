@@ -15,16 +15,11 @@
 #define UART_MANAGER_THREAD_PREEMPT_THRESHOLD   (TX_MAX_PRIORITIES - 1)
 #define UART_MANAGER_THREAD_PERIOD              (TX_TIMER_TICKS_PER_SECOND)
 #define UART_MANAGER_THREAD_STACK_SIZE          (APPLICATION_THREAD_STACK_SIZE)
-#define UART_MANAGER_RX_TICKS                   (100)
 #define UART_MANAGER_CHANNELS_MAX               (10)
-#define UART_MANAGER_TX_QUEUE_MESSAGE_SIZE      (1)
-#define UART_MANAGER_RX_QUEUE_MESSAGE_SIZE      (1)
-#define UART_MANAGER_TX_QUEUE_MEMORY_MAX        ((64 * UART_MANAGER_TX_QUEUE_MESSAGE_SIZE) + sizeof(void *))
-#define UART_MANAGER_RX_QUEUE_MEMORY_MAX        ((64 * UART_MANAGER_RX_QUEUE_MESSAGE_SIZE) + sizeof(void *))
 
 #define TESTING_uart_callback                   (0)
-#define TESTING_uart_manager_request_tx         (1)
-#define TESTING_uart_manager_register_rx        (1)
+#define TESTING_uart_manager_request_tx         (0)
+#define TESTING_uart_manager_register_rx        (0)
 
 /******************************************************************************
  * TYPES
