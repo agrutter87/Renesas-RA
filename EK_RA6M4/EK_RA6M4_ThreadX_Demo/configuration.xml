@@ -303,7 +303,7 @@
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
     </config>
     <config id="config.threadx.thread">
-      <property id="config.azure.tx.custom_tx_user" value=""/>
+      <property id="config.azure.tx.custom_tx_user" value="custom_tx_user.h"/>
       <property id="config.azure.tx.error_checking" value="config.azure.tx.error_checking.enabled"/>
       <property id="config.azure.tx.timer_ticks_per_second" value="1000"/>
       <property id="config.azure.tx.max_priorities" value="32"/>
