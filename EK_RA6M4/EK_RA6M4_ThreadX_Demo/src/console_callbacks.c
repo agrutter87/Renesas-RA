@@ -62,8 +62,7 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
                 "Application Memory Pool",
                 (g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size
                         - g_application.p_ctrl->memory_byte_pool.tx_byte_pool_available),
-                g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size,
-                status.pp_thread[0]->tx_thread_stack_size);
+                g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size);
         SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
         tx_byte_release(p_buffer);
     }
