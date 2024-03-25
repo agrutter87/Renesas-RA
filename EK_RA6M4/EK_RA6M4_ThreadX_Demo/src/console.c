@@ -98,8 +98,8 @@ const console_cfg_t   g_console_cfg =
 
  /* SF Console */
  .p_console                 = &g_sf_console
-
 };
+
 const console_t g_console =
 {
  .p_ctrl = &g_console_ctrl,
@@ -112,7 +112,7 @@ const console_t g_console =
 void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
 {
     UINT        tx_err          = TX_SUCCESS;
-    event_t     event_data      = { .event_type = APPLICATION_EVENT_INIT, .event_payload = { 0 } };
+    event_t     event_data      = { 0 };
 
     SEGGER_RTT_printf(0, "Initializing console...\r\n");
 
@@ -145,13 +145,15 @@ void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
         SEGGER_RTT_printf(0, "Failed console_define::tx_thread_create, tx_err = %d\r\n", tx_err);
     }
 
-    /* Create the thread monitor timer */
+    /* Create the receive timer */
     tx_err = tx_timer_create(&g_console.p_ctrl->rx_timer,
                              (CHAR *)g_console.p_cfg->rx_timer_name,
                              console_rx_timer_callback,
                              0, CONSOLE_RX_TICKS, CONSOLE_RX_TICKS, TX_NO_ACTIVATE);
 
     /* Send the initialize event */
+    event_type = APPLICATION_EVENT_INIT;
+
     tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
@@ -231,7 +233,7 @@ void console_thread_entry(ULONG thread_input)
 
             case APPLICATION_EVENT_FEATURE_MONITOR_REQUEST:
                 event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REPORT;
-                event_data.event_payload.event_ulongdata = (ULONG)&console_get_status;
+                event_data.event_payload.event_uint32data[0] = (ULONG)&console_get_status;
                 tx_err = tx_queue_send(g_application.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
                 if(TX_SUCCESS != tx_err)
                 {
@@ -268,7 +270,8 @@ VOID console_rx_timer_callback(ULONG id)
     FSP_PARAMETER_NOT_USED(id);
 
     UINT        tx_err          = TX_SUCCESS;
-    event_t     event_data      = { .event_type = CONSOLE_EVENT_CHECK_RX, .event_payload = { 0 } };
+    event_t     event_data      = { 0 };
+    event_data.event_type = CONSOLE_EVENT_CHECK_RX;
 
     tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
