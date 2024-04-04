@@ -23,7 +23,8 @@
  *****************************************************************************/
 typedef enum st_console_event
 {
-    CONSOLE_EVENT_CHECK_RX = APPLICATION_EVENT_END
+    CONSOLE_EVENT_CHECK_RX = APPLICATION_EVENT_END,
+    CONSOLE_EVENT_CHANGE_MENU
 } console_event_t;
 
 typedef struct st_console_ctrl
@@ -68,12 +69,15 @@ typedef struct st_console
     console_cfg_t const *p_cfg;
 } console_t;
 
+extern const sf_console_menu_t g_sf_console_menu;
+
 /******************************************************************************
  * PROTOTYPES
  *****************************************************************************/
 void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 void console_get_status(feature_status_t * p_status);
 void console_thread_entry(ULONG thread_input);
+UINT console_request_menu_change(sf_console_menu_t const * p_new_menu);
 
 /******************************************************************************
  * CALLBACK FUNCTIONS
@@ -82,5 +86,6 @@ void feature_start_callback(sf_console_callback_args_t * p_args);
 void feature_stop_callback(sf_console_callback_args_t * p_args);
 void feature_status_callback(sf_console_callback_args_t * p_args);
 void custom_code_callback(sf_console_callback_args_t * p_args);
+
 
 #endif // CONSOLE_H

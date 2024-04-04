@@ -3,6 +3,7 @@
  *****************************************************************************/
 #include "sf_rtt_comms.h"
 #include "console.h"
+#include "pmodesp32_bt.h"
 
 /******************************************************************************
  * CONSTANTS
@@ -43,6 +44,12 @@ const sf_console_command_t            g_console_commands[] =
         .command    = (uint8_t *) "custom",
         .help       = (uint8_t *) "Does some custom code.",
         .callback   = custom_code_callback,
+        .context    = NULL
+    },
+    {
+        .command    = (uint8_t *) "pmodesp32_bt",
+        .help       = (uint8_t *) "Starts the PmodESP32 Menu.",
+        .callback   = pmodesp32_bt_menu_callback,
         .context    = NULL
     },
 };
@@ -190,10 +197,12 @@ void console_get_status(feature_status_t * p_status)
  *****************************************************************************/
 void console_thread_entry(ULONG thread_input)
 {
-    fsp_err_t                   fsp_err     = FSP_SUCCESS;
-    sf_console_instance_t const *p_console  = g_console.p_cfg->p_console;
-    UINT                        tx_err      = TX_SUCCESS;
-    event_t                     event_data  = { 0 };
+    fsp_err_t                       fsp_err             = FSP_SUCCESS;
+    sf_console_instance_t const     *p_sf_console       = g_console.p_cfg->p_console;
+    sf_console_instance_ctrl_t      *p_sf_console_ctrl  = (sf_console_instance_ctrl_t *)p_sf_console->p_ctrl;
+    UINT                            tx_err              = TX_SUCCESS;
+    event_t                         event_data          = { 0 };
+    static sf_console_menu_t const  *p_menu_check       = &g_sf_console_menu;
 
     FSP_PARAMETER_NOT_USED(thread_input);
 
@@ -205,19 +214,19 @@ void console_thread_entry(ULONG thread_input)
         switch(event_data.event_type)
         {
             case APPLICATION_EVENT_INIT:
-                fsp_err = p_console->p_api->open(p_console->p_ctrl, p_console->p_cfg);
+                fsp_err = p_sf_console->p_api->open(p_sf_console->p_ctrl, p_sf_console->p_cfg);
                 if(FSP_SUCCESS != fsp_err)
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->open, fsp_err = %d\r\n", fsp_err);
                 }
 
-                fsp_err = p_console->p_api->write(p_console->p_ctrl, (uint8_t *)"\r\nWelcome to Grutter's example ThreadX System Developer\r\nEnter '?' for a list of commands...\r\n", 100);
+                fsp_err = p_sf_console->p_api->write(p_sf_console->p_ctrl, (uint8_t *)"\r\nWelcome to Grutter's example ThreadX System Developer\r\nEnter '?' for a list of commands...\r\n", 100);
                 if(FSP_SUCCESS != fsp_err)
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->write, fsp_err = %d\r\n", fsp_err);
                 }
 
-                fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT, true);
+                fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, true);
                 if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
@@ -244,7 +253,16 @@ void console_thread_entry(ULONG thread_input)
             case CONSOLE_EVENT_CHECK_RX:
                 tx_timer_deactivate(&g_console.p_ctrl->rx_timer);
 
-                fsp_err = p_console->p_api->prompt(p_console->p_ctrl, p_console->p_cfg->p_initial_menu, TX_NO_WAIT, false);
+                /* Re-prompt if the menu has changed */
+                if(p_menu_check != p_sf_console_ctrl->p_current_menu)
+                {
+                    p_menu_check = p_sf_console_ctrl->p_current_menu;
+                    fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, true);
+                }
+                else
+                {
+                    fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, false);
+                }
                 if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
                 {
                     SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
@@ -257,6 +275,16 @@ void console_thread_entry(ULONG thread_input)
                 }
 
                 break;
+
+            case CONSOLE_EVENT_CHANGE_MENU:
+                p_sf_console_ctrl->p_current_menu = (sf_console_menu_t *)event_data.event_payload.event_p_data[0];
+
+				fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, false);
+				if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+				{
+                    SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+				}
+				break;
 
 
             default:
@@ -278,4 +306,28 @@ VOID console_rx_timer_callback(ULONG id)
     {
         SEGGER_RTT_printf(0, "Failed console_rx_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
     }
+}
+
+UINT console_request_menu_change(sf_console_menu_t const * p_new_menu)
+{
+    UINT        tx_err          = TX_SUCCESS;
+    event_t     event_data      = { 0 };
+
+    if(NULL == p_new_menu)
+    {
+        tx_err = TX_PTR_ERROR;
+    }
+    else
+    {
+        event_data.event_type = CONSOLE_EVENT_CHANGE_MENU;
+        event_data.event_payload.event_p_data[0] = (VOID *)p_new_menu;
+
+        tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
+        if(TX_SUCCESS != tx_err)
+        {
+            SEGGER_RTT_printf(0, "Failed console_rx_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
+        }
+    }
+
+	return tx_err;
 }

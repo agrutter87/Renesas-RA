@@ -6,6 +6,7 @@
  *****************************************************************************/
 #include "application.h"
 #include "hal_data.h"
+#include "sf_console_api.h"
 
 /******************************************************************************
  * CONSTANTS
@@ -67,5 +68,6 @@ typedef struct st_pmodesp32_bt
 void pmodesp32_bt_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 void pmodesp32_bt_get_status(feature_status_t * p_status);
 void pmodesp32_bt_thread_entry(ULONG thread_input);
+void pmodesp32_bt_menu_callback(sf_console_callback_args_t * p_args);
 
 #endif // PMODESP32_BT_H

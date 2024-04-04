@@ -3,6 +3,7 @@
  *****************************************************************************/
 #include "pmodesp32_bt.h"
 #include "uart_manager.h"
+#include "console.h"
 
 /******************************************************************************
  * CONSTANTS
@@ -37,6 +38,25 @@ const pmodesp32_bt_t g_pmodesp32_bt =
  .p_ctrl = &g_pmodesp32_bt_ctrl,
  .p_cfg  = &g_pmodesp32_bt_cfg
 };
+
+/* Assigns the callback functions to each command */
+const sf_console_command_t            g_pmodesp32_bt_commands[] =
+{
+    {
+        .command    = (uint8_t *) "AT",
+        .help       = (uint8_t *) "Starts AT command mode",
+        .callback   = NULL,
+        .context    = NULL
+    },
+};
+const sf_console_menu_t g_pmodesp32_bt_menu =
+{
+ .menu_prev       = &g_sf_console_menu,
+ .menu_name       = (uint8_t *)"PmodESP32 Bluetooth",
+ .num_commands    = sizeof(g_pmodesp32_bt_commands) / sizeof(g_pmodesp32_bt_commands[0]),
+ .command_list    = g_pmodesp32_bt_commands
+};
+
 
 /******************************************************************************
  * FUNCTION: pmodesp32_bt_define
@@ -161,4 +181,11 @@ void pmodesp32_bt_thread_entry(ULONG thread_input)
                 break;
         }
     }
+}
+
+void pmodesp32_bt_menu_callback(sf_console_callback_args_t * p_args)
+{
+    FSP_PARAMETER_NOT_USED(p_args);
+
+    console_request_menu_change(&g_pmodesp32_bt_menu);
 }

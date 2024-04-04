@@ -150,4 +150,3 @@ void custom_code_callback(sf_console_callback_args_t * p_args)
 
     SEGGER_RTT_printf(0, "done\r\n");
 }
-
