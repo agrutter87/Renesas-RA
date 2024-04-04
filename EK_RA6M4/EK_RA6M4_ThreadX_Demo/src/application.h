@@ -24,7 +24,7 @@
 #define THREAD_OBJECT_NAME_LENGTH_MAX           (32)
 #define FEATURE_NAME_MAX_LENGTH                 (32)
 #define EVENT_QUEUE_MESSAGE_SIZE                (4)
-#define EVENT_QUEUE_MEMORY_MAX(x)               ((x * EVENT_QUEUE_MESSAGE_SIZE) + sizeof(void *))
+#define EVENT_QUEUE_MEMORY_MAX(x)               ((x * EVENT_QUEUE_MESSAGE_SIZE * sizeof(ULONG)) + sizeof(void *))
 
 /******************************************************************************
  * TYPES

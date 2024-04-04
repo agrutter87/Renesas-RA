@@ -54,7 +54,7 @@ static feature_t g_features[] =
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
         .event_queue_name = "PmodESP32 Bluetooth Event Queue",
-        .event_queue_message_count = 10
+        .event_queue_message_count = 64
     },
 #if 0
     {
@@ -213,7 +213,9 @@ void application_thread_entry(ULONG thread_input)
                 {
                     if((event_data.event_payload.event_uint32data[0]) == ((ULONG)g_application.p_cfg->p_features[feature_num].feature_get_status))
                     {
+#if 0
                         SEGGER_RTT_printf(0, "%s reported in @ t=%u\n", g_application.p_cfg->p_features[feature_num].feature_name, tx_time_get());
+#endif
                     }
                 }
                 break;
