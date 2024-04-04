@@ -77,7 +77,7 @@ void tx_application_define_user(void *first_unused_memory)
             /* Allocate the memory for the event queue for this feature */
             tx_err = tx_byte_allocate(&g_application.p_ctrl->memory_byte_pool,
                                       (VOID **) &g_application.p_cfg->p_features[feature_num].p_event_queue_memory,
-                                      EVENT_QUEUE_MEMORY_MAX,
+                                      EVENT_QUEUE_MEMORY_MAX(g_application.p_cfg->p_features[feature_num].event_queue_message_count),
                                       TX_NO_WAIT);
             if(TX_SUCCESS != tx_err)
             {
@@ -89,7 +89,7 @@ void tx_application_define_user(void *first_unused_memory)
                                      (CHAR *)g_application.p_cfg->p_features[feature_num].event_queue_name,
                                      EVENT_QUEUE_MESSAGE_SIZE,
                                      g_application.p_cfg->p_features[feature_num].p_event_queue_memory,
-                                     EVENT_QUEUE_MEMORY_MAX);
+                                     EVENT_QUEUE_MEMORY_MAX(g_application.p_cfg->p_features[feature_num].event_queue_message_count));
 
             g_application.p_cfg->p_features[feature_num].feature_define(&g_application.p_ctrl->memory_byte_pool, &g_application.p_cfg->p_features[feature_num].event_queue);
         }

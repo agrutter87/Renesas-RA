@@ -45,7 +45,7 @@ const sf_console_command_t            g_pmodesp32_bt_commands[] =
     {
         .command    = (uint8_t *) "AT",
         .help       = (uint8_t *) "Starts AT command mode",
-        .callback   = NULL,
+        .callback   = pmodesp32_bt_menu_at_callback,
         .context    = NULL
     },
 };
@@ -139,8 +139,6 @@ void pmodesp32_bt_thread_entry(ULONG thread_input)
     UINT                        tx_err      = TX_SUCCESS;
     event_t                     event_data  = { 0 };
 
-    char message[] = "AT\r\n";
-
     FSP_PARAMETER_NOT_USED(thread_input);
 
     while(1)
@@ -151,6 +149,9 @@ void pmodesp32_bt_thread_entry(ULONG thread_input)
         switch(event_data.event_type)
         {
             case APPLICATION_EVENT_INIT:
+                memset(g_pmodesp32_bt.p_ctrl->console_tx_buffer, 0, sizeof(g_pmodesp32_bt.p_ctrl->console_tx_buffer));
+                g_pmodesp32_bt.p_ctrl->console_tx_buffer_index = 0;
+
                 g_ioport.p_api->pinCfg(g_ioport.p_ctrl, g_pmodesp32_bt.p_cfg->reset_pin,
                                        ((uint32_t) IOPORT_CFG_PORT_DIRECTION_OUTPUT
                                                | (uint32_t) IOPORT_CFG_PORT_OUTPUT_HIGH));
@@ -167,15 +168,45 @@ void pmodesp32_bt_thread_entry(ULONG thread_input)
                 {
                     SEGGER_RTT_printf(0, "Failed pmodesp32_bt_thread_entry::tx_queue_send, tx_err = %d\r\n", tx_err);
                 }
-
+#if 0
                 SEGGER_RTT_printf(0, "%s", message);
                 uart_manager_request_tx(g_pmodesp32_bt.p_cfg->uart_manager_channel,
                                         (uint8_t *)message, (uint16_t)strlen(message));
+#endif
                 break;
 
             case PMODESP32_BT_EVENT_RX:
                 SEGGER_RTT_PutChar(0, event_data.event_payload.event_uint8data[0]);
                 break;
+
+            case PMODESP32_BT_EVENT_CONSOLE_RX:
+                if(g_pmodesp32_bt.p_ctrl->console_tx_buffer_enabled)
+                {
+                    if(event_data.event_payload.event_uint8data[0] == '~')
+                    {
+                        console_request_direct_rx_transfer(false, NULL, 0);
+                        g_pmodesp32_bt.p_ctrl->console_tx_buffer_enabled = false;
+                    }
+                    else if(g_pmodesp32_bt.p_ctrl->console_tx_buffer_index < sizeof(g_pmodesp32_bt.p_ctrl->console_tx_buffer))
+                    {
+                        g_pmodesp32_bt.p_ctrl->console_tx_buffer[g_pmodesp32_bt.p_ctrl->console_tx_buffer_index] = event_data.event_payload.event_uint8data[0];
+                        if((event_data.event_payload.event_uint8data[0] == '\n')
+                                || (g_pmodesp32_bt.p_ctrl->console_tx_buffer_index >= sizeof(g_pmodesp32_bt.p_ctrl->console_tx_buffer)))
+                        {
+                            /* Transfer the data to the UART */
+                            uart_manager_request_tx(g_pmodesp32_bt.p_cfg->uart_manager_channel,
+                                                    (uint8_t *)g_pmodesp32_bt.p_ctrl->console_tx_buffer,
+                                                    g_pmodesp32_bt.p_ctrl->console_tx_buffer_index + 1);
+                            g_pmodesp32_bt.p_ctrl->console_tx_buffer_index = 0;
+                        }
+                        else
+                        {
+                            g_pmodesp32_bt.p_ctrl->console_tx_buffer_index++;
+                        }
+                    }
+                }
+
+				break;
 
             default:
                 break;
@@ -188,4 +219,14 @@ void pmodesp32_bt_menu_callback(sf_console_callback_args_t * p_args)
     FSP_PARAMETER_NOT_USED(p_args);
 
     console_request_menu_change(&g_pmodesp32_bt_menu);
+}
+
+void pmodesp32_bt_menu_at_callback(sf_console_callback_args_t * p_args)
+{
+    FSP_PARAMETER_NOT_USED(p_args);
+
+    g_pmodesp32_bt.p_ctrl->console_tx_buffer_enabled = true;
+    console_request_direct_rx_transfer(true, g_pmodesp32_bt.p_ctrl->p_event_queue, PMODESP32_BT_EVENT_CONSOLE_RX);
+
+    SEGGER_RTT_printf(0, "Enter AT command or ~ to return to console\r\n");
 }

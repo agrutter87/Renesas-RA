@@ -168,16 +168,16 @@ void uart_manager_thread_entry(ULONG thread_input)
                 break;
 
             case UART_MANAGER_EVENT_TX:
-                p_uart = g_uart_manager.p_cfg->p_uart[event_data.event_payload.event_uint8data[0]];
+                p_uart = g_uart_manager.p_cfg->p_uart[event_data.event_payload.event_uint32data[0]];
                 fsp_err = p_uart->p_api->write(p_uart->p_ctrl,
-                                               (uint8_t *)event_data.event_payload.event_p_data[1],
-                                               event_data.event_payload.event_uint16data[1]);
+                                               (uint8_t *)event_data.event_payload.event_p_data[2],
+                                               event_data.event_payload.event_uint32data[1]);
                 if(FSP_SUCCESS != fsp_err)
                 {
                     SEGGER_RTT_printf(0, "Failed uart_manager_thread_entry::p_uart->p_api->write, fsp_err = %d\r\n", fsp_err);
                 }
 
-                tx_byte_release(event_data.event_payload.event_p_data[1]);
+                tx_byte_release(event_data.event_payload.event_p_data[2]);
 
                 break;
 
@@ -214,11 +214,11 @@ void uart_callback(uart_callback_args_t *p_args)
     {
         if(UART_EVENT_RX_COMPLETE & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_RX_COMPLETE\r\n");
         }
         if(UART_EVENT_TX_COMPLETE & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_TX_COMPLETE\r\n");
         }
         if(UART_EVENT_RX_CHAR & p_args->event)
         {
@@ -237,28 +237,28 @@ void uart_callback(uart_callback_args_t *p_args)
         }
         if(UART_EVENT_ERR_PARITY & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_ERR_PARITY\r\n");
         }
         if(UART_EVENT_ERR_FRAMING & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_ERR_FRAMING\r\n");
         }
         if(UART_EVENT_ERR_OVERFLOW & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_ERR_OVERFLOW\r\n");
         }
         if(UART_EVENT_BREAK_DETECT & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_BREAK_DETECT\r\n");
         }
         if(UART_EVENT_TX_DATA_EMPTY & p_args->event)
         {
-
+            //SEGGER_RTT_printf(0, "UART_EVENT_TX_DATA_EMPTY\r\n");
         }
     }
 }
 
-UINT uart_manager_request_tx(uint8_t channel, uint8_t * p_data, uint16_t length)
+UINT uart_manager_request_tx(uint8_t channel, uint8_t * p_data, uint32_t length)
 {
     UINT    tx_err      = TX_SUCCESS;
     event_t event_data  = { 0 };
@@ -279,7 +279,7 @@ UINT uart_manager_request_tx(uint8_t channel, uint8_t * p_data, uint16_t length)
     if(TX_SUCCESS == tx_err)
     {
         tx_err = tx_byte_allocate(g_uart_manager.p_ctrl->p_memory_byte_pool,
-                                  (VOID **) &event_data.event_payload.event_p_data[1],
+                                  (VOID **) &event_data.event_payload.event_p_data[2],
                                   length,
                                   TX_NO_WAIT);
         if(TX_SUCCESS != tx_err)
@@ -291,9 +291,9 @@ UINT uart_manager_request_tx(uint8_t channel, uint8_t * p_data, uint16_t length)
     if(TX_SUCCESS == tx_err)
     {
         event_data.event_type = UART_MANAGER_EVENT_TX;
-        event_data.event_payload.event_uint8data[0] = (UCHAR)channel;
-        event_data.event_payload.event_uint16data[1] = length;
-        memcpy(event_data.event_payload.event_p_data[1], p_data, length);
+        event_data.event_payload.event_uint32data[0] = (UCHAR)channel;
+        event_data.event_payload.event_uint32data[1] = length;
+        memcpy(event_data.event_payload.event_p_data[2], p_data, length);
 
         tx_err = tx_queue_send(g_uart_manager.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
         if(TX_SUCCESS != tx_err)

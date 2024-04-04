@@ -253,19 +253,45 @@ void console_thread_entry(ULONG thread_input)
             case CONSOLE_EVENT_CHECK_RX:
                 tx_timer_deactivate(&g_console.p_ctrl->rx_timer);
 
-                /* Re-prompt if the menu has changed */
-                if(p_menu_check != p_sf_console_ctrl->p_current_menu)
+                if(g_console.p_ctrl->direct_rx_enabled)
                 {
-                    p_menu_check = p_sf_console_ctrl->p_current_menu;
-                    fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, true);
+                    event_data.event_type = g_console.p_ctrl->registered_rx_event;
+
+                    do
+                    {
+                        /* Read the characters and if anything is received, send it to the registered queue */
+                        fsp_err = p_sf_console_ctrl->p_comms->p_api->read(p_sf_console_ctrl->p_comms->p_ctrl, &event_data.event_payload.event_uint8data[0], 1, TX_NO_WAIT);
+                        if(FSP_SUCCESS == fsp_err)
+                        {
+                            tx_err = tx_queue_send(g_console.p_ctrl->p_registered_rx_queue, &event_data, TX_NO_WAIT);
+                            if(TX_SUCCESS != tx_err)
+                            {
+                                SEGGER_RTT_printf(0, "Failed console_thread_entry::tx_queue_send, tx_err = %d\r\n", tx_err);
+                            }
+                        }
+                    } while (FSP_SUCCESS == fsp_err);
+
+                    if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+                    {
+                        SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->read, fsp_err = %d\r\n", fsp_err);
+                    }
                 }
                 else
                 {
-                    fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, false);
-                }
-                if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
-                {
-                    SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+                    /* Re-prompt if the menu has changed */
+                    if(p_menu_check != p_sf_console_ctrl->p_current_menu)
+                    {
+                        p_menu_check = p_sf_console_ctrl->p_current_menu;
+                        fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, true);
+                    }
+                    else
+                    {
+                        fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, false);
+                    }
+                    if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+                    {
+                        SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+                    }
                 }
 
                 tx_err = tx_timer_activate(&g_console.p_ctrl->rx_timer);
@@ -286,6 +312,25 @@ void console_thread_entry(ULONG thread_input)
 				}
 				break;
 
+            case CONSOLE_EVENT_CHANGE_RX_TRANSFER:
+				g_console.p_ctrl->direct_rx_enabled = event_data.event_payload.event_uint32data[0];
+				g_console.p_ctrl->registered_rx_event = event_data.event_payload.event_uint32data[1];
+				g_console.p_ctrl->p_registered_rx_queue = (TX_QUEUE *)event_data.event_payload.event_p_data[2];
+                do
+                {
+                    /* Read any remaining characters to flush the buffer */
+                    fsp_err = p_sf_console_ctrl->p_comms->p_api->read(p_sf_console_ctrl->p_comms->p_ctrl, &event_data.event_payload.event_uint8data[0], 1, TX_NO_WAIT);
+                } while (FSP_SUCCESS == fsp_err);
+
+                if(false == g_console.p_ctrl->direct_rx_enabled)
+                {
+                    fsp_err = p_sf_console->p_api->prompt(p_sf_console->p_ctrl, p_sf_console_ctrl->p_current_menu, TX_NO_WAIT, true);
+                    if((FSP_SUCCESS != fsp_err) && (FSP_ERR_TIMEOUT != fsp_err))
+                    {
+                        SEGGER_RTT_printf(0, "Failed console_thread_entry::g_sf_console0.p_api->prompt, fsp_err = %d\r\n", fsp_err);
+                    }
+                }
+				break;
 
             default:
                 break;
@@ -330,4 +375,30 @@ UINT console_request_menu_change(sf_console_menu_t const * p_new_menu)
     }
 
 	return tx_err;
+}
+
+UINT console_request_direct_rx_transfer(bool enable, TX_QUEUE * p_event_queue, ULONG event_id)
+{
+    UINT        tx_err          = TX_SUCCESS;
+    event_t     event_data      = { 0 };
+
+    if((p_event_queue == NULL) && (enable == true))
+    {
+        tx_err = TX_PTR_ERROR;
+    }
+    else
+	{
+        event_data.event_type = CONSOLE_EVENT_CHANGE_RX_TRANSFER;
+        event_data.event_payload.event_uint32data[0] = enable;
+        event_data.event_payload.event_uint32data[1] = event_id;
+        event_data.event_payload.event_p_data[2] = (VOID *)p_event_queue;
+
+        tx_err = tx_queue_send(g_console.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
+        if(TX_SUCCESS != tx_err)
+        {
+            SEGGER_RTT_printf(0, "Failed console_rx_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
+        }
+	}
+
+    return tx_err;
 }

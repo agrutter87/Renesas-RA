@@ -78,7 +78,7 @@ typedef struct st_uart_manager
 void uart_manager_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 void uart_manager_get_status(feature_status_t * p_status);
 void uart_manager_thread_entry(ULONG thread_input);
-UINT uart_manager_request_tx(uint8_t channel, uint8_t * p_data, uint16_t length);
+UINT uart_manager_request_tx(uint8_t channel, uint8_t * p_data, uint32_t length);
 UINT uart_manager_register_rx(uint8_t channel, TX_QUEUE * p_event_queue, ULONG event_id);
 
 #endif // UART_MANAGER_H

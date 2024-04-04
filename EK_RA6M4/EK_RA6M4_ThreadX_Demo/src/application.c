@@ -26,7 +26,8 @@ static feature_t g_features[] =
         .feature_get_status = application_get_status,
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
-        .event_queue_name = "Application Event Queue"
+        .event_queue_name = "Application Event Queue",
+        .event_queue_message_count = 10
     },
     {
         .feature_name = "Console",
@@ -34,7 +35,8 @@ static feature_t g_features[] =
         .feature_get_status = console_get_status,
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
-        .event_queue_name = "Console Event Queue"
+        .event_queue_name = "Console Event Queue",
+        .event_queue_message_count = 10
     },
     {
         .feature_name = "UART Manager",
@@ -42,7 +44,8 @@ static feature_t g_features[] =
         .feature_get_status = uart_manager_get_status,
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
-        .event_queue_name = "UART Manager Event Queue"
+        .event_queue_name = "UART Manager Event Queue",
+        .event_queue_message_count = 10
     },
     {
         .feature_name = "PmodESP32 Bluetooth",
@@ -50,7 +53,8 @@ static feature_t g_features[] =
         .feature_get_status = pmodesp32_bt_get_status,
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
-        .event_queue_name = "PmodESP32 Bluetooth Event Queue"
+        .event_queue_name = "PmodESP32 Bluetooth Event Queue",
+        .event_queue_message_count = 10
     },
 #if 0
     {

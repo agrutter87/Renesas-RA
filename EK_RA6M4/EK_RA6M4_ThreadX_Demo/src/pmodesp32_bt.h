@@ -23,6 +23,7 @@
 typedef enum st_pmodesp32_bt_event
 {
     PMODESP32_BT_EVENT_RX = APPLICATION_EVENT_END,
+    PMODESP32_BT_EVENT_CONSOLE_RX
 } pmodesp32_bt_event_t;
 
 typedef struct st_pmodesp32_bt_ctrl
@@ -39,6 +40,11 @@ typedef struct st_pmodesp32_bt_ctrl
 
     /* Queryable status */
     feature_status_t                status;
+
+    /* AT Command Console TX Buffer */
+    bool                            console_tx_buffer_enabled;
+    UCHAR                           console_tx_buffer[256];
+    ULONG                           console_tx_buffer_index;
 } pmodesp32_bt_ctrl_t;
 
 typedef struct st_pmodesp32_bt_cfg
@@ -69,5 +75,6 @@ void pmodesp32_bt_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
 void pmodesp32_bt_get_status(feature_status_t * p_status);
 void pmodesp32_bt_thread_entry(ULONG thread_input);
 void pmodesp32_bt_menu_callback(sf_console_callback_args_t * p_args);
+void pmodesp32_bt_menu_at_callback(sf_console_callback_args_t * p_args);
 
 #endif // PMODESP32_BT_H

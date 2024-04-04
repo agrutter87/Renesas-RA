@@ -24,7 +24,8 @@
 typedef enum st_console_event
 {
     CONSOLE_EVENT_CHECK_RX = APPLICATION_EVENT_END,
-    CONSOLE_EVENT_CHANGE_MENU
+    CONSOLE_EVENT_CHANGE_MENU,
+    CONSOLE_EVENT_CHANGE_RX_TRANSFER
 } console_event_t;
 
 typedef struct st_console_ctrl
@@ -44,6 +45,12 @@ typedef struct st_console_ctrl
 
     /* Queryable status */
     feature_status_t                status;
+
+    /* Send/receive Queue Related */
+    TX_QUEUE                        *p_registered_rx_queue;
+    ULONG                           registered_rx_event;
+    bool                            direct_rx_enabled;
+
 } console_ctrl_t;
 
 typedef struct st_console_cfg
@@ -78,6 +85,7 @@ void console_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue);
 void console_get_status(feature_status_t * p_status);
 void console_thread_entry(ULONG thread_input);
 UINT console_request_menu_change(sf_console_menu_t const * p_new_menu);
+UINT console_request_direct_rx_transfer(bool enable, TX_QUEUE * p_event_queue, ULONG event_id);
 
 /******************************************************************************
  * CALLBACK FUNCTIONS

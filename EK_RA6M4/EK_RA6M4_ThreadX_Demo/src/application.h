@@ -23,8 +23,8 @@
 
 #define THREAD_OBJECT_NAME_LENGTH_MAX           (32)
 #define FEATURE_NAME_MAX_LENGTH                 (32)
-#define EVENT_QUEUE_MESSAGE_SIZE                (3)
-#define EVENT_QUEUE_MEMORY_MAX                  ((10 * EVENT_QUEUE_MESSAGE_SIZE) + sizeof(void *))
+#define EVENT_QUEUE_MESSAGE_SIZE                (4)
+#define EVENT_QUEUE_MEMORY_MAX(x)               ((x * EVENT_QUEUE_MESSAGE_SIZE) + sizeof(void *))
 
 /******************************************************************************
  * TYPES
@@ -42,13 +42,13 @@ typedef struct st_event
     ULONG  event_type;
     union
     {
-        UCHAR    event_uint8data[8];
-        USHORT   event_uint16data[4];
-        ULONG    event_uint32data[2];
-        CHAR     event_int8data[8];
-        SHORT    event_int16data[4];
-        LONG     event_int32data[2];
-        VOID     *event_p_data[2];
+        UCHAR    event_uint8data[12];
+        USHORT   event_uint16data[6];
+        ULONG    event_uint32data[3];
+        CHAR     event_int8data[12];
+        SHORT    event_int16data[6];
+        LONG     event_int32data[3];
+        VOID     *event_p_data[3];
     } event_payload;
 } event_t;
 
@@ -76,6 +76,7 @@ typedef struct st_feature
     TX_QUEUE    event_queue;
     VOID        *p_event_queue_memory;
     CHAR        event_queue_name[THREAD_OBJECT_NAME_LENGTH_MAX];
+    ULONG       event_queue_message_count;
 } feature_t;
 
 typedef struct st_application_ctrl
