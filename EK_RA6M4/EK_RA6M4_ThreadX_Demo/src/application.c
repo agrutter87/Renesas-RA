@@ -9,6 +9,7 @@
 /* Features */
 #include "console.h"
 #include "uart_manager.h"
+#include "pmodesp32_bt.h"
 
 /******************************************************************************
  * CONSTANTS
@@ -42,6 +43,14 @@ static feature_t g_features[] =
         .event_queue = { 0 },
         .p_event_queue_memory = NULL,
         .event_queue_name = "UART Manager Event Queue"
+    },
+    {
+        .feature_name = "PmodESP32 Bluetooth",
+        .feature_define = pmodesp32_bt_define,
+        .feature_get_status = pmodesp32_bt_get_status,
+        .event_queue = { 0 },
+        .p_event_queue_memory = NULL,
+        .event_queue_name = "PmodESP32 Bluetooth Event Queue"
     },
 #if 0
     {

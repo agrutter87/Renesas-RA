@@ -127,6 +127,8 @@
       <configSetting altId="qspi0.qio3.p310" configurationId="qspi0.qio3"/>
       <configSetting altId="qspi0.qspclk.p305" configurationId="qspi0.qspclk"/>
       <configSetting altId="qspi0.qssl.p306" configurationId="qspi0.qssl"/>
+      <configSetting altId="sci0.rxd.p410" configurationId="sci0.rxd" isUsedByDriver="true"/>
+      <configSetting altId="sci0.txd.p411" configurationId="sci0.txd" isUsedByDriver="true"/>
       <configSetting altId="sci6.scl.p505" configurationId="sci6.scl"/>
       <configSetting altId="sci6.sda.p506" configurationId="sci6.sda"/>
       <configSetting altId="sci7.rxd.p614" configurationId="sci7.rxd" isUsedByDriver="true"/>
@@ -136,10 +138,6 @@
       <configSetting altId="spi0.rspck.p204" configurationId="spi0.rspck"/>
       <configSetting altId="spi0.ssl0.p205" configurationId="spi0.ssl0"/>
       <configSetting altId="spi0.ssl2.p301" configurationId="spi0.ssl2"/>
-      <configSetting altId="spi1.miso.p410" configurationId="spi1.miso"/>
-      <configSetting altId="spi1.mosi.p411" configurationId="spi1.mosi"/>
-      <configSetting altId="spi1.rspck.p412" configurationId="spi1.rspck"/>
-      <configSetting altId="spi1.ssl0.p413" configurationId="spi1.ssl0"/>
       <configSetting altId="usbfs0.ovrcura.p501" configurationId="usbfs0.ovrcura"/>
       <configSetting altId="usbfs0.vbus.p407" configurationId="usbfs0.vbus"/>
       <configSetting altId="usbfs0.vbusen.p500" configurationId="usbfs0.vbusen"/>

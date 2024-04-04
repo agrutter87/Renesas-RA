@@ -607,14 +607,10 @@
       <configSetting altId="p409.gpio_irq.gpio_irq_enabled" configurationId="p409.gpio_irq"/>
       <configSetting altId="p409.gpio_mode.gpio_mode_irq" configurationId="p409.gpio_mode"/>
       <configSetting altId="p409.gpio_pupd.gpio_pupd_ip_up" configurationId="p409.gpio_pupd"/>
-      <configSetting altId="p410.spi1.miso" configurationId="p410"/>
+      <configSetting altId="p410.sci0.rxd" configurationId="p410"/>
       <configSetting altId="p410.gpio_mode.gpio_mode_peripheral" configurationId="p410.gpio_mode"/>
-      <configSetting altId="p411.spi1.mosi" configurationId="p411"/>
+      <configSetting altId="p411.sci0.txd" configurationId="p411"/>
       <configSetting altId="p411.gpio_mode.gpio_mode_peripheral" configurationId="p411.gpio_mode"/>
-      <configSetting altId="p412.spi1.rspck" configurationId="p412"/>
-      <configSetting altId="p412.gpio_mode.gpio_mode_peripheral" configurationId="p412.gpio_mode"/>
-      <configSetting altId="p413.spi1.ssl0" configurationId="p413"/>
-      <configSetting altId="p413.gpio_mode.gpio_mode_peripheral" configurationId="p413.gpio_mode"/>
       <configSetting altId="p414.irq0.irq09" configurationId="p414"/>
       <configSetting altId="p414.gpio_irq.gpio_irq_enabled" configurationId="p414.gpio_irq"/>
       <configSetting altId="p414.gpio_mode.gpio_mode_irq" configurationId="p414.gpio_mode"/>
@@ -693,6 +689,9 @@
       <configSetting altId="qspi0.qio3.p310" configurationId="qspi0.qio3"/>
       <configSetting altId="qspi0.qspclk.p305" configurationId="qspi0.qspclk"/>
       <configSetting altId="qspi0.qssl.p306" configurationId="qspi0.qssl"/>
+      <configSetting altId="sci0.mode.asynchronous.free" configurationId="sci0.mode"/>
+      <configSetting altId="sci0.rxd.p410" configurationId="sci0.rxd"/>
+      <configSetting altId="sci0.txd.p411" configurationId="sci0.txd"/>
       <configSetting altId="sci6.mode.iic.b" configurationId="sci6.mode"/>
       <configSetting altId="sci6.pairing.b" configurationId="sci6.pairing"/>
       <configSetting altId="sci6.scl.p505" configurationId="sci6.scl"/>
@@ -708,12 +707,7 @@
       <configSetting altId="spi0.rspck.p204" configurationId="spi0.rspck"/>
       <configSetting altId="spi0.ssl0.p205" configurationId="spi0.ssl0"/>
       <configSetting altId="spi0.ssl2.p301" configurationId="spi0.ssl2"/>
-      <configSetting altId="spi1.miso.p410" configurationId="spi1.miso"/>
-      <configSetting altId="spi1.mode.enabled.b" configurationId="spi1.mode"/>
-      <configSetting altId="spi1.mosi.p411" configurationId="spi1.mosi"/>
       <configSetting altId="spi1.pairing.b" configurationId="spi1.pairing"/>
-      <configSetting altId="spi1.rspck.p412" configurationId="spi1.rspck"/>
-      <configSetting altId="spi1.ssl0.p413" configurationId="spi1.ssl0"/>
       <configSetting altId="usbfs0.mode.custom" configurationId="usbfs0.mode"/>
       <configSetting altId="usbfs0.ovrcura.p501" configurationId="usbfs0.ovrcura"/>
       <configSetting altId="usbfs0.vbus.p407" configurationId="usbfs0.vbus"/>
