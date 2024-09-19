@@ -26,7 +26,9 @@ const sci_uart_extended_cfg_t g_uart9_cfg_extend =
                 #else
     .de_control_pin = (bsp_io_port_pin_t) UINT16_MAX,
 #endif
-          }, };
+          },
+  .irda_setting =
+  { .ircr_bits_b.ire = 0, .ircr_bits_b.irrxinv = 0, .ircr_bits_b.irtxinv = 0, }, };
 
 /** UART interface configuration */
 const uart_cfg_t g_uart9_cfg =
@@ -98,7 +100,9 @@ const sci_uart_extended_cfg_t g_uart7_cfg_extend =
                 #else
     .de_control_pin = (bsp_io_port_pin_t) UINT16_MAX,
 #endif
-          }, };
+          },
+  .irda_setting =
+  { .ircr_bits_b.ire = 0, .ircr_bits_b.irrxinv = 0, .ircr_bits_b.irtxinv = 0, }, };
 
 /** UART interface configuration */
 const uart_cfg_t g_uart7_cfg =
@@ -170,7 +174,9 @@ const sci_uart_extended_cfg_t g_uart0_cfg_extend =
                 #else
     .de_control_pin = (bsp_io_port_pin_t) UINT16_MAX,
 #endif
-          }, };
+          },
+  .irda_setting =
+  { .ircr_bits_b.ire = 0, .ircr_bits_b.irrxinv = 0, .ircr_bits_b.irtxinv = 0, }, };
 
 /** UART interface configuration */
 const uart_cfg_t g_uart0_cfg =
