@@ -112,7 +112,7 @@ typedef struct st_application_cfg
     CHAR                memory_byte_pool_name[THREAD_OBJECT_NAME_LENGTH_MAX];
 
     /* Features */
-    feature_t const     *p_features;
+    feature_t           *p_features;
     ULONG               feature_count;
 } application_cfg_t;
 

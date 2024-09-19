@@ -16,6 +16,7 @@ RM := rm -rf
 -include ra_gen/subdir.mk
 -include ra/microsoft/azure-rtos/threadx/common/src/subdir.mk
 -include ra/fsp/src/rm_threadx_port/subdir.mk
+-include ra/fsp/src/r_sci_uart/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
 -include ra/fsp/src/bsp/mcu/all/subdir.mk
 -include ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/subdir.mk
@@ -63,11 +64,11 @@ endif
 ifneq ($(strip $(PP_DEPS)),)
 -include $(PP_DEPS)
 endif
-ifneq ($(strip $(ASM_UPPER_DEPS)),)
--include $(ASM_UPPER_DEPS)
-endif
 ifneq ($(strip $(SX_DEPS)),)
 -include $(SX_DEPS)
+endif
+ifneq ($(strip $(ASM_UPPER_DEPS)),)
+-include $(ASM_UPPER_DEPS)
 endif
 ifneq ($(strip $(SX_UPPER_DEPS)),)
 -include $(SX_UPPER_DEPS)
@@ -95,18 +96,15 @@ all: EK_RA6M4_ThreadX_Demo.elf secondary-outputs
 
 # Tool invocations
 EK_RA6M4_ThreadX_Demo.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > EK_RA6M4_ThreadX_Demo.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "F:\\Grutter_Services_LLC\\Repositories\\Renesas-RA\\EK_RA6M4\\EK_RA6M4_ThreadX_Demo/script" -Wl,-Map,"EK_RA6M4_ThreadX_Demo.map" --specs=nano.specs -u _printf_float --specs=rdimon.specs -o "EK_RA6M4_ThreadX_Demo.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > EK_RA6M4_ThreadX_Demo.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "D:\\Renesas-RA\\EK_RA6M4\\EK_RA6M4_ThreadX_Demo/script" -Wl,-Map,"EK_RA6M4_ThreadX_Demo.map" --specs=nano.specs -u _printf_float --specs=rdimon.specs -o "EK_RA6M4_ThreadX_Demo.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-gcc @"EK_RA6M4_ThreadX_Demo.elf.in"
-
 EK_RA6M4_ThreadX_Demo.srec: EK_RA6M4_ThreadX_Demo.elf
 	arm-none-eabi-objcopy -O srec "EK_RA6M4_ThreadX_Demo.elf"  "EK_RA6M4_ThreadX_Demo.srec"
-
 EK_RA6M4_ThreadX_Demo.siz: EK_RA6M4_ThreadX_Demo.elf
 	arm-none-eabi-size --format=berkeley "EK_RA6M4_ThreadX_Demo.elf"
-
 # Other Targets
 clean:
-	-$(file > clean_file.tmp,  $(JMP_DEPS)  $(FSY_DEPS)  $(C_UPPER_DEPS)  $(SECONDARY_SIZE)  $(SRC_UPPER_DEPS)  $(P_UPPER_DEPS)  $(S_DEPS)  $(PP_UPPER_DEPS)  $(P_DEPS)  $(FSY_UPPER_DEPS)  $(C_DEPS)  $(SRC_DEPS)  $(JMP_UPPER_DEPS)  $(PP_DEPS)  $(ASM_UPPER_DEPS)  $(SX_DEPS)  $(SX_UPPER_DEPS)  $(OBJS)  $(SECONDARY_FLASH)  $(ASM_DEPS)  $(SREC)  $(S_UPPER_DEPS)  $(MAP) )
+	-$(file > clean_file.tmp,  $(JMP_DEPS)  $(FSY_DEPS)  $(C_UPPER_DEPS)  $(SECONDARY_SIZE)  $(SRC_UPPER_DEPS)  $(P_UPPER_DEPS)  $(S_DEPS)  $(PP_UPPER_DEPS)  $(P_DEPS)  $(FSY_UPPER_DEPS)  $(C_DEPS)  $(SRC_DEPS)  $(JMP_UPPER_DEPS)  $(PP_DEPS)  $(SX_DEPS)  $(ASM_UPPER_DEPS)  $(SX_UPPER_DEPS)  $(OBJS)  $(SECONDARY_FLASH)  $(ASM_DEPS)  $(SREC)  $(S_UPPER_DEPS)  $(MAP) )
 	-@ xargs -P 2 -s 32000 -t -a clean_file.tmp $(RM)
 	-@$(RM) clean_file.tmp
 	-$(RM)  EK_RA6M4_ThreadX_Demo.elf

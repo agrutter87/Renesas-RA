@@ -41,8 +41,8 @@ C_DEPS :=
 SRC_DEPS := 
 JMP_UPPER_DEPS := 
 PP_DEPS := 
-ASM_UPPER_DEPS := 
 SX_DEPS := 
+ASM_UPPER_DEPS := 
 SX_UPPER_DEPS := 
 OBJS := 
 SECONDARY_FLASH := 
@@ -57,6 +57,7 @@ ra/board/ra6m4_ek \
 ra/fsp/src/bsp/cmsis/Device/RENESAS/Source \
 ra/fsp/src/bsp/mcu/all \
 ra/fsp/src/r_ioport \
+ra/fsp/src/r_sci_uart \
 ra/fsp/src/rm_threadx_port \
 ra/microsoft/azure-rtos/threadx/common/src \
 ra_gen \
