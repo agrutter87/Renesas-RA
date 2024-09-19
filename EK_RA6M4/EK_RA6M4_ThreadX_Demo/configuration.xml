@@ -9,10 +9,10 @@
     <option key="#DeviceCommand#" value="R7FA6M4AF"/>
     <option key="#RTOS#" value="rtos.threadx"/>
     <option key="#pinconfiguration#" value="R7FA6M4AF3CFB.pincfg"/>
-    <option key="#FSPVersion#" value="5.2.0"/>
+    <option key="#FSPVersion#" value="5.5.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##ra6m4_ek##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
-    <option key="#ToolchainVersion#" value="10.3.1.20210824"/>
+    <option key="#ToolchainVersion#" value="13.2.1.arm-13-7"/>
   </generalSettings>
   <raBspConfiguration>
     <config id="config.bsp.ra6m4.R7FA6M4AF3CFB">
@@ -146,41 +146,45 @@
     <node id="board.clock.octaspiclk.display" option="board.clock.octaspiclk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="CoreM" variant="" vendor="Arm" version="5.9.0+renesas.1.fsp.5.2.0">
-      <description>Arm CMSIS Version 5 - Core (M)</description>
-      <originalPack>Arm.CMSIS5.5.9.0+renesas.1.fsp.5.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra6m4_ek" variant="" vendor="Renesas" version="5.2.0">
-      <description>RA6M4-EK Board Support Files</description>
-      <originalPack>Renesas.RA_board_ra6m4_ek.5.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra6m4" subgroup="device" variant="R7FA6M4AF3CFB" vendor="Renesas" version="5.2.0">
-      <description>Board support package for R7FA6M4AF3CFB</description>
-      <originalPack>Renesas.RA_mcu_ra6m4.5.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra6m4" subgroup="device" variant="" vendor="Renesas" version="5.2.0">
-      <description>Board support package for RA6M4</description>
-      <originalPack>Renesas.RA_mcu_ra6m4.5.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra6m4" subgroup="fsp" variant="" vendor="Renesas" version="5.2.0">
-      <description>Board support package for RA6M4 - FSP Data</description>
-      <originalPack>Renesas.RA_mcu_ra6m4.5.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="RTOS" condition="" group="Azure" subgroup="ThreadX" variant="" vendor="Microsoft" version="6.2.1+fsp.5.2.0">
+    <component apiversion="" class="RTOS" condition="" group="Azure" subgroup="ThreadX" variant="" vendor="Microsoft" version="6.4.0+fsp.5.5.0">
       <description>Azure RTOS ThreadX</description>
-      <originalPack>Microsoft.ThreadX.6.2.1+fsp.5.2.0.pack</originalPack>
+      <originalPack>Microsoft.ThreadX.6.4.0+fsp.5.5.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="5.2.0">
+    <component apiversion="" class="BSP" condition="" group="ra6m4" subgroup="device" variant="R7FA6M4AF3CFB" vendor="Renesas" version="5.5.0">
+      <description>Board support package for R7FA6M4AF3CFB</description>
+      <originalPack>Renesas.RA_mcu_ra6m4.5.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra6m4" subgroup="device" variant="" vendor="Renesas" version="5.5.0">
+      <description>Board support package for RA6M4</description>
+      <originalPack>Renesas.RA_mcu_ra6m4.5.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra6m4" subgroup="fsp" variant="" vendor="Renesas" version="5.5.0">
+      <description>Board support package for RA6M4 - FSP Data</description>
+      <originalPack>Renesas.RA_mcu_ra6m4.5.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra6m4_ek" variant="" vendor="Renesas" version="5.5.0">
+      <description>RA6M4-EK Board Support Files</description>
+      <originalPack>Renesas.RA_board_ra6m4_ek.5.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="5.5.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+      <originalPack>Renesas.RA.5.5.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="5.2.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="5.5.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+      <originalPack>Renesas.RA.5.5.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_threadx_port" variant="" vendor="Renesas" version="5.2.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_uart" variant="" vendor="Renesas" version="5.5.0">
+      <description>SCI UART</description>
+      <originalPack>Renesas.RA.5.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_threadx_port" variant="" vendor="Renesas" version="5.5.0">
       <description>Azure RTOS ThreadX Port</description>
-      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+      <originalPack>Renesas.RA.5.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.5.5.0">
+      <description>Arm CMSIS Version 6 - Core (M)</description>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.5.5.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -195,9 +199,99 @@
       <property id="module.driver.ioport.pincfg" value="g_bsp_pin_cfg"/>
     </module>
     <module id="module.middleware.rm_threadx_port.0"/>
+    <module id="module.driver.uart_on_sci_uart.766543240">
+      <property id="module.driver.uart.name" value="g_uart0"/>
+      <property id="module.driver.uart.channel" value="0"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.irda.ire" value="module.driver.uart.irda.ire.disabled"/>
+      <property id="module.driver.uart.irda.irrxinv" value="module.driver.uart.irda.irrxinv.disabled"/>
+      <property id="module.driver.uart.irda.irtxinv" value="module.driver.uart.irda.irtxinv.disabled"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_port_number" value="module.driver.uart.rs485.de_port_number.PORT_DISABLE"/>
+      <property id="module.driver.uart.rs485.de_pin_number" value="module.driver.uart.rs485.de_pin_number.PIN_DISABLE"/>
+      <property id="module.driver.uart.callback" value="uart_callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
+    <module id="module.driver.uart_on_sci_uart.2060137742">
+      <property id="module.driver.uart.name" value="g_uart7"/>
+      <property id="module.driver.uart.channel" value="7"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="38400"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.irda.ire" value="module.driver.uart.irda.ire.disabled"/>
+      <property id="module.driver.uart.irda.irrxinv" value="module.driver.uart.irda.irrxinv.disabled"/>
+      <property id="module.driver.uart.irda.irtxinv" value="module.driver.uart.irda.irtxinv.disabled"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_port_number" value="module.driver.uart.rs485.de_port_number.PORT_DISABLE"/>
+      <property id="module.driver.uart.rs485.de_pin_number" value="module.driver.uart.rs485.de_pin_number.PIN_DISABLE"/>
+      <property id="module.driver.uart.callback" value="uart_callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
+    <module id="module.driver.uart_on_sci_uart.2089108336">
+      <property id="module.driver.uart.name" value="g_uart9"/>
+      <property id="module.driver.uart.channel" value="9"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.irda.ire" value="module.driver.uart.irda.ire.disabled"/>
+      <property id="module.driver.uart.irda.irrxinv" value="module.driver.uart.irda.irrxinv.disabled"/>
+      <property id="module.driver.uart.irda.irtxinv" value="module.driver.uart.irda.irtxinv.disabled"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_port_number" value="module.driver.uart.rs485.de_port_number.PORT_DISABLE"/>
+      <property id="module.driver.uart.rs485.de_pin_number" value="module.driver.uart.rs485.de_pin_number.PIN_DISABLE"/>
+      <property id="module.driver.uart.callback" value="uart_callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.middleware.rm_threadx_port.0"/>
+      <stack module="module.driver.uart_on_sci_uart.766543240"/>
+      <stack module="module.driver.uart_on_sci_uart.2060137742"/>
+      <stack module="module.driver.uart_on_sci_uart.2089108336"/>
     </context>
     <context id="rtos.threadx.thread.0">
       <property id="_symbol" value="blinky_thread"/>
@@ -207,11 +301,19 @@
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
+    <config id="config.driver.sci_uart">
+      <property id="config.driver.sci_uart.param_checking_enable" value="config.driver.sci_uart.param_checking_enable.bsp"/>
+      <property id="config.driver.sci_uart.fifo_support" value="config.driver.sci_uart.fifo_support.disabled"/>
+      <property id="config.driver.sci_uart.dtc_support" value="config.driver.sci_uart.dtc_support.disabled"/>
+      <property id="config.driver.sci_uart.flow_control" value="config.driver.sci_uart.flow_control.disabled"/>
+      <property id="config.driver.sci_uart.rs485" value="config.driver.sci_uart.rs485.disabled"/>
+      <property id="config.driver.sci_uart.irda" value="config.driver.sci_uart.irda.disabled"/>
+    </config>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
     </config>
     <config id="config.threadx.thread">
-      <property id="config.azure.tx.custom_tx_user" value=""/>
+      <property id="config.azure.tx.custom_tx_user" value="custom_tx_user.h"/>
       <property id="config.azure.tx.error_checking" value="config.azure.tx.error_checking.enabled"/>
       <property id="config.azure.tx.timer_ticks_per_second" value="1000"/>
       <property id="config.azure.tx.max_priorities" value="32"/>

@@ -8,6 +8,7 @@
 
 /* Features */
 #include "console.h"
+#include "uart_manager.h"
 
 /******************************************************************************
  * CONSTANTS
@@ -16,23 +17,38 @@
 /******************************************************************************
  * GLOBALS
  *****************************************************************************/
-const feature_t g_features[] =
+static feature_t g_features[] =
 {
     {
         .feature_name = "Application",
         .feature_define = application_define,
-        .feature_get_status = application_get_status
+        .feature_get_status = application_get_status,
+        .event_queue = { 0 },
+        .p_event_queue_memory = NULL,
+        .event_queue_name = "Application Event Queue"
     },
     {
         .feature_name = "Console",
         .feature_define = console_define,
-        .feature_get_status = console_get_status
+        .feature_get_status = console_get_status,
+        .event_queue = { 0 },
+        .p_event_queue_memory = NULL,
+        .event_queue_name = "Console Event Queue"
+    },
+    {
+        .feature_name = "UART Manager",
+        .feature_define = uart_manager_define,
+        .feature_get_status = uart_manager_get_status,
+        .event_queue = { 0 },
+        .p_event_queue_memory = NULL,
+        .event_queue_name = "UART Manager Event Queue"
     },
 #if 0
     {
         .feature_name = "GUI - GUIX",
         .feature_define = gui_define,
         .feature_get_status = gui_get_status
+        .event_queue = { 0 },
     }
 #endif
 };
@@ -48,16 +64,12 @@ const application_cfg_t g_application_cfg =
  .thread_priority           = APPLICATION_THREAD_PRIORITY,
  .thread_preempt_threshold  = APPLICATION_THREAD_PREEMPT_THRESHOLD,
 
- /* Event queue creation arguments */
- .event_queue_name          = APPLICATION_EVENT_QUEUE_NAME,
-
  /* Thread monitor timer creation arguments */
  .thread_monitor_timer_name = APPLICATION_THREAD_MONITOR_TIMER_NAME,
 
  /* Application Memory */
  /* TX_BYTE_POOL creation arguments */
  .memory_byte_pool_name     = "Application Memory",
- .memory_byte_pool_size     = APPLICATION_MEMORY_MAX,
 
  /* Features */
  .p_features                = g_features,
@@ -75,35 +87,14 @@ VOID application_feature_monitor_timer_callback(ULONG id);
 /******************************************************************************
  * FUNCTION: application_define
  *****************************************************************************/
-void application_define(TX_BYTE_POOL * p_memory_pool)
+void application_define(TX_BYTE_POOL * p_memory_pool, TX_QUEUE * p_event_queue)
 {
     UINT        tx_err          = TX_SUCCESS;
-    event_t     event_data      = { .event_type = APPLICATION_EVENT_INIT, .event_payload = { 0 } };
+    event_t     event_data      = { 0 };
 
     SEGGER_RTT_printf(0, "Initializing application...\r\n");
 
-    /* FOR MAIN THREAD: */
-
-    /* Allocate the memory for the event queue */
-    tx_err = tx_byte_allocate(p_memory_pool,
-                              (VOID **) &g_application.p_ctrl->p_event_queue_memory,
-                              EVENT_QUEUE_MEMORY_MAX,
-                              TX_NO_WAIT);
-    if(TX_SUCCESS != tx_err)
-    {
-        SEGGER_RTT_printf(0, "Failed application_define::tx_byte_allocate (p_event_queue_memory), tx_err = %d\r\n", tx_err);
-    }
-
-    /* Create the event queue */
-    tx_err = tx_queue_create(&g_application.p_ctrl->event_queue,
-                             (CHAR *)g_application.p_cfg->event_queue_name,
-                             EVENT_QUEUE_MESSAGE_SIZE,
-                             g_application.p_ctrl->p_event_queue_memory,
-                             EVENT_QUEUE_MEMORY_MAX);
-    if(TX_SUCCESS != tx_err)
-    {
-        SEGGER_RTT_printf(0, "Failed application_define::tx_queue_create, tx_err = %d\r\n", tx_err);
-    }
+    g_application.p_ctrl->p_event_queue = p_event_queue;
 
     /* Allocate the stack */
     tx_err = tx_byte_allocate(p_memory_pool,
@@ -132,7 +123,9 @@ void application_define(TX_BYTE_POOL * p_memory_pool)
     }
 
     /* Send the initialize event */
-    tx_err = tx_queue_send(&g_application.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
+    event_data.event_type = APPLICATION_EVENT_INIT;
+
+    tx_err = tx_queue_send(g_application.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
     if(TX_SUCCESS != tx_err)
     {
         SEGGER_RTT_printf(0, "Failed application_define::tx_queue_send, tx_err = %d\r\n", tx_err);
@@ -150,7 +143,23 @@ void application_define(TX_BYTE_POOL * p_memory_pool)
  *****************************************************************************/
 void application_get_status(feature_status_t * p_status)
 {
-    *p_status = g_application.p_ctrl->status;
+    UINT tx_err = TX_SUCCESS;
+
+    if(g_application.p_ctrl->status.pp_thread == 0)
+    {
+        g_application.p_ctrl->status.thread_count = 1;
+
+        tx_err = tx_byte_allocate(&g_application.p_ctrl->memory_byte_pool,
+                                  (VOID **)&g_application.p_ctrl->status.pp_thread,
+                                  sizeof(TX_THREAD *) * g_application.p_ctrl->status.thread_count,
+                                  TX_NO_WAIT);
+    }
+
+    if(TX_SUCCESS == tx_err)
+    {
+        g_application.p_ctrl->status.pp_thread[0] = &g_application.p_ctrl->thread;
+        *p_status = g_application.p_ctrl->status;
+    }
 }
 
 /******************************************************************************
@@ -166,9 +175,9 @@ void application_thread_entry(ULONG thread_input)
 
     while(1)
     {
-        tx_queue_receive(&g_application.p_ctrl->event_queue, &event_data, TX_WAIT_FOREVER);
+        tx_queue_receive(g_application.p_ctrl->p_event_queue, &event_data, TX_WAIT_FOREVER);
 
-        SEGGER_RTT_printf(0, "APPLICATION EVENT %d\r\n", event_data.event_type);
+        //SEGGER_RTT_printf(0, "APPLICATION EVENT %d\r\n", event_data.event_type);
         switch(event_data.event_type)
         {
             case APPLICATION_EVENT_INIT:
@@ -178,8 +187,8 @@ void application_thread_entry(ULONG thread_input)
 
             case APPLICATION_EVENT_FEATURE_MONITOR_REQUEST:
                 event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REPORT;
-                event_data.event_payload.event_ulongdata = (ULONG)&application_get_status;
-                tx_err = tx_queue_send(&g_application.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
+                event_data.event_payload.event_uint32data[0] = (ULONG)&application_get_status;
+                tx_err = tx_queue_send(g_application.p_ctrl->p_event_queue, &event_data, TX_NO_WAIT);
                 if(TX_SUCCESS != tx_err)
                 {
                     SEGGER_RTT_printf(0, "Failed application_thread_monitor_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
@@ -189,9 +198,9 @@ void application_thread_entry(ULONG thread_input)
             case APPLICATION_EVENT_FEATURE_MONITOR_REPORT:
                 for(uint32_t feature_num = 0; feature_num < g_application.p_cfg->feature_count; feature_num++)
                 {
-                    if((event_data.event_payload.event_ulongdata) == ((ULONG)g_application.p_cfg->p_features[feature_num].feature_get_status))
+                    if((event_data.event_payload.event_uint32data[0]) == ((ULONG)g_application.p_cfg->p_features[feature_num].feature_get_status))
                     {
-                        SEGGER_RTT_printf(0, "%s reported in\n", g_application.p_cfg->p_features[feature_num].feature_name);
+                        SEGGER_RTT_printf(0, "%s reported in @ t=%u\n", g_application.p_cfg->p_features[feature_num].feature_name, tx_time_get());
                     }
                 }
                 break;
@@ -225,19 +234,15 @@ VOID application_feature_monitor_timer_callback(ULONG id)
     FSP_PARAMETER_NOT_USED(id);
 
     UINT        tx_err          = TX_SUCCESS;
-    event_t     event_data      = { .event_type = APPLICATION_EVENT_FEATURE_MONITOR_REQUEST, .event_payload = { 0 } };
+    event_t     event_data      = { 0 };
 
-    tx_err = tx_queue_send(&g_application.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
-    if(TX_SUCCESS != tx_err)
+    for(ULONG feature_num = 0; feature_num < g_application.p_cfg->feature_count; feature_num++)
     {
-        SEGGER_RTT_printf(0, "Failed application_thread_monitor_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
+        event_data.event_type = APPLICATION_EVENT_FEATURE_MONITOR_REQUEST;
+        tx_err = tx_queue_send(&g_application.p_cfg->p_features[feature_num].event_queue, &event_data, TX_NO_WAIT);
+        if(TX_SUCCESS != tx_err)
+        {
+            SEGGER_RTT_printf(0, "Failed application_thread_monitor_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
+        }
     }
-
-#if 0
-    tx_err = tx_queue_send(&g_console.p_ctrl->event_queue, &event_data, TX_NO_WAIT);
-    if(TX_SUCCESS != tx_err)
-    {
-        SEGGER_RTT_printf(0, "Failed application_thread_monitor_timer_callback::tx_queue_send, tx_err = %d\r\n", tx_err);
-    }
-#endif
 }

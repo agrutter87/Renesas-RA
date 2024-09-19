@@ -1,6 +1,7 @@
 /* generated configuration header file - do not edit */
 #ifndef TX_USER_H_
 #define TX_USER_H_
+#include "custom_tx_user.h"
 
 #ifdef __cplusplus
 extern "C" {

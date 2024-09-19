@@ -5,6 +5,11 @@
 #include "application.h"
 
 /******************************************************************************
+ * GLOBALS
+ *****************************************************************************/
+extern const console_t g_console;
+
+/******************************************************************************
  * FUNCTION: feature_start_callback
  *****************************************************************************/
 void feature_start_callback(sf_console_callback_args_t * p_args)
@@ -39,19 +44,77 @@ void feature_status_callback(sf_console_callback_args_t * p_args)
 {
     FSP_PARAMETER_NOT_USED(p_args);
 
+    UINT tx_err = TX_SUCCESS;
+    char *p_buffer = NULL;
+
     SEGGER_RTT_printf(0, "Getting feature status...\n");
 
     ULONG               feature_count   = g_application.p_cfg->feature_count;
     feature_status_t    status          = { 0 };
 
-    SEGGER_RTT_printf(0, "|                          Feature |   Status   |\n");
-    SEGGER_RTT_printf(0, "|----------------------------------|------------|\n");
+    SEGGER_RTT_printf(0, "|                          Feature |   Status   |                Threads(Priority) | Stack Utilization |\n");
+    SEGGER_RTT_printf(0, "|----------------------------------|------------|----------------------------------|-------------------|\n");
+
+    tx_err = tx_byte_allocate(g_console.p_ctrl->p_memory_byte_pool, (VOID **)&p_buffer, 128, TX_NO_WAIT);
+    if(TX_SUCCESS == tx_err)
+    {
+        snprintf(p_buffer, 128, "| %32s |            |                                  | %7lu / %7lu |\n",
+                "Application Memory Pool",
+                (g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size
+                        - g_application.p_ctrl->memory_byte_pool.tx_byte_pool_available),
+                g_application.p_ctrl->memory_byte_pool.tx_byte_pool_size);
+        SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
+        tx_byte_release(p_buffer);
+    }
 
     for(uint32_t feature_num = 0; feature_num < feature_count; feature_num++)
     {
-        /* Do something */
-        g_application.p_cfg->p_features[feature_num].feature_get_status(&status);
-        SEGGER_RTT_printf(0, "| %32s | %10d |\n", g_application.p_cfg->p_features[feature_num].feature_name, status.return_code);
+        tx_err = tx_byte_allocate(g_console.p_ctrl->p_memory_byte_pool, (VOID **)&p_buffer, 128, TX_NO_WAIT);
+        if(TX_SUCCESS == tx_err)
+        {
+            /* Do something */
+            g_application.p_cfg->p_features[feature_num].feature_get_status(&status);
+            if(status.pp_thread == 0)
+            {
+                snprintf(p_buffer, 128, "| %32s | %10lu | %32s |                   |\n",
+                        g_application.p_cfg->p_features[feature_num].feature_name,
+                        status.return_code,
+                        "No Threads");
+                SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
+            }
+            else
+            {
+                snprintf(p_buffer, 128, "| %32s | %10lu | %28s(%2u) | %7lu / %7lu |\n",
+                        g_application.p_cfg->p_features[feature_num].feature_name,
+                        status.return_code,
+                        status.pp_thread[0]->tx_thread_name,
+                        status.pp_thread[0]->tx_thread_priority,
+                        ((ULONG)status.pp_thread[0]->tx_thread_stack_end
+                                - (ULONG)status.pp_thread[0]->tx_thread_stack_highest_ptr),
+                        status.pp_thread[0]->tx_thread_stack_size);
+                SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
+            }
+
+            if(status.thread_count > 1)
+            {
+                for(uint8_t thread_index = 1; thread_index < status.thread_count; thread_index++)
+                {
+                    tx_err = tx_byte_allocate(g_console.p_ctrl->p_memory_byte_pool, (VOID **)&p_buffer, 128, TX_NO_WAIT);
+                    if(TX_SUCCESS == tx_err)
+                    {
+                        snprintf(p_buffer, 128, "|                                  |            | %28s(%2u) | %7lu / %7lu |\n",
+                                status.pp_thread[thread_index]->tx_thread_name,
+                                status.pp_thread[thread_index]->tx_thread_priority,
+                                ((ULONG)status.pp_thread[thread_index]->tx_thread_stack_end
+                                        - (ULONG)status.pp_thread[thread_index]->tx_thread_stack_highest_ptr),
+                                status.pp_thread[thread_index]->tx_thread_stack_size);
+                        SEGGER_RTT_Write(0, p_buffer, strlen(p_buffer));
+                    }
+                }
+            }
+
+            tx_byte_release(p_buffer);
+        }
     }
 
     SEGGER_RTT_printf(0, "done\r\n");

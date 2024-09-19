@@ -1,5 +1,5 @@
 FSP Configuration
-  Board "EK-RA6M4"
+  Board "RA6|RA6M4|EK-RA6M4"
   R7FA6M4AF3CFB
     part_number: R7FA6M4AF3CFB
     rom_size_bytes: 1048576
@@ -28,7 +28,7 @@ FSP Configuration
     Security: Flash Bank Select Accessibility: Both Secure and Non-Secure State
     Security: Uninitialized Non-Secure Application Fallback: Enable Uninitialized Non-Secure Application Fallback
     Startup C-Cache Line Size: 32 Bytes
-    OFS0 register settings: Independent WDT: Start Mode: IWDT is Disabled
+    OFS0 register settings: Independent WDT: Start Mode: IWDT is stopped after a reset
     OFS0 register settings: Independent WDT: Timeout Period: 2048 cycles
     OFS0 register settings: Independent WDT: Dedicated Clock Frequency Divisor: 128
     OFS0 register settings: Independent WDT: Window End Position:  0% (no window end position)
@@ -400,8 +400,16 @@ FSP Configuration
     Parameter Checking: Default (BSP)
     
   Module "Azure RTOS ThreadX Port (rm_threadx_port)"
+  Module "UART (r_sci_uart)"
+    Parameter Checking: Default (BSP)
+    FIFO Support: Disable
+    DTC Support: Disable
+    Flow Control Support: Disable
+    RS-485 Support: Disable
+    IrDA Support: Disabled
+    
   Azure RTOS ThreadX
-    General: Custom tx_user.h: 
+    General: Custom tx_user.h: custom_tx_user.h
     General: Error Checking: Enabled
     Timer: Timer Ticks Per Second: 1000
     General: Max Priorities: 32
@@ -446,6 +454,93 @@ FSP Configuration
       Pin Configuration Name: g_bsp_pin_cfg
       
     Instance "Azure RTOS ThreadX Port (rm_threadx_port)"
+    Instance "g_uart0 UART (r_sci_uart)"
+      General: Name: g_uart0
+      General: Channel: 0
+      General: Data Bits: 8bits
+      General: Parity: None
+      General: Stop Bits: 1bit
+      Baud: Baud Rate: 115200
+      Baud: Baud Rate Modulation: Disabled
+      Baud: Max Error (%): 5
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Port: Disabled
+      Flow Control: Software RTS Pin: Disabled
+      Extra: Clock Source: Internal Clock
+      Extra: Start bit detection: Falling Edge
+      Extra: Noise Filter: Disable
+      Extra: Receive FIFO Trigger Level: Max
+      Extra: IrDA: Enable: Disabled
+      Extra: IrDA: RXD Polarity Switching: Normal
+      Extra: IrDA: TXD Polarity Switching: Normal
+      Extra: RS-485: DE Pin: Disable
+      Extra: RS-485: DE Pin Polarity: Active High
+      Extra: RS-485: DE Port Number: Disabled
+      Extra: RS-485: DE Pin Number: Disabled
+      Interrupts: Callback: uart_callback
+      Interrupts: Receive Interrupt Priority: Priority 12
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
+      Interrupts: Transmit End Interrupt Priority: Priority 12
+      Interrupts: Error Interrupt Priority: Priority 12
+      
+    Instance "g_uart7 UART (r_sci_uart)"
+      General: Name: g_uart7
+      General: Channel: 7
+      General: Data Bits: 8bits
+      General: Parity: None
+      General: Stop Bits: 1bit
+      Baud: Baud Rate: 38400
+      Baud: Baud Rate Modulation: Disabled
+      Baud: Max Error (%): 5
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Port: Disabled
+      Flow Control: Software RTS Pin: Disabled
+      Extra: Clock Source: Internal Clock
+      Extra: Start bit detection: Falling Edge
+      Extra: Noise Filter: Disable
+      Extra: Receive FIFO Trigger Level: Max
+      Extra: IrDA: Enable: Disabled
+      Extra: IrDA: RXD Polarity Switching: Normal
+      Extra: IrDA: TXD Polarity Switching: Normal
+      Extra: RS-485: DE Pin: Disable
+      Extra: RS-485: DE Pin Polarity: Active High
+      Extra: RS-485: DE Port Number: Disabled
+      Extra: RS-485: DE Pin Number: Disabled
+      Interrupts: Callback: uart_callback
+      Interrupts: Receive Interrupt Priority: Priority 12
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
+      Interrupts: Transmit End Interrupt Priority: Priority 12
+      Interrupts: Error Interrupt Priority: Priority 12
+      
+    Instance "g_uart9 UART (r_sci_uart)"
+      General: Name: g_uart9
+      General: Channel: 9
+      General: Data Bits: 8bits
+      General: Parity: None
+      General: Stop Bits: 1bit
+      Baud: Baud Rate: 115200
+      Baud: Baud Rate Modulation: Disabled
+      Baud: Max Error (%): 5
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Port: Disabled
+      Flow Control: Software RTS Pin: Disabled
+      Extra: Clock Source: Internal Clock
+      Extra: Start bit detection: Falling Edge
+      Extra: Noise Filter: Disable
+      Extra: Receive FIFO Trigger Level: Max
+      Extra: IrDA: Enable: Disabled
+      Extra: IrDA: RXD Polarity Switching: Normal
+      Extra: IrDA: TXD Polarity Switching: Normal
+      Extra: RS-485: DE Pin: Disable
+      Extra: RS-485: DE Pin Polarity: Active High
+      Extra: RS-485: DE Port Number: Disabled
+      Extra: RS-485: DE Pin Number: Disabled
+      Interrupts: Callback: uart_callback
+      Interrupts: Receive Interrupt Priority: Priority 12
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
+      Interrupts: Transmit End Interrupt Priority: Priority 12
+      Interrupts: Error Interrupt Priority: Priority 12
+      
   Thread "Blinky Thread"
     Symbol: blinky_thread
     Name: Blinky Thread
